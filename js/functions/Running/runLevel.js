@@ -1,49 +1,85 @@
-function runLevel (blockA, blockB, blockC){
-   let i = 0;
+const gameWindows = document.querySelector('.game-content')
+const content = document.createElement('div')
 
-   while(i < 100){
+// gameWindows est notre jeu qui fait toute la page web 
+gameWindows.style.display = "flex"
+gameWindows.style.alignItems = "flex-end"
+gameWindows.style.height = "100vh"
+gameWindows.appendChild(content)
 
-    createBlockA(blockA)
-    i++
-   }
-}
+// Le contenant qui contient les blocs A, B et C 
+content.style.minHeight = "400px"
+content.style.position = "relative"
+content.style.display = "flex"
+content.style.alignItems = "flex-end"
+content.style.backgroundColor = "lightblue"
 
-function createBlockA(blockA){
-    const gameWindows = document.querySelector('.game-content')
-    gameWindows.style.display = "flex"
-    gameWindows.style.alignItems = "flex-end"
-    gameWindows.style.height = "100vh"
+let positionBlock = 400 // la distance qui separe chaque bloc B par rapport
+let numberBlockA = 100 // le nombre de bloc A
+let blockB_By_BlockA = 3 // un block B tous les 3 block 
+const obstacles = ["B", "C"] 
 
-    const content = document.createElement('div')
-    content.style.minWidth = "100%"
-    content.style.height = "200px"
-    content.style.border = "1px solid black"
-    content.style.display = "flex"
+function createBlockA(block, i){
 
-
-    blockA = document.createElement('div');
-    blockA.classList.add("A");
-    blockA.style.border = "1px solid black";
-    blockA.style.width = "200px";
-    blockA.style.height = "200px";
-    blockA.style.display = "inline-block";
-
-    content.appendChild(blockA)
+    block = document.createElement('div'); // créer le bloc A qui sera le sol du jeu 
+    block.classList.add("A");
+    block.style.backgroundColor = "#ffffaa";
+    block.style.width = "200px";
+    block.style.height = "200px";
+    block.textContent = i
+    content.appendChild(block)
     gameWindows.appendChild(content)
 }
 
+function createObstacle(block, j){
+    
+    if (block === 'B'){
+        
+        block = document.createElement('div'); // créer un bloc B
+        block.style.backgroundColor = "lightgreen";
+        block.style.width = "100px";
+        block.style.height = "50px";
+        block.style.position = "absolute";
+        block.style.top = "150px";
+        block.style.left = `${positionBlock}px`;
+        block.textContent = j
+        content.appendChild(block)
+        
+    }else {
 
-function createBlockB(blockB){
-    const gameWindows = document.querySelector('.game-content')
-    blockB = document.createElement('div');
-    blockB.classList.add("B");
-    blockB.style.border = "1px solid black";
-    blockB.style.width = "200px";
-    blockB.style.height = "300px";
-    blockB.style.display = "inline-block";
+        block = document.createElement('div'); // créer un bloc C
+        block.style.backgroundColor = "grey";
+        block.style.width = "100px";
+        block.style.height = "100px";
+        block.style.position = "absolute";
+        block.style.top = "0px";
+        block.style.left = `${positionBlock}px`;
+        block.textContent = j
+        content.appendChild(block)
 
-    gameWindows.appendChild(blockB)
+    }
 }
+
+function runLevel (blockA, blockB, blockC){
+   let i = 0;
+   let j = 0;
+
+   while(i < numberBlockA){
+        createBlockA(blockA , i)
+        i++
+    }
+    
+    while(j < Math.trunc(numberBlockA / blockB_By_BlockA)){
+        const randomObstacle = Math.round(Math.random(0, 2));
+        createObstacle(obstacles[randomObstacle], j)
+        positionBlock = positionBlock + 600
+        j++
+    }
+   
+}
+
+
+
 
 
 export  {runLevel}
