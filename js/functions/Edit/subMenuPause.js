@@ -23,7 +23,7 @@ function subMenuPause () {
     divTitle.style.borderRadius = '14px';
     divTitle.style.width = '322px';
     divTitle.style.height = '123px';
-    divTitle.style.position = 'absolute';
+    // divTitle.style.position = 'absolute';
     divTitle.style.top = '199px';
     // divTitle.style.left = '50px';
     Title.textContent = 'PAUSE';
