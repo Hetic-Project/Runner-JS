@@ -1,2 +1,4 @@
 import menu from './functions/Edit/menu.js'
-menu()
+import menu_BIENVENUE from './functions/Edit/menu_BIENVENUE'
+
+menu_BIENVENUE()

@@ -1,0 +1,4 @@
+function menu_BIENVENUE () {
+    console.log("hello")
+}
+export default menu_BIENVENUE;
