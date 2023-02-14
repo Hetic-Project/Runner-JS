@@ -1,12 +1,13 @@
-const blocks = [];
 
-function colision(){
-    const BlockB = document.querySelectorAll(".B")
-    blocks.push(BlockB)
-    const BlockC = document.querySelectorAll(".C")
-    blocks.push(BlockC)
+
+function colision(blocks){
+
+    blocks.forEach((block) => {
+        console.log(block)
+    } )
+  
 }
-console.log(blocks)
+
 function move(element, animationWidth, level) {
     // bouger la map
     element.animate({

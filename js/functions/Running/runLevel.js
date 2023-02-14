@@ -20,6 +20,7 @@ content.style.alignItems = "flex-end";
 content.style.backgroundColor = "lightblue";
 content.style.transition = "2s"
 
+const blocks = [];
 const widthOfBlockA = 200;
 let positionBlock = 400; // la distance qui separe chaque bloc B par rapport
 let numberBlockA = 100; // le nombre de bloc A
@@ -54,6 +55,7 @@ function createObstacle(block, j){
         block.style.top = "150px";
         block.style.left = `${positionBlock}px`;
         block.textContent = j;
+        blocks.push(block)
         content.appendChild(block);
         
     }else {
@@ -67,6 +69,7 @@ function createObstacle(block, j){
         block.style.top = "0px";
         block.style.left = `${positionBlock}px`;
         block.textContent = j;
+        blocks.push(block)
         content.appendChild(block);
 
     };
@@ -76,6 +79,7 @@ function createCharacter(){
 
     const character = document.createElement("div");
     character.style.height = "200px"
+    character.classList.add("character")
     character.style.width = "65px"
     character.style.position = "fixed"
     character.style.left = "0px"
@@ -94,12 +98,11 @@ function createCharacter(){
 function runLevel (blockA, blockB, blockC){
    let i = 0;
    let j = 0;
-
    let value = parseInt(prompt())
-
+   
    while(i < numberBlockA){
-        createBlockA(blockA , i);
-        i++
+       createBlockA(blockA , i);
+       i++
     };
     
     while(j < Math.trunc(numberBlockA / blockB_By_BlockA)){
@@ -108,23 +111,24 @@ function runLevel (blockA, blockB, blockC){
         positionBlock = positionBlock + 600;
         j++;
     };
-
+    
     createCharacter()
-
+    
     switch (value) {
         case value: 1,
-            move(content, animationWidh, easySpeedLevel);
-            console.log(value);
-            break;
+        move(content, animationWidh, easySpeedLevel);
+        console.log(value);
+        break;
         case value: 2,
-            move(content, animationWidh, NormalSpeedLevel);
-            console.log(value)
-            break;
+        move(content, animationWidh, NormalSpeedLevel);
+        console.log(value)
+        break;
         default:
             break;
-    }
-
-    colision()
+        }
+        
+        colision(blocks)
+        
 
 }
 
