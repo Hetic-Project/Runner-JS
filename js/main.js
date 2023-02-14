@@ -1,2 +1,2 @@
-import menu from './functions/Edit/menu.js'
-menu()
+import createLevel  from './functions/Edit/createLevel.js'
+createLevel()
