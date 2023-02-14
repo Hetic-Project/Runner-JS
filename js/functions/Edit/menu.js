@@ -6,9 +6,10 @@ madiv.id = "madiv"
 document.querySelector(".game-content").appendChild(madiv)
 
 function menu() {
-    menuDuJeu()
+    // menuDuJeu()
     // madiv.innerHTML = ""
-    // menuBienvenue()
+    menuBienvenue()
+    // menuJouer()
 
 }
 
@@ -148,7 +149,7 @@ function menuBienvenue () {
     menu.style.justifyContent = "center"
     menu.style.width = "100%";
     menu.style.height = "100%";
-    menu.style.backgroundImage = "url(./img/background.png)";
+    menu.style.backgroundImage = "url(./img/back.png)";
     menu.style.backgroundSize = "100% 100%";
     menu.style.backgroundRepeat = "no-repeat";
 
