@@ -6,8 +6,6 @@ madiv.id = "madiv"
 document.querySelector(".game-content").appendChild(madiv)
 
 function menu() {
-
-    // menuJouer()
     menuDuJeu()
     // madiv.innerHTML = ""
     // menuBienvenue()
@@ -120,24 +118,25 @@ function menuDuJeu (){
         document.querySelector("#divPause").appendChild(pause);
 
 
-        // const divFooter = document.createElement("div");
+        const divFooter = document.createElement("div");
 
-        // divFooter.style.width = "100%";
-        // divFooter.style.height = "50px";
-        // divFooter.style.border = '3px solid #FFBB0B';
-        // divFooter.style.backgroundImage = "url('./img/back.png')";
-        // divFooter.style.margin = "620px";
+        divFooter.style.display = "flex";
+        divFooter.style.width = "100%";
+        divFooter.style.height = "50px";
+        divFooter.style.border = '3px solid #FFBB0B';
+        divFooter.style.backgroundImage = "url('./img/back.png')";
+        divFooter.style.margin = "400px";
 
-        // divFooter.id = "divFooter";
-        // document.querySelector("#menu").appendChild(divFooter);
+        divFooter.id = "divFooter";
+        document.querySelector("#menu").appendChild(divFooter);
 
-        // const obstacle = document.createElement("img")
-        // obstacle.src = "url(./img/corboitachi.png)";
-        // obstacle.style.width = "40px";
-        // obstacle.style.height = "40px";
+        const obstacle = document.createElement("img")
+        obstacle.src = "./img/corboitachi.png";
+        obstacle.style.width = "60px";
+        obstacle.style.height = "60px";
 
-        // obstacle.id = "obstacle";
-        // document.querySelector("#divFooter").appendChild(obstacle);
+        obstacle.id = "obstacle";
+        document.querySelector("#divFooter").appendChild(obstacle);
 };
 
 
