@@ -30,6 +30,7 @@ function subMenuEdition(){
     divNav.style.width = "100%";
     divNav.style.height = "10vh";
     divNav.style.backgroundColor = "#ffffff";
+    divNav.style.border = "2px solid #FFBB0B";
     Title.innerText = "EDITION DE MAP";
     Title.style.fontSize = '60px';
 
@@ -64,27 +65,31 @@ function subMenuEdition(){
     btnExport.style.width = "35%"
     btnExport.style.border ="solid 3px #FFFFFF"
     btnExport.style.borderRadius = "25px"
-    btnExport.style.margin = "75% 35%"
+    btnExport.style.margin = "17% 35%";
+    btnExport.style.cursor = "pointer";
 
     text_import.innerText = "Export LEVEL"
-    text_import.style.fontSize = "20px"
+    text_import.style.fontSize = "20px";
     text_import.style.fontWeight = "900";
     text_import.style.color = "#ffffff"
 
     //form
 
     const divForm = document.createElement("div");
+    divForm.style.display = "flex";
     divForm.style.width = "50vh";
     divForm.style.height = "50vh";
+    divForm.style.padding = "20px 30px 0px 20px"
 
     const form = document.createElement("form");
     form.setAttribute('action', '#');
-    form.style.backgroundColor = "#FFBB0B";
+    form.style.margin = "20% 10% 0% 20%"
+    // form.style.backgroundColor = "#FFBB0B";
 
     const div_el1 = document.createElement("div");
     div_el1.style.display = "flex";
     div_el1.style.alignContent = "center";
-    div_el1.style.paddingBottom = "5px";
+    div_el1.style.paddingBottom = "20px";
         const inputLabel = document.createElement('label');
         inputLabel.textContent = 'TITRE : ';
         inputLabel.style.color = 'white';
@@ -99,12 +104,15 @@ function subMenuEdition(){
             inputTitre.style.border = "1px solid white";
             inputTitre.style.borderRadius = "15px";
             inputTitre.style.marginLeft = "74px";
+            inputTitre.style.color = "white";
+            inputTitre.style.paddingLeft ="10px";
         div_el1.append(inputLabel, inputTitre);
         form.append(div_el1);
 
     const div_el2 = document.createElement("div");
     div_el2.style.display = "flex";
     div_el2.style.alignContent = "center";
+    div_el2.style.paddingBottom = "20px";
         const inputLabel2 = document.createElement('label');
         inputLabel2.textContent = 'CREATEUR : ';
         inputLabel2.style.color = 'white';
@@ -118,6 +126,8 @@ function subMenuEdition(){
             inputCreateur.style.background = "none";
             inputCreateur.style.border = "1px solid white";
             inputCreateur.style.borderRadius = "15px";
+            inputCreateur.style.color = "white";
+            inputCreateur.style.paddingLeft ="10px";
         div_el2.append(inputLabel2, inputCreateur);
         form.appendChild(div_el2);
 
@@ -127,9 +137,10 @@ function subMenuEdition(){
         inputLabel3.style.color = 'white';
         inputLabel3.style.fontWeight = "900";
         inputLabel3.style.fontSize = "30px";
-        inputLabel3.style.paddingRight = "20px";
+        inputLabel3.style.paddingRight = "70px";
 
         const inputSelect = document.createElement('select');
+        inputSelect.setAttribute('type', 'number');
         div_el3.append(inputLabel3, inputSelect);
         form.appendChild(div_el3);
 
