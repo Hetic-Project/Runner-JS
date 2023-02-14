@@ -212,7 +212,7 @@ menu()
 => Lucas 2.
 => Jiek 1.
 
-1. => runLevel, move, config, gamePause, continus, cleanLevel
+1. => runLevel, move, gamePause, continus, cleanLevel
 2. => jump, down, score, exitGame, exitLevel
 
 # Organisation
