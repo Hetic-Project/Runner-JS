@@ -1,7 +1,8 @@
+// Définition du personnage
 const img = document.querySelector("div");
 img.style.height = "105px"
 img.style.width = "65px"
-// img.style.backgroundColor = "red"
+img.style.backgroundColor = "red"
 img.style.borderRadius = "40%"
 img.style.position = "absolute"
 img.style.left = "700px"
@@ -44,19 +45,6 @@ function jump() {
     });
 }
 jump();
-
-function down() {
-
-    document.addEventListener("keydown" , (event) => {
-        if ( event.keyCode == 40) {
-            img.style.backgroundImage = "url('./roulade.gif')";
-            setTimeout(() => { img.style.backgroundImage = "url('./running.gif')"; }, 500)
-        }
-      })
-
-}
-down();
-
 
 // keyCode : I = 73
 // keyCode : K = 75 
