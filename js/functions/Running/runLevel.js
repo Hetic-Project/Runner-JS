@@ -83,9 +83,10 @@ function createCharacter(){
     character.style.backgroundImage = "url('./running.gif')";
     character.style.backgroundSize = "400px"
     character.style.backgroundPosition = "center"
-    character.style.backgroundPositionY = "-50px"
+    character.style.backgroundPositionY = "-40px"
     character.style.backgroundPositionX = "625px"
     character.style.backgroundColor = "red"
+    character.style.borderRadius = "20%"
     content.appendChild(character)
     jump(character)
     down(character)
