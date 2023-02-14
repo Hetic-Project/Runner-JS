@@ -1,4 +1,5 @@
 function createLevel(blockA,blockB,blockC){
+    
     createButtons()
     let addBlocA = document.getElementById('bloc_A');
     addBlocA.addEventListener("click", function(){
@@ -26,7 +27,8 @@ function createLevel(blockA,blockB,blockC){
      document.getElementById("bloc_Cremove").addEventListener("click", function(){
         let BlocCremove = document.getElementById("C");
         BlocCremove.remove();
-     })          
+     }) 
+    document.getElementsByClassName(".btn_save").onclick = saveLevel()          
 
 }
 
@@ -64,7 +66,7 @@ function createButtons(){
     button2.id = "bloc_B"
     button2Remove.id = "bloc_Bremove"
     button3.id = "bloc_C" 
-    button3Remove.id = "bloc_CRemove" 
+    button3Remove.id = "bloc_Cremove" 
     let text = document.createElement("p")
     text.classList.add("text")
     text.innerHTML = "BlOC A &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;"
@@ -81,9 +83,15 @@ function createButtons(){
     buttons.appendChild(button3Remove)
     leveldiv.appendChild(buttons)
     document.body.appendChild(leveldiv)
-
+// creation du bouton save
+    let divSave = document.createElement("div");
+    let buttonSave = document.createElement("button");
+    buttonSave.innerText = "save"
+    buttonSave.classList.add("btn_save")
+    divSave.appendChild(buttonSave)
+    leveldiv.appendChild(divSave);
+    document.body.appendChild(leveldiv)
 }
-let number_blockA=1
 function createBlockA(blockA){
     let leveldiv = document.querySelector(".leveldiv");
     let divContainer = document.querySelector(".container");
@@ -99,7 +107,7 @@ function createBlockA(blockA){
     blockA = document.createElement("div");
     blockA.classList.add("blockA");
     blockA.style.width = "50px";
-    blockA.id ="A"+ number_blockA;
+    blockA.id ="A"
     blockA.style.height = "30px";
     blockA.style.backgroundColor = "green";
     blockA.style.border = "1px solid black";
@@ -138,6 +146,16 @@ function createBlockC(blockC){
     divContainer.appendChild(blockC);
 
 
+}
+
+function saveLevel(){
+    let level = createLevel(blockA,blockB,blockC);
+    // Convertir l'objet level en une chaîne de caractères JSON
+    let levelJSON = JSON.stringify(level);
+    // Enregistrer la chaîne de caractères JSON dans le stockage local
+    localStorage.setItem('levelData', levelJSON);
+    // Confirmer que le level a été enregistré
+    console.log('Le level a été enregistré avec succès !');    
 }
 
 export {createLevel}
