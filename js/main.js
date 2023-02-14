@@ -4,7 +4,7 @@ import subMenuPause from './functions/Edit/subMenuPause.js'
 import runLevel from './functions/Running/runLevel.js';
 // menu()
 subMenuEdition()
-// subMenuPause()
+subMenuPause()
 
 // const easy = fetch("../config/easy.json")
 //   .then((res) => res.json())
