@@ -127,8 +127,14 @@ function runLevel (blockA, blockB, blockC){
         default:
             break;
         }
+
+        content.addEventListener("scroll", (e) => {
+            if(e.currentTarget.scrollLeft){
+                console.log(coucou)
+            }
+        })
         
-        colision(blocks)
+        colision(blocks, content)
         
 
 }

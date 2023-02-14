@@ -1,10 +1,14 @@
 
 
-function colision(blocks){
+function colision(blocks, content){
 
     blocks.forEach((block) => {
-        console.log(block)
+        block.addEventListener("scroll", (e) => {
+            console.log(e.currentTarget)
+        })
     } )
+    
+
   
 }
 
