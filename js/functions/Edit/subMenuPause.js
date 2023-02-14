@@ -54,6 +54,13 @@ function subMenuPause () {
     divContentMenu.style.marginBottom = '-100px';
     divContentMenu.style.height = "20%";
     divContentMenu.style.width = "10%";
+    // divContentMenu.style.display = "flex";
+    // divContentMenu.style.flexDirection = "column";
+    // divContentMenu.style.justifyContent = "space-between";
+    // divContentMenu.style.alignItems = 'center';
+    // divContentMenu.style.marginBottom = '-100px';
+    // divContentMenu.style.height = "20%";
+    // divContentMenu.style.width = "10%";
 
 
 
