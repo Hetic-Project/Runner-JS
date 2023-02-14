@@ -18,26 +18,25 @@ function subMenuPause () {
     madiv.style.height = "100vh";
 
 
-    divTitle.style.boxSizing = 'border-box';
     divTitle.style.border = '3px solid #FFFFFF';
     divTitle.style.borderRadius = '14px';
+    divTitle.style.alignContent = "center";
     divTitle.style.width = '322px';
     divTitle.style.height = '123px';
-    // divTitle.style.position = 'absolute';
-    divTitle.style.top = '199px';
-    // divTitle.style.left = '50px';
+    divTitle.style.margin = "-160px"
+
     Title.textContent = 'PAUSE';
     Title.style.fontSize = '80px';
-    Title.style.fontStyle = 'normal';
     Title.style.color = '#FFFFFF';
-    Title.style.lineHeight = '97px';
+    Title.style.textAlign= "center";
+    Title.style.border = "3px solid #FFFFFF";
+    Title.style.borderRadius = '14px';
 
 
     divBtn.style.position ='absolute';
     divBtn.style.display = "flex";
     divBtn.style.flexDirection = "column";
-    divBtn.style;
-    divBtn.style.gap = "3px";
+    divBtn.style.gap = "1px";
     divBtn.style.width = '189px';
     divBtn.style.height = '284px';
     btnContinu.textContent = "Continu";
