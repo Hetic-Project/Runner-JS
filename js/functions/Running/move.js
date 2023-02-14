@@ -1,3 +1,12 @@
+const blocks = [];
+
+function colision(){
+    const BlockB = document.querySelectorAll(".B")
+    blocks.push(BlockB)
+    const BlockC = document.querySelectorAll(".C")
+    blocks.push(BlockC)
+}
+console.log(blocks)
 function move(element, animationWidth, level) {
     // bouger la map
     element.animate({
@@ -10,4 +19,4 @@ function move(element, animationWidth, level) {
     })
 }
 
-export default move
+export {move, colision}

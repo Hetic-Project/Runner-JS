@@ -10,12 +10,12 @@ function jump(character) {
             animationInProgress = true;
             character.style.backgroundImage = "url('./jump.gif')";
             character.style.backgroundPositionY = "-85px"
-            character.style.top = "510px";
+            character.style.bottom = "280px";
             character.style.left = "15px";
             character.style.height = "120px"
 
             setTimeout(() => {
-                character.style.top = "510px"
+                character.style.bottom = "200px"
                 character.style.backgroundPositionY = "-50px"
                 character.style.height = "200px"
                 character.style.backgroundImage = "url('./running.gif')";
