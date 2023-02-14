@@ -20,10 +20,6 @@ content.style.alignItems = "flex-end";
 content.style.backgroundColor = "lightblue";
 content.style.transition = "2s"
 
-const screenHeight = window.screen.availHeight
-const screenWidth = window.screen.availWidth
-console.log("height :" + screenHeight, "width : " + screenWidth)
-
 const widthOfBlockA = 200;
 let positionBlock = 400; // la distance qui separe chaque bloc B par rapport
 let numberBlockA = 100; // le nombre de bloc A
