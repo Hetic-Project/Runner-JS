@@ -8,7 +8,7 @@ document.querySelector(".game-content").appendChild(madiv)
 
 function menu () {
     
-    menuJouer()
+    menuEdition()
 
 };
 
@@ -75,7 +75,7 @@ function menuJouer () {
             buttun_area.style.alignItems = "center"
             buttun_area.style.justifyContent = "center"
             buttun_area.style.flexDirection = "column";
-            buttun_area.style.justifyContent = "space-around";
+            buttun_area.style.justifyContent = "center";
 
             buttun_area.style.height = "60%"
             buttun_area.style.width = "100%"
@@ -93,6 +93,7 @@ function menuJouer () {
                 buttun_import.style.width = "50%"
                 buttun_import.style.border ="solid 2px white"
                 buttun_import.style.borderRadius = "25px"
+                buttun_import.style.marginBottom = "40px"
 
                 buttun_import.id = "buttun_import"
                 document.querySelector("#buttun_area").appendChild(buttun_import)
@@ -144,7 +145,7 @@ function menuJouer () {
                     text_launch.innerText = "Lancer la partie"
                     text_launch.style.fontSize = "40px"
                     text_launch.style.fontWeight = "500"
-                    text_launch.style.color = "#C28F0B"
+                    text_launch.style.color = "white"
                     text_launch.style.fontWeight = "700";
                     text_launch.style.fontSize = "45px"; 
 
@@ -216,8 +217,8 @@ function menuJouer () {
         
 }
 
-
 function menuEdition () {
+    
     const menu = document.createElement("div")
 
     menu.style.display = "flex"
@@ -259,7 +260,7 @@ function menuEdition () {
 
                 const jouer =document.createElement("h2")
 
-                jouer.innerText = "JOUER"
+                jouer.innerText = "EDITION"
                 jouer.style.marginTop = "5px"
                 jouer.style.fontSize = "80px"
                 jouer.style.fontWeight = "900"
@@ -279,7 +280,7 @@ function menuEdition () {
             buttun_area.style.alignItems = "center"
             buttun_area.style.justifyContent = "center"
             buttun_area.style.flexDirection = "column";
-            buttun_area.style.justifyContent = "space-around";
+            buttun_area.style.justifyContent = "center";
 
             buttun_area.style.height = "60%"
             buttun_area.style.width = "100%"
@@ -297,6 +298,8 @@ function menuEdition () {
                 buttun_import.style.width = "50%"
                 buttun_import.style.border ="solid 2px white"
                 buttun_import.style.borderRadius = "25px"
+                buttun_import.style.marginBottom = "40px"
+
 
                 buttun_import.id = "buttun_import"
                 document.querySelector("#buttun_area").appendChild(buttun_import)
@@ -314,72 +317,30 @@ function menuEdition () {
                     document.querySelector("#buttun_import").appendChild(text_import)
 
 
-                const buttun_choise_difficulty = document.createElement ("div")
+                const buttun_create = document.createElement ("div")
 
-                buttun_choise_difficulty.style.display = "flex"
-                buttun_choise_difficulty.style.justifyContent = "center"
-                buttun_choise_difficulty.style.alignItems = "center";
-                buttun_choise_difficulty.style.height = "100%"
-                buttun_choise_difficulty.style.width = "50%"
-                buttun_choise_difficulty.style.border ="solid 2px white"
-                buttun_choise_difficulty.style.borderRadius = "25px"
-                buttun_choise_difficulty.style.marginLeft = "65px"
-                buttun_choise_difficulty.style.marginRight = "30px"
+                buttun_create.style.display = "flex"
+                buttun_create.style.justifyContent = "center"
+                buttun_create.style.alignItems = "center";
+                buttun_create.style.height = "25%"
+                buttun_create.style.width = "50%"
+                buttun_create.style.border ="solid 2px white"
+                buttun_create.style.borderRadius = "25px"
 
-
-                buttun_choise_difficulty.id = "choise_difficulty"
-                document.querySelector("#buttun_area").appendChild(buttun_choise_difficulty)
+                buttun_create.id = "buttun_create"
+                document.querySelector("#buttun_area").appendChild(buttun_create)
                 
 
-                    const text_choise_difficulty = document.createElement("span")
+                    const text_create = document.createElement("span")
 
-                    text_choise_difficulty.innerText = "Choisir la difficulé"
-                    text_choise_difficulty.style.fontSize = "40px"
-                    text_choise_difficulty.style.fontWeight = "500"
-                    text_choise_difficulty.style.color = "#C28F0B"
-                    text_choise_difficulty.style.fontWeight = "700";
-                    text_choise_difficulty.style.fontSize = "45px"; 
+                    text_create.innerText = "Lancer la partie"
+                    text_create.style.fontSize = "40px"
+                    text_create.style.fontWeight = "500"
+                    text_create.style.color = "white"
+                    text_create.style.fontWeight = "700";
+                    text_create.style.fontSize = "45px"; 
 
-                    document.querySelector("#choise_difficulty").appendChild(text_choise_difficulty)
-
-
-                    const liste_deroulante = document.createElement("select");
-
-                    const options = ["1", "2", "3","4","5"];
-                    for(var i = 0; i < options.length; i++) {
-                      var option = document.createElement("option");
-                      option.text = options[i];
-                      liste_deroulante.add(option);
-                    }
-
-                    document.querySelector("#area_diffulty").appendChild(liste_deroulante)
-
-
-
-                const buttun_launch = document.createElement ("div")
-
-                buttun_launch.style.display = "flex"
-                buttun_launch.style.justifyContent = "center"
-                buttun_launch.style.alignItems = "center";
-                buttun_launch.style.height = "25%"
-                buttun_launch.style.width = "50%"
-                buttun_launch.style.border ="solid 2px white"
-                buttun_launch.style.borderRadius = "25px"
-
-                buttun_launch.id = "buttun_launch"
-                document.querySelector("#buttun_area").appendChild(buttun_launch)
-
-
-                    const text_launch = document.createElement("span")
-
-                    text_launch.innerText = "Lancer la partie"
-                    text_launch.style.fontSize = "40px"
-                    text_launch.style.fontWeight = "500"
-                    text_launch.style.color = "white"
-                    text_launch.style.fontWeight = "700";
-                    text_launch.style.fontSize = "45px";
-
-                    document.querySelector("#buttun_launch").appendChild(text_launch)
+                    document.querySelector("#buttun_create").appendChild(text_create)
 
         const div_back = document.createElement("div")
 
@@ -431,7 +392,7 @@ function menuEdition () {
                 document.querySelector("#div_buttun_back").appendChild(arrow_text)
 
 
-
+        
 }
 
 export default menu;
