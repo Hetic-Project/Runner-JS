@@ -1,50 +1,49 @@
-// Définition du personnage
-const img = document.querySelector("div");
-img.style.height = "105px"
-img.style.width = "65px"
-img.style.backgroundColor = "red"
-img.style.borderRadius = "40%"
-img.style.position = "absolute"
-img.style.left = "700px"
-img.style.top = "250px"
-img.style.backgroundImage = "url('./running.gif')";
-img.style.backgroundSize = "400px"
-img.style.backgroundPosition = "center"
-img.style.backgroundPositionY = "-135px"
-img.style.backgroundPositionX = "625px"
-
 
 // FONCTION JUMP
 let animationInProgress = false;
 
-function jump() {
+function jump(character) {
+
     document.addEventListener("keydown", (e) => {
-        if (e.keyCode === 73 && !animationInProgress && parseInt(img.style.top) === 250) {
+        if (e.keyCode === 38 && animationInProgress === false) {
+
             animationInProgress = true;
-            img.style.backgroundImage = "url('./jump.gif')";
-            img.style.backgroundPositionY = "-95px"
-            img.style.height = "140px"
-            let jumpUp = setInterval(() => {
-                img.style.top = parseInt(img.style.top) - 10 + "px"
-                if (parseInt(img.style.top) <= 120) {
-                    clearInterval(jumpUp)
-                    let jumpDown = setInterval(() => {
-                        img.style.top = parseInt(img.style.top) + 10 + "px"
-                        if (parseInt(img.style.top) >= 250) {
-                            clearInterval(jumpDown)
-                            animationInProgress = false;
-                            img.style.backgroundImage = "url('./running.gif')";
-                            img.style.height = "105px"
-                            img.style.backgroundSize = "400px";
-                            img.style.backgroundPositionY = "-135px";
-                        }
-                    }, 30)
-                }
-            }, 30)
+            character.style.backgroundImage = "url('./jump.gif')";
+            character.style.backgroundPositionY = "-85px"
+            character.style.top = "510px";
+            character.style.left = "15px";
+            character.style.height = "120px"
+
+            setTimeout(() => {
+                character.style.top = "510px"
+                character.style.backgroundPositionY = "-50px"
+                character.style.height = "200px"
+                character.style.backgroundImage = "url('./running.gif')";
+                animationInProgress = false;
+            }, 1100)
+            
+            // let jumpUp = setInterval(() => {
+            //     // character.style.top = parseInt(character.style.top) - 10 + "px"
+            //     if (character.style.height === "120px") {
+            //         clearInterval(jumpUp)
+            //         let jumpDown = setInterval(() => {
+            //             character.style.top = parseInt(character.style.top) + 10 + "px"
+            //             if (parseInt(character.style.top) >= 250) {
+            //                 clearInterval(jumpDown)
+            //                 animationInProgress = false;
+            //                 character.style.backgroundImage = "url('./running.gif')";
+            //                 character.style.height = "200px"
+            //                 // character.style.backgroundSize = "400px";
+            //                 character.style.backgroundPositionY = "-50px"
+            //             }
+            //         }, 30)
+            //     }
+            // }, 30)
         }
     });
 }
-jump();
+
+export default jump;
 
 // keyCode : I = 73
 // keyCode : K = 75 
