@@ -1,4 +1,4 @@
-import move from './move.js';
+import {move, colision} from './move.js';
 import jump from './jump.js';
 import down from './down.js'
 
@@ -47,6 +47,7 @@ function createObstacle(block, j){
         
         block = document.createElement('div'); // créer un bloc B
         block.style.backgroundColor = "lightgreen";
+        block.classList.add("B");
         block.style.width = "20px";
         block.style.height = "50px";
         block.style.position = "absolute";
@@ -59,6 +60,7 @@ function createObstacle(block, j){
 
         block = document.createElement('div'); // créer un bloc C
         block.style.backgroundColor = "grey";
+        block.classList.add("C");
         block.style.width = "50px";
         block.style.height = "100px";
         block.style.position = "absolute";
@@ -77,14 +79,14 @@ function createCharacter(){
     character.style.width = "65px"
     character.style.position = "fixed"
     character.style.left = "0px"
-    character.style.top = "510px"
+    character.style.bottom = "200px"
     character.style.backgroundImage = "url('./running.gif')";
     character.style.backgroundSize = "400px"
     character.style.backgroundPosition = "center"
-    character.style.backgroundPositionY = "-50px"
+    character.style.backgroundPositionY = "-40px"
     character.style.backgroundPositionX = "625px"
     character.style.backgroundColor = "red"
-    character.style.transition = "0.5s"
+    character.style.borderRadius = "20%"
     content.appendChild(character)
     jump(character)
     down(character)
@@ -122,6 +124,8 @@ function runLevel (blockA, blockB, blockC){
         default:
             break;
     }
+
+    colision()
 
 }
 
