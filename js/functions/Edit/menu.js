@@ -25,8 +25,6 @@ function menuJouer () {
     menu.style.backgroundRepeat = "no-repeat";
     menu.style.flexWrap = "wrap";
     
-
-
     menu.id = "menu"
     document.querySelector("#madiv").appendChild(menu)
 
@@ -112,21 +110,35 @@ function menuJouer () {
                     document.querySelector("#buttun_import").appendChild(text_import)
 
 
+                const area_diffulty = document.createElement ("div")
+
+                area_diffulty.style.display = "flex"
+                area_diffulty.style.justifyContent = "center"
+                area_diffulty.style.alignItems = "center";
+                area_diffulty.style.height = "25%"
+                area_diffulty.style.width = "100%"
+                area_diffulty.style.backgroundColor = "red"
+
+                area_diffulty.id = "area_diffulty"
+                document.querySelector("#buttun_area").appendChild(area_diffulty)
+
 
                 const buttun_choise_difficulty = document.createElement ("div")
 
                 buttun_choise_difficulty.style.display = "flex"
                 buttun_choise_difficulty.style.justifyContent = "center"
                 buttun_choise_difficulty.style.alignItems = "center";
-                buttun_choise_difficulty.style.height = "25%"
+                buttun_choise_difficulty.style.height = "100%"
                 buttun_choise_difficulty.style.width = "50%"
                 buttun_choise_difficulty.style.border ="solid 2px white"
                 buttun_choise_difficulty.style.borderRadius = "25px"
+                buttun_choise_difficulty.style.marginLeft = "65px"
+                buttun_choise_difficulty.style.marginRight = "30px"
 
 
                 buttun_choise_difficulty.id = "choise_difficulty"
-                document.querySelector("#buttun_area").appendChild(buttun_choise_difficulty)
-
+                document.querySelector("#area_diffulty").appendChild(buttun_choise_difficulty)
+                
 
                     const text_choise_difficulty = document.createElement("span")
 
@@ -135,10 +147,22 @@ function menuJouer () {
                     text_choise_difficulty.style.fontWeight = "500"
                     text_choise_difficulty.style.color = "#C28F0B"
                     text_choise_difficulty.style.fontWeight = "700";
-                    text_choise_difficulty.style.fontSize = "45px";
-                    
+                    text_choise_difficulty.style.fontSize = "45px"; 
 
                     document.querySelector("#choise_difficulty").appendChild(text_choise_difficulty)
+
+
+                    const liste_deroulante = document.createElement("select");
+
+                    const options = ["1", "2", "3","4","5"];
+                    for(var i = 0; i < options.length; i++) {
+                      var option = document.createElement("option");
+                      option.text = options[i];
+                      liste_deroulante.add(option);
+                    }
+
+                    document.querySelector("#area_diffulty").appendChild(liste_deroulante)
+
 
 
                 const buttun_launch = document.createElement ("div")
