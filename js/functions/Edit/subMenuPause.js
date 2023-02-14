@@ -1,4 +1,5 @@
 function subMenuPause () {
+    const gamecontent = document.querySelector(".game-content")
     const madiv = document.createElement("div");
     const divBtn = document.createElement("div");
     const divTitle = document.createElement("div");
@@ -64,7 +65,7 @@ function subMenuPause () {
 
 
 
-    document.body.appendChild(madiv);
+    gamecontent.appendChild(madiv);
     madiv.appendChild(divContentMenu)
     divContentMenu.appendChild(divTitle)
     divContentMenu.appendChild(divBtn);
