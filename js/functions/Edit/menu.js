@@ -8,27 +8,7 @@ document.querySelector(".game-content").appendChild(madiv)
 
 function menu () {
     
-    menuBienvenue()
-
-    document.querySelector("#div_buttun_back").onclick = () => {
-        madiv.innerHTML = ""
-        menuBienvenue()
-    }
-
-    document.querySelector("#buttun_jouer").onclick = () => {
-        madiv.innerHTML = ""
-        menuJouer()
-    }
-
-    document.querySelector("#buttun_edition").onclick = () => {
-        madiv.innerHTML = ""
-        menuEdition()
-    }
-
-    document.querySelector("#buttun_parametre").onclick = () => {
-        madiv.innerHTML = ""
-        menuParametre()
-    }
+    menuBienvenue();
 
 };
 
@@ -122,6 +102,8 @@ function menuBienvenue () {
                 buttun_jouer.style.width = "50%"
                 buttun_jouer.style.border ="solid 2px white"
                 buttun_jouer.style.borderRadius = "25px"
+                buttun_jouer.style.backgroundColor = ""
+
 
                 buttun_jouer.id = "buttun_jouer"
                 document.querySelector("#buttun_area").appendChild(buttun_jouer)
@@ -136,6 +118,7 @@ function menuBienvenue () {
                     text_jouer.style.fontWeight = "700";
                     text_jouer.style.fontSize = "45px";
 
+                    text_jouer.id = "text_jouer"
                     document.querySelector("#buttun_jouer").appendChild(text_jouer)
 
 
@@ -193,7 +176,20 @@ function menuBienvenue () {
 
                     document.querySelector("#buttun_parametre").appendChild(text_parametre)
 
+    document.querySelector("#buttun_jouer").onclick = function redirection_jouer(){
+        madiv.innerHTML = ""
+        menuJouer();
+    };
 
+    document.querySelector("#buttun_edition").onclick = function redirection_edition(){
+        madiv.innerHTML = "";
+        menuEdition();
+    };
+
+    document.querySelector("#buttun_parametre").onclick = function redirection_parametre(){
+        madiv.innerHTML = "";
+        menuParametre();
+    };
 
 };
 
@@ -393,12 +389,22 @@ function menuJouer () {
                 arrow_text.style.lineHeight = "54px";
                 arrow_text.style.marginLeft = "20px"
 
-                
-
-
                 document.querySelector("#div_buttun_back").appendChild(arrow_text)
 
+    document.querySelector("#buttun_import").onclick = function redirection_jouer(){
 
+        alert("fichier importé")
+    };
+
+    document.querySelector("#buttun_launch").onclick = function redirection_edition(){
+
+        alert("debut de la partie")
+    };
+
+    document.querySelector("#div_buttun_back").onclick = function redirection_retour(){
+        madiv.innerHTML = "";
+        menuBienvenue();
+    };
         
 }
 
@@ -518,7 +524,7 @@ function menuEdition () {
 
                     const text_create = document.createElement("span")
 
-                    text_create.innerText = "Lancer la partie"
+                    text_create.innerText = "Créer un niveau"
                     text_create.style.fontSize = "40px"
                     text_create.style.fontWeight = "500"
                     text_create.style.color = "white"
@@ -576,6 +582,21 @@ function menuEdition () {
 
                 document.querySelector("#div_buttun_back").appendChild(arrow_text)
 
+
+    document.querySelector("#buttun_import").onclick = function redirection_jouer(){
+
+        alert("fichier importé")
+    };
+
+    document.querySelector("#buttun_create").onclick = function redirection_edition(){
+
+        alert("créer un niveau")
+    };
+
+    document.querySelector("#div_buttun_back").onclick = function redirection_retour(){
+        madiv.innerHTML = "";
+        menuBienvenue();
+    };
 
         
 }
@@ -774,12 +795,12 @@ function menuParametre () {
                 arrow_text.style.lineHeight = "54px";
                 arrow_text.style.marginLeft = "20px"
 
-                
-
-
                 document.querySelector("#div_buttun_back").appendChild(arrow_text)
 
-
+    document.querySelector("#div_buttun_back").onclick = function redirection_retour(){
+        madiv.innerHTML = "";
+        menuBienvenue();
+    };
         
 }
 
