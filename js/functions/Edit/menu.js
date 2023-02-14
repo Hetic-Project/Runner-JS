@@ -391,12 +391,27 @@ function menuJouer () {
 
                 document.querySelector("#div_buttun_back").appendChild(arrow_text)
 
-    document.querySelector("#buttun_import").onclick = function redirection_jouer(){
+                document.querySelector("#buttun_import").onclick = function() {
+                    var input = document.createElement("input");
+                    input.type = "file";
+                    
+                    input.addEventListener("change", function() {
+                      var file = input.files[0];
+                      var reader = new FileReader();
+                      
+                      reader.addEventListener("load", function() {
+                        // Stocker le contenu du fichier dans le stockage local avec la clé "map"
+                        localStorage.setItem("map", reader.result);
+                        alert("Le fichier sélectionné a été stocké localement.");
+                      });
+                      
+                      reader.readAsText(file);
+                    });
+                    
+                    input.click();
+                  };
 
-        alert("fichier importé")
-    };
-
-    document.querySelector("#buttun_launch").onclick = function redirection_edition(){
+    document.querySelector("#buttun_launch").onclick = function redirection_menu_du_jeu(){
 
         alert("debut de la partie")
     };
@@ -583,12 +598,28 @@ function menuEdition () {
                 document.querySelector("#div_buttun_back").appendChild(arrow_text)
 
 
-    document.querySelector("#buttun_import").onclick = function redirection_jouer(){
+                document.querySelector("#buttun_import").onclick = function() {
+                    var input = document.createElement("input");
+                    input.type = "file";
+                    
+                    input.addEventListener("change", function() {
+                      var file = input.files[0];
+                      var reader = new FileReader();
+                      
+                      reader.addEventListener("load", function() {
+                        // Stocker le contenu du fichier dans le stockage local avec la clé "map"
+                        localStorage.setItem("map", reader.result);
+                        alert("Le fichier sélectionné a été stocké localement.");
+                      });
+                      
+                      reader.readAsText(file);
+                    });
+                    
+                    input.click();
+                  };
+    
 
-        alert("fichier importé")
-    };
-
-    document.querySelector("#buttun_create").onclick = function redirection_edition(){
+    document.querySelector("#buttun_create").onclick = function demander_createt(){
 
         alert("créer un niveau")
     };
@@ -598,8 +629,9 @@ function menuEdition () {
         menuBienvenue();
     };
 
-        
-}
+};
+
+
 
 function menuParametre () {
     
