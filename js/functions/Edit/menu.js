@@ -17,7 +17,7 @@ function menuDuJeu (){
     const menu = document.createElement("div")
 
     menu.style.display = "flex"
-    menu.style.justifyContent = "center"
+    // menu.style.justifyContent = "center"
     menu.style.width = "100%";
     menu.style.height = "100%";
     menu.style.backgroundImage = "url(./img/back.png)";
@@ -31,22 +31,24 @@ function menuDuJeu (){
         const divNav = document.createElement("div");
 
         divNav.style.display = "flex";
-        divNav.style.justifyContent = "space-between";
+        // divNav.style.justifyContent = "space-between";
         divNav.style.alignItems = "center";
         divNav.style.height = '15vh';
-        divNav.style.background = 'none';
+        // divNav.style.width = "60px"
+        divNav.style.background = 'white';
 
         divNav.id = "divNav";
         document.querySelector("#menu").appendChild(divNav);
 
 
-        // const divNavTitle = document.createElement("div");
+        const divNavTitle = document.createElement("div");
 
-        // divNavTitle.style.display = "flex";
-        // divNavTitle.style.margin = "30px";
+        divNavTitle.style.display = "flex";
+        // divNavTitle.style.marginLeft = "60%";
+        // divNavTitle.style.width ="70%";
 
-        // divNavTitle.id = "divNavTitle";
-        // document.querySelector("#divNav").appendChild(divNavTitle);
+        divNavTitle.id = "divNavTitle";
+        document.querySelector("#divNav").appendChild(divNavTitle);
 
             const Title = document.createElement("h1");
 
@@ -65,7 +67,8 @@ function menuDuJeu (){
         divNavRight.style.display ='flex';
         divNavRight.style.justifyContent = 'space-between';
         divNavRight.style.alignItems = 'center';
-        divNavRight.style.width = "30vh";        divNavRight.style.marginLeft ="130%";
+        // divNavRight.style.width = "30%";        
+        divNavRight.style.marginLeft ="130%";
 
         divNavRight.id = "divNavRight";
         document.querySelector("#divNav").appendChild(divNavRight);
@@ -101,7 +104,7 @@ function menuDuJeu (){
         divPause.style.backgroundColor = "#ffffff";
         divPause.style.width = "50px";
         divPause.style.height = "50px";
-        divPause.style.margin = "6% 0% 0% 41%";
+        divPause.style.margin = "6% 0% 0% 3%";
         divPause.code = '<i class="uil uil-pause-circle"></i>';
 
         divPause.id = "divPause";
@@ -118,25 +121,25 @@ function menuDuJeu (){
         document.querySelector("#divPause").appendChild(pause);
 
 
-        const divFooter = document.createElement("div");
+        // const divFooter = document.createElement("div");
 
-        divFooter.style.display = "flex";
-        divFooter.style.width = "100%";
-        divFooter.style.height = "50px";
-        divFooter.style.border = '3px solid #FFBB0B';
-        divFooter.style.backgroundImage = "url('./img/back.png')";
-        divFooter.style.margin = "400px";
+        // divFooter.style.display = "flex";
+        // divFooter.style.width = "100%";
+        // divFooter.style.height = "50px";
+        // divFooter.style.border = '3px solid #FFBB0B';
+        // divFooter.style.backgroundImage = "url('./img/back.png')";
+        // divFooter.style.margin = "400px";
 
-        divFooter.id = "divFooter";
-        document.querySelector("#menu").appendChild(divFooter);
+        // divFooter.id = "divFooter";
+        // document.querySelector("#menu").appendChild(divFooter);
 
-        const obstacle = document.createElement("img")
-        obstacle.src = "./img/corboitachi.png";
-        obstacle.style.width = "60px";
-        obstacle.style.height = "60px";
+        // const obstacle = document.createElement("img")
+        // obstacle.src = "./img/corboitachi.png";
+        // obstacle.style.width = "60px";
+        // obstacle.style.height = "60px";
 
-        obstacle.id = "obstacle";
-        document.querySelector("#divFooter").appendChild(obstacle);
+        // obstacle.id = "obstacle";
+        // document.querySelector("#divFooter").appendChild(obstacle);
 };
 
 function menuBienvenue () {
