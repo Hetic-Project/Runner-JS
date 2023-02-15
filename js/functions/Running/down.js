@@ -7,7 +7,7 @@ function down(character) {
             character.style.backgroundPositionY = "-155px"
             character.style.width = "80px";
             character.style.height = "85px";
-            character.style.bottom = "200px"
+            character.style.bottom = "100px"
 
             setTimeout(() => { 
             character.style.backgroundImage = "url('./running.gif')"; 
