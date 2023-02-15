@@ -1,6 +1,7 @@
 import { move, colision } from './move.js';
+import {menuDuJeu} from '../Edit/menu.js'
 import jump from './jump.js';
-import down from './down.js'
+import down from './down.js';
 
 const gameWindows = document.querySelector('.game-content');
 const content = document.createElement('div');
@@ -19,7 +20,7 @@ content.style.bottom = "0px"
 content.style.left = "0px"
 content.style.display = "flex";
 content.style.alignItems = "flex-end";
-content.style.backgroundColor = "lightblue";
+content.style.backgroundColor = "transparent";
 content.style.transition = "2s"
 
 const blocks = [];
@@ -34,10 +35,9 @@ const obstacles = ["B", "C"];
 function createBlockA(block, i) {
     block = document.createElement('div'); // créer le bloc A qui sera le sol du jeu 
     block.classList.add("A");
-    block.style.backgroundColor = "#ffffaa";
+    block.style.backgroundColor = "transparent";
     block.style.width = `${widthOfBlockA}px`;
-    block.style.height = "200px";
-    block.textContent = i;
+    block.style.height = "100px";
     content.appendChild(block);
     gameWindows.appendChild(content);
 };
@@ -45,26 +45,28 @@ function createBlockA(block, i) {
 function createObstacle(block, j) {
     if (block === 'B') {
         block = document.createElement('div'); // créer un bloc B
-        block.style.backgroundColor = "lightgreen";
         block.classList.add("B");
-        block.style.width = "20px";
+        block.style.width = "10px";
         block.style.height = "50px";
         block.style.position = "absolute";
-        block.style.top = "150px";
+        block.style.bottom = "100px";
         block.style.left = `${positionBlock}px`;
-        block.textContent = j;
+        block.style.backgroundImage = "url(../../../img/spike.png)";
         blocks.push(block)
         content.appendChild(block);
     } else {
         block = document.createElement('div'); // créer un bloc C
-        block.style.backgroundColor = "grey";
+        block.style.backgroundColor = "transparent";
         block.classList.add("C");
-        block.style.width = "50px";
+        block.style.width = "100px";
         block.style.height = "100px";
         block.style.position = "absolute";
-        block.style.top = "0px";
+        block.style.top = "100px";
         block.style.left = `${positionBlock}px`;
-        block.textContent = j;
+        block.style.backgroundImage = "url(../../../img/corboitachi.png)";
+        block.style.backgroundSize = "cover";
+        block.style.backgroundPositionY = "29px"
+        // block.style.backgroundPositionX = "625px"
         blocks.push(block)
         content.appendChild(block);
     };
@@ -77,13 +79,12 @@ function createCharacter() {
     character.style.width = "65px"
     character.style.position = "fixed"
     character.style.left = "0px"
-    character.style.bottom = "200px"
+    character.style.bottom = "100px"
     character.style.backgroundImage = "url('./running.gif')";
     character.style.backgroundSize = "400px"
     character.style.backgroundPosition = "center"
     character.style.backgroundPositionY = "-40px"
     character.style.backgroundPositionX = "625px"
-    character.style.backgroundColor = "red"
     character.style.borderRadius = "20%"
     content.appendChild(character)
     jump(character)
@@ -92,6 +93,9 @@ function createCharacter() {
 
 
 function runLevel(blockA, blockB, blockC) {
+
+    menuDuJeu();
+
     let i = 0;
     let j = 0;
 

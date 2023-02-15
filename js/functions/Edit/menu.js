@@ -1,15 +1,17 @@
+import runLevel from "../Running/runLevel.js";
+
 const madiv = document.createElement("div");
 madiv.style.width = "100%";
 madiv.style.height = "100vh";
 
 madiv.id = "madiv"
 document.querySelector(".game-content").appendChild(madiv)
+const gameContent = document.querySelector(".game-content")
 
 
 function menu () {
     
-    menuDuJeu();
-    // menuJouer();
+    menuBienvenue()
 
 };
 
@@ -25,8 +27,9 @@ function menuDuJeu (){
     menu.style.backgroundSize = "100% 100%";
     menu.style.backgroundRepeat = "no-repeat";
 
+
     menu.id = "menu"
-    document.querySelector("#madiv").appendChild(menu)
+    gameContent.appendChild(menu)
 
     
         const divNav = document.createElement("div");
@@ -39,7 +42,7 @@ function menuDuJeu (){
         divNav.style.background = 'white';
 
         divNav.id = "divNav";
-        document.querySelector("#menu").appendChild(divNav);
+        menu.appendChild(divNav);
 
 
         const divNavTitle = document.createElement("div");
@@ -49,7 +52,7 @@ function menuDuJeu (){
         // divNavTitle.style.width ="70%";
 
         divNavTitle.id = "divNavTitle";
-        document.querySelector("#divNav").appendChild(divNavTitle);
+        divNav.appendChild(divNavTitle);
 
             const Title = document.createElement("h1");
 
@@ -61,7 +64,7 @@ function menuDuJeu (){
             Title.style.lineHeight = '97px';
 
             Title.id = "Title";
-            document.querySelector("#divNav").appendChild(Title)
+            divNav.appendChild(Title)
 
         const divNavRight = document.createElement("div");
 
@@ -72,7 +75,7 @@ function menuDuJeu (){
         divNavRight.style.marginLeft ="130%";
 
         divNavRight.id = "divNavRight";
-        document.querySelector("#divNav").appendChild(divNavRight);
+        divNav.appendChild(divNavRight);
 
             const btnMenu = document.createElement("btn");
 
@@ -84,7 +87,7 @@ function menuDuJeu (){
             btnMenu.style.color = "#ffffff";
 
             btnMenu.id = "btnMenu";
-            document.querySelector("#divNavRight").appendChild(btnMenu);
+            divNavRight.appendChild(btnMenu);
 
 
             const score = document.createElement("h3");
@@ -95,7 +98,7 @@ function menuDuJeu (){
             // score.style.fontSize = "25px";
 
             score.id = "score";
-            document.querySelector("#divNavRight").appendChild(score);
+            divNavRight.appendChild(score);
 
 
         const divPause = document.createElement("div");
@@ -109,7 +112,7 @@ function menuDuJeu (){
         divPause.code = '<i class="uil uil-pause-circle"></i>';
 
         divPause.id = "divPause";
-        document.querySelector("#menu").appendChild(divPause);
+        menu.appendChild(divPause);
 
             
         const pause = document.createElement("span")
@@ -119,7 +122,7 @@ function menuDuJeu (){
         pause.style.height = "50px";
 
         pause.id = "pause";
-        document.querySelector("#divPause").appendChild(pause);
+        divPause.appendChild(pause);
 
 
         // const divFooter = document.createElement("div");
@@ -381,7 +384,7 @@ function menuJouer () {
                 area_launch.id = "area_launch"
                 document.querySelector("#buttun_area").appendChild(area_launch)
 
-
+// ====================================== Lancer la partie ===========================================
                 const buttun_launch = document.createElement ("div")
 
                 buttun_launch.style.height = "100%"
@@ -482,7 +485,15 @@ function menuJouer () {
 
     document.querySelector("#buttun_launch").onclick = function redirection_menu_du_jeu(){
 
-        alert("debut de la partie")
+        gameContent.innerHTML = "";
+        const easy = fetch("../config/easy.json")
+        .then((res) => res.json())
+        .then((data) => {
+            const A = data.blocks[0].type
+            const B = data.blocks[1].type
+            const C = data.blocks[2].type
+            runLevel(A, B, C)
+        });
     };
 
     document.querySelector("#div_buttun_back").onclick = function redirection_retour(){
@@ -881,4 +892,4 @@ function menuParametre () {
         
 }
 
-export default menu;
+export { menu, menuDuJeu};
