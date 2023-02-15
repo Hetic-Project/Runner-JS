@@ -22,8 +22,8 @@ function menuDuJeu (){
     menu.style.width = "100%";
     menu.style.height = "100%";
     menu.style.backgroundImage = "url(./img/back.png)";
-    menu.style.backgroundSize = "100% 100%";
-    menu.style.backgroundRepeat = "no-repeat";
+    // menu.style.backgroundSize = "100% 100%";
+    // menu.style.backgroundRepeat = "no-repeat";
 
     menu.id = "menu"
     document.querySelector("#madiv").appendChild(menu)
