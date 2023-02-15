@@ -8,7 +8,7 @@ document.querySelector(".game-content").appendChild(madiv)
 
 function menu () {
     
-    menuJouer();
+    menuBienvenue();
 
 };
 
