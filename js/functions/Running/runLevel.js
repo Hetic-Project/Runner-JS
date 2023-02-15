@@ -22,6 +22,7 @@ content.style.alignItems = "flex-end";
 content.style.backgroundColor = "lightblue";
 content.style.transition = "2s"
 
+const blocks = [];
 const widthOfBlockA = 200;
 let positionBlock = 400; // la distance qui separe chaque bloc B par rapport
 let numberBlockA = 100; // le nombre de bloc A
@@ -52,6 +53,7 @@ function createObstacle(block, j) {
         block.style.top = "150px";
         block.style.left = `${positionBlock}px`;
         block.textContent = j;
+        blocks.push(block)
         content.appendChild(block);
     } else {
         block = document.createElement('div'); // créer un bloc C
@@ -63,6 +65,7 @@ function createObstacle(block, j) {
         block.style.top = "0px";
         block.style.left = `${positionBlock}px`;
         block.textContent = j;
+        blocks.push(block)
         content.appendChild(block);
     };
 }
@@ -70,6 +73,7 @@ function createObstacle(block, j) {
 function createCharacter() {
     const character = document.createElement("div");
     character.style.height = "200px"
+    character.classList.add("character")
     character.style.width = "65px"
     character.style.position = "fixed"
     character.style.left = "0px"
@@ -130,6 +134,29 @@ function runLevel(blockA, blockB, blockC) {
     console.log(`Nombre de points : ${points}`);
     console.log(`Multiplicateur de vitesse : ${speedMultiplier}`);
     console.log(`Score : ${Math.floor(score)}`);
+
+    let options = {
+        threshold : 0 
+    }
+
+    const observer = new IntersectionObserver(handleIntersection, options);
+
+
+    function handleIntersection(entries){
+
+        if (entries[0].isIntersecting){
+            setInterval(() => {
+                console.log(entries[0].target.offsetLeft)
+                if(entries[0].target.offsetLeft === -400){
+                    console.log('colision')
+                }
+
+            }, 1)
+        }
+    }
+    
+
+    observer.observe(content)
     
     colision();
   }
