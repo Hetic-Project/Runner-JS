@@ -5,7 +5,6 @@ function subMenuEdition(){
     const divNav = document.createElement("div");
     const divLR = document.createElement("div");
     const divRight = document.createElement("div");
-    const divRightInfo = document.createElement("div");
     const divLeft = document.createElement("div");
 
     const btnExport = document.createElement("button");
@@ -14,14 +13,16 @@ function subMenuEdition(){
     const text_import = document.createElement("span")
     
 
-    // madiv.style.display = "flex";
+    madiv.style.display = "flex";
     madiv.style.width = "100%";
     madiv.style.height = "100vh";
+    madiv.style.overflow = "hidden";
     // madiv.style.border = "3px solid #ffffff";
 
     // divContent.style.display = "flex";
     divContent.style.width = "100%";
     divContent.style.height = "100vh";
+    divContent.style.overflow = "hidden";
 
     divNav.style.display = "flex";
     divNav.style.alignContent = "center";
