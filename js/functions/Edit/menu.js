@@ -104,7 +104,7 @@ function menuBienvenue () {
                 buttun_jouer.style.borderRadius = "25px"
                 buttun_jouer.style.backgroundColor = ""
 
-
+                buttun_jouer.classList.add("buttun")
                 buttun_jouer.id = "buttun_jouer"
                 document.querySelector("#buttun_area").appendChild(buttun_jouer)
 
@@ -133,7 +133,7 @@ function menuBienvenue () {
                 buttun_edition.style.border ="solid 2px white"
                 buttun_edition.style.borderRadius = "25px"
 
-
+                buttun_edition.classList.add("buttun")
                 buttun_edition.id = "buttun_edition"
                 document.querySelector("#buttun_area").appendChild(buttun_edition)
 
@@ -161,6 +161,7 @@ function menuBienvenue () {
                 buttun_parametre.style.border ="solid 2px white"
                 buttun_parametre.style.borderRadius = "25px"
 
+                buttun_parametre.classList.add("buttun")
                 buttun_parametre.id = "buttun_parametre"
                 document.querySelector("#buttun_area").appendChild(buttun_parametre)
 
@@ -276,6 +277,7 @@ function menuJouer () {
                 buttun_import.style.borderRadius = "25px"
                 buttun_import.style.marginBottom = "40px"
 
+                buttun_import.classList.add("buttun")
                 buttun_import.id = "buttun_import"
                 document.querySelector("#buttun_area").appendChild(buttun_import)
 
@@ -316,7 +318,7 @@ function menuJouer () {
                 buttun_launch.style.marginLeft = "65px"
                 buttun_launch.style.marginRight = "30px"
 
-
+                buttun_launch.classList.add("buttun")
                 buttun_launch.id = "buttun_launch"
                 document.querySelector("#area_launch").appendChild(buttun_launch)
                 
@@ -506,7 +508,7 @@ function menuEdition () {
                 buttun_import.style.borderRadius = "25px"
                 buttun_import.style.marginBottom = "40px"
 
-
+                buttun_import.classList.add("buttun")
                 buttun_import.id = "buttun_import"
                 document.querySelector("#buttun_area").appendChild(buttun_import)
 
@@ -533,6 +535,7 @@ function menuEdition () {
                 buttun_create.style.border ="solid 2px white"
                 buttun_create.style.borderRadius = "25px"
 
+                buttun_create.classList.add("buttun")
                 buttun_create.id = "buttun_create"
                 document.querySelector("#buttun_area").appendChild(buttun_create)
                 
