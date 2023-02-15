@@ -128,12 +128,35 @@ function runLevel (blockA, blockB, blockC){
             break;
         }
 
-        content.addEventListener("scroll", (e) => {
-            if(e.currentTarget.scrollLeft){
-                console.log(coucou)
-            }
+        content.addEventListener("move", () => {
+            let scrollValue = content.getBoundingClientRect().x.toFixed();
+            console.log(scrollValue)
+
         })
+
+        let options = {
+            threshold : 0 
+        }
+
+        const observer = new IntersectionObserver(handleIntersection, options);
+
+
+        function handleIntersection(entries){
+
+            if (entries[0].isIntersecting){
+                setInterval(() => {
+                    console.log(entries[0].target.offsetLeft)
+                    if(entries[0].target.offsetLeft === -400){
+                        console.log('colision')
+                    }
+
+                }, 1)
+            }
+        }
         
+
+        observer.observe(content)
+       
         colision(blocks, content)
         
 
