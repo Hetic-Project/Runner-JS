@@ -132,6 +132,7 @@ function subMenuEdition(){
         form.appendChild(div_el2);
 
     const div_el3 = document.createElement("div");
+        
         const inputLabel3 = document.createElement('label');
         inputLabel3.textContent = 'DIFFICULTY : ';
         inputLabel3.style.color = 'white';
@@ -140,14 +141,19 @@ function subMenuEdition(){
         inputLabel3.style.paddingRight = "70px";
 
         const inputSelect = document.createElement('select');
+        const options = ["1", "2", "3","4","5"];
+        for(var i = 0; i < options.length; i++) {
+        var option = document.createElement("option");
+        option.text = options[i];
+        inputSelect.add(option);
+        }
+      
         inputSelect.setAttribute('type', 'number');
         div_el3.append(inputLabel3, inputSelect);
         form.appendChild(div_el3);
 
 
     divForm.appendChild(form);
-
-    
 
 
     gamecontent.appendChild(madiv);
@@ -157,9 +163,6 @@ function subMenuEdition(){
     divNav.appendChild(Title);
     divRight.append(rightTitle, form, btnExport, divForm);
     btnExport.appendChild(text_import);
-   
-
-
-
+    
 }   
 export default subMenuEdition;
