@@ -1,4 +1,6 @@
-import move from './move.js';
+import {move, colision} from './move.js';
+import jump from './jump.js';
+import down from './down.js'
 
 const gameWindows = document.querySelector('.game-content');
 const content = document.createElement('div');
@@ -45,7 +47,8 @@ function createObstacle(block, j){
         
         block = document.createElement('div'); // créer un bloc B
         block.style.backgroundColor = "lightgreen";
-        block.style.width = "100px";
+        block.classList.add("B");
+        block.style.width = "20px";
         block.style.height = "50px";
         block.style.position = "absolute";
         block.style.top = "150px";
@@ -57,7 +60,8 @@ function createObstacle(block, j){
 
         block = document.createElement('div'); // créer un bloc C
         block.style.backgroundColor = "grey";
-        block.style.width = "100px";
+        block.classList.add("C");
+        block.style.width = "50px";
         block.style.height = "100px";
         block.style.position = "absolute";
         block.style.top = "0px";
@@ -66,6 +70,26 @@ function createObstacle(block, j){
         content.appendChild(block);
 
     };
+}
+
+function createCharacter(){
+
+    const character = document.createElement("div");
+    character.style.height = "200px"
+    character.style.width = "65px"
+    character.style.position = "fixed"
+    character.style.left = "0px"
+    character.style.bottom = "200px"
+    character.style.backgroundImage = "url('./running.gif')";
+    character.style.backgroundSize = "400px"
+    character.style.backgroundPosition = "center"
+    character.style.backgroundPositionY = "-40px"
+    character.style.backgroundPositionX = "625px"
+    character.style.backgroundColor = "red"
+    character.style.borderRadius = "20%"
+    content.appendChild(character)
+    jump(character)
+    down(character)
 }
 
 function runLevel (blockA, blockB, blockC){
@@ -86,6 +110,8 @@ function runLevel (blockA, blockB, blockC){
         j++;
     };
 
+    createCharacter()
+
     switch (value) {
         case value: 1,
             move(content, animationWidh, easySpeedLevel);
@@ -98,6 +124,8 @@ function runLevel (blockA, blockB, blockC){
         default:
             break;
     }
+
+    colision()
 
 }
 

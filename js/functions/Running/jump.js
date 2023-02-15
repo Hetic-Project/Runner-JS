@@ -1,50 +1,53 @@
-// Définition du personnage
-const img = document.querySelector("div");
-img.style.height = "105px"
-img.style.width = "65px"
-img.style.backgroundColor = "red"
-img.style.borderRadius = "40%"
-img.style.position = "absolute"
-img.style.left = "700px"
-img.style.top = "250px"
-img.style.backgroundImage = "url('./running.gif')";
-img.style.backgroundSize = "400px"
-img.style.backgroundPosition = "center"
-img.style.backgroundPositionY = "-135px"
-img.style.backgroundPositionX = "625px"
-
-
 // FONCTION JUMP
-let animationInProgress = false;
-
-function jump() {
-    document.addEventListener("keydown", (e) => {
-        if (e.keyCode === 73 && !animationInProgress && parseInt(img.style.top) === 250) {
-            animationInProgress = true;
-            img.style.backgroundImage = "url('./jump.gif')";
-            img.style.backgroundPositionY = "-95px"
-            img.style.height = "140px"
-            let jumpUp = setInterval(() => {
-                img.style.top = parseInt(img.style.top) - 10 + "px"
-                if (parseInt(img.style.top) <= 120) {
-                    clearInterval(jumpUp)
-                    let jumpDown = setInterval(() => {
-                        img.style.top = parseInt(img.style.top) + 10 + "px"
-                        if (parseInt(img.style.top) >= 250) {
-                            clearInterval(jumpDown)
-                            animationInProgress = false;
-                            img.style.backgroundImage = "url('./running.gif')";
-                            img.style.height = "105px"
-                            img.style.backgroundSize = "400px";
-                            img.style.backgroundPositionY = "-135px";
-                        }
-                    }, 30)
-                }
-            }, 30)
-        }
+function jump(character) {
+    let jumping = false;
+    let maxHeight = 100; // taille de saut maximum
+    let duration = 1200; // durée de l'animation
+    let start = null; // l'animation commence à null
+    let initialY = parseInt(character.style.bottom); // j'initialise la position du personnage
+  
+    document.addEventListener("keydown", (event) => {
+      if (event.keyCode === 38 && !jumping) {
+        jumping = true;
+        start = performance.now();
+        requestAnimationFrame(jumpAnimation);
+      }
     });
-}
-jump();
+  
+    function jumpAnimation(timestamp) {
+      if (!start) start = timestamp;
+      character.style.backgroundImage = "url('./jump.gif')"; // change l'image du personnage
+      let timeElapsed = timestamp - start;
+      let progress = Math.min(timeElapsed / duration, 1); // calcul le pourcentage de progression de l'animation
+      let height = maxHeight * (-4 * progress * (progress - 1)); // j'utilise la formule d'une parabole pour définir le saut
+      character.style.bottom = `${initialY + height}px`;
+      if (progress < 1) {
+        requestAnimationFrame(jumpAnimation); // continuer l'animation
+      } else {
+        jumping = false;
+        character.style.backgroundImage = "url('./running.gif')"; // réinitialise l'image du personnage
+        character.style.bottom = `${initialY}px`; // réinitialise la position du personnage
+      }
+    }
+  }
+  
+  export default jump;
+  
+  
+    //         animationInProgress = true;
+    //         character.style.backgroundImage = "url('./jump.gif')";
+    //         character.style.backgroundPositionY = "-85px"
+    //         character.style.bottom = "280px";
+    //         character.style.left = "15px";
+    //         character.style.height = "120px"
+
+    //         setTimeout(() => {
+    //             character.style.bottom = "200px"
+    //             character.style.backgroundPositionY = "-50px"
+    //             character.style.height = "200px"
+    //             character.style.backgroundImage = "url('./running.gif')";
+    //             animationInProgress = false;
+    //         }, 1100)
 
 // keyCode : I = 73
 // keyCode : K = 75 
