@@ -11,7 +11,7 @@ const gameContent = document.querySelector(".game-content")
 
 function menu () {
     
-    menuBienvenue()
+    menuDuJeu()
 
 };
 
