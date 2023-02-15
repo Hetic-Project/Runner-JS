@@ -8,7 +8,7 @@ document.querySelector(".game-content").appendChild(madiv)
 
 function menu () {
     
-    menuBienvenue();
+    menuJouer();
 
 };
 
@@ -53,6 +53,7 @@ function menuBienvenue () {
             big_text.id = "big_text"
             document.querySelector("#div_content").appendChild(big_text)
 
+
                 const bienvenue =document.createElement("h2")
 
                 bienvenue.innerText = "BIENVENUE SUR LE"
@@ -60,11 +61,10 @@ function menuBienvenue () {
                 bienvenue.style.fontSize = "60px"
                 bienvenue.style.fontWeight = "800"
                 bienvenue.style.lineHeight = "73px";
-                bienvenue.style.color = "#C28F0B"
-
-
+                bienvenue.style.color = "#FFBB0B"
 
                 document.querySelector("#big_text").appendChild(bienvenue)
+
 
                 const runner_text =document.createElement("h1")
 
@@ -93,16 +93,7 @@ function menuBienvenue () {
             document.querySelector("#div_content").appendChild(buttun_area)
 
 
-                const buttun_jouer = document.createElement ("div")
-
-                buttun_jouer.style.display = "flex"
-                buttun_jouer.style.justifyContent = "center"
-                buttun_jouer.style.alignItems = "center";
-                buttun_jouer.style.height = "25%"
-                buttun_jouer.style.width = "50%"
-                buttun_jouer.style.border ="solid 2px white"
-                buttun_jouer.style.borderRadius = "25px"
-                buttun_jouer.style.backgroundColor = ""
+                const buttun_jouer = document.createElement ("div") 
 
                 buttun_jouer.classList.add("buttun")
                 buttun_jouer.id = "buttun_jouer"
@@ -112,54 +103,30 @@ function menuBienvenue () {
                     const text_jouer = document.createElement("span")
 
                     text_jouer.innerText = "JOUER"
-                    text_jouer.style.fontSize = "40px"
-                    text_jouer.style.fontWeight = "500"
-                    text_jouer.style.color = "white"
-                    text_jouer.style.fontWeight = "700";
-                    text_jouer.style.fontSize = "45px";
 
+                    text_jouer.classList.add("text_buttun_white")
                     text_jouer.id = "text_jouer"
                     document.querySelector("#buttun_jouer").appendChild(text_jouer)
 
 
-
                 const buttun_edition = document.createElement ("div")
-
-                buttun_edition.style.display = "flex"
-                buttun_edition.style.justifyContent = "center"
-                buttun_edition.style.alignItems = "center";
-                buttun_edition.style.height = "25%"
-                buttun_edition.style.width = "50%"
-                buttun_edition.style.border ="solid 2px white"
-                buttun_edition.style.borderRadius = "25px"
 
                 buttun_edition.classList.add("buttun")
                 buttun_edition.id = "buttun_edition"
+
+
                 document.querySelector("#buttun_area").appendChild(buttun_edition)
 
 
                     const text_edition = document.createElement("span")
 
                     text_edition.innerText = "EDITION"
-                    text_edition.style.fontSize = "40px"
-                    text_edition.style.fontWeight = "500"
-                    text_edition.style.color = "#C28F0B"
-                    text_edition.style.fontWeight = "700";
-                    text_edition.style.fontSize = "45px";
                     
-
+                    text_edition.classList.add("text_buttun_yellow")
                     document.querySelector("#buttun_edition").appendChild(text_edition)
 
 
                 const buttun_parametre = document.createElement ("div")
-
-                buttun_parametre.style.display = "flex"
-                buttun_parametre.style.justifyContent = "center"
-                buttun_parametre.style.alignItems = "center";
-                buttun_parametre.style.height = "25%"
-                buttun_parametre.style.width = "50%"
-                buttun_parametre.style.border ="solid 2px white"
-                buttun_parametre.style.borderRadius = "25px"
 
                 buttun_parametre.classList.add("buttun")
                 buttun_parametre.id = "buttun_parametre"
@@ -169,12 +136,8 @@ function menuBienvenue () {
                     const text_parametre = document.createElement("span")
 
                     text_parametre.innerText = "PARAMETRE"
-                    text_parametre.style.fontSize = "40px"
-                    text_parametre.style.fontWeight = "500"
-                    text_parametre.style.color = "white"
-                    text_parametre.style.fontWeight = "700";
-                    text_parametre.style.fontSize = "45px";
-
+                    
+                    text_parametre.classList.add("text_buttun_white")
                     document.querySelector("#buttun_parametre").appendChild(text_parametre)
 
     document.querySelector("#buttun_jouer").onclick = function redirection_jouer(){
@@ -235,19 +198,16 @@ function menuJouer () {
             big_text.id = "big_text"
             document.querySelector("#div_content").appendChild(big_text)
 
-                const jouer =document.createElement("h2")
+                const titre =document.createElement("h2")
 
-                jouer.innerText = "JOUER"
-                jouer.style.marginTop = "5px"
-                jouer.style.fontSize = "80px"
-                jouer.style.fontWeight = "900"
-                jouer.style.lineHeight = "73px";
-                jouer.style.color = "#C28F0B"
+                titre.innerText = "Jouer"
+                titre.style.marginTop = "5px"
+                titre.style.fontSize = "80px"
+                titre.style.fontWeight = "900"
+                titre.style.lineHeight = "73px";
+                titre.style.color = "#C28F0B"
 
-
-
-                document.querySelector("#big_text").appendChild(jouer)
-
+                document.querySelector("#big_text").appendChild(titre)
 
             // bouton
 
@@ -258,7 +218,6 @@ function menuJouer () {
             buttun_area.style.justifyContent = "center"
             buttun_area.style.flexDirection = "column";
             buttun_area.style.justifyContent = "center";
-
             buttun_area.style.height = "60%"
             buttun_area.style.width = "100%"
 
@@ -268,15 +227,6 @@ function menuJouer () {
 
                 const buttun_import = document.createElement ("div")
 
-                buttun_import.style.display = "flex"
-                buttun_import.style.justifyContent = "center"
-                buttun_import.style.alignItems = "center";
-                buttun_import.style.height = "25%"
-                buttun_import.style.width = "50%"
-                buttun_import.style.border ="solid 2px white"
-                buttun_import.style.borderRadius = "25px"
-                buttun_import.style.marginBottom = "40px"
-
                 buttun_import.classList.add("buttun")
                 buttun_import.id = "buttun_import"
                 document.querySelector("#buttun_area").appendChild(buttun_import)
@@ -285,12 +235,8 @@ function menuJouer () {
                     const text_import = document.createElement("span")
 
                     text_import.innerText = "Importer un niveau"
-                    text_import.style.fontSize = "40px"
-                    text_import.style.fontWeight = "500"
-                    text_import.style.color = "white"
-                    text_import.style.fontWeight = "700";
-                    text_import.style.fontSize = "45px";
 
+                    text_import.classList.add("text_buttun_white")
                     document.querySelector("#buttun_import").appendChild(text_import)
 
 
@@ -308,13 +254,8 @@ function menuJouer () {
 
                 const buttun_launch = document.createElement ("div")
 
-                buttun_launch.style.display = "flex"
-                buttun_launch.style.justifyContent = "center"
-                buttun_launch.style.alignItems = "center";
                 buttun_launch.style.height = "100%"
-                buttun_launch.style.width = "50%"
-                buttun_launch.style.border ="solid 2px white"
-                buttun_launch.style.borderRadius = "25px"
+                buttun_launch.style.marginTop = "50px"
                 buttun_launch.style.marginLeft = "65px"
                 buttun_launch.style.marginRight = "30px"
 
@@ -326,12 +267,8 @@ function menuJouer () {
                     const text_launch = document.createElement("span")
 
                     text_launch.innerText = "Lancer la partie"
-                    text_launch.style.fontSize = "40px"
-                    text_launch.style.fontWeight = "500"
-                    text_launch.style.color = "white"
-                    text_launch.style.fontWeight = "700";
-                    text_launch.style.fontSize = "45px"; 
 
+                    text_launch.classList.add("text_buttun_white")
                     document.querySelector("#buttun_launch").appendChild(text_launch)
 
 
@@ -466,18 +403,18 @@ function menuEdition () {
             big_text.id = "big_text"
             document.querySelector("#div_content").appendChild(big_text)
 
-                const jouer =document.createElement("h2")
+                const titre =document.createElement("h2")
 
-                jouer.innerText = "EDITION"
-                jouer.style.marginTop = "5px"
-                jouer.style.fontSize = "80px"
-                jouer.style.fontWeight = "900"
-                jouer.style.lineHeight = "73px";
-                jouer.style.color = "#C28F0B"
+                titre.innerText = "EDITION"
+                titre.style.marginTop = "5px"
+                titre.style.fontSize = "80px"
+                titre.style.fontWeight = "900"
+                titre.style.lineHeight = "73px";
+                titre.style.color = "#C28F0B"
 
 
 
-                document.querySelector("#big_text").appendChild(jouer)
+                document.querySelector("#big_text").appendChild(titre)
 
 
             // bouton
@@ -499,15 +436,6 @@ function menuEdition () {
 
                 const buttun_import = document.createElement ("div")
 
-                buttun_import.style.display = "flex"
-                buttun_import.style.justifyContent = "center"
-                buttun_import.style.alignItems = "center";
-                buttun_import.style.height = "25%"
-                buttun_import.style.width = "50%"
-                buttun_import.style.border ="solid 2px white"
-                buttun_import.style.borderRadius = "25px"
-                buttun_import.style.marginBottom = "40px"
-
                 buttun_import.classList.add("buttun")
                 buttun_import.id = "buttun_import"
                 document.querySelector("#buttun_area").appendChild(buttun_import)
@@ -516,24 +444,14 @@ function menuEdition () {
                     const text_import = document.createElement("span")
 
                     text_import.innerText = "Importer un niveau"
-                    text_import.style.fontSize = "40px"
-                    text_import.style.fontWeight = "500"
-                    text_import.style.color = "white"
-                    text_import.style.fontWeight = "700";
-                    text_import.style.fontSize = "45px";
 
+                    text_import.classList.add("text_buttun_white")
                     document.querySelector("#buttun_import").appendChild(text_import)
 
 
                 const buttun_create = document.createElement ("div")
 
-                buttun_create.style.display = "flex"
-                buttun_create.style.justifyContent = "center"
-                buttun_create.style.alignItems = "center";
-                buttun_create.style.height = "25%"
-                buttun_create.style.width = "50%"
-                buttun_create.style.border ="solid 2px white"
-                buttun_create.style.borderRadius = "25px"
+                buttun_create.style.marginTop = "50px"
 
                 buttun_create.classList.add("buttun")
                 buttun_create.id = "buttun_create"
@@ -543,12 +461,8 @@ function menuEdition () {
                     const text_create = document.createElement("span")
 
                     text_create.innerText = "Créer un niveau"
-                    text_create.style.fontSize = "40px"
-                    text_create.style.fontWeight = "500"
-                    text_create.style.color = "white"
-                    text_create.style.fontWeight = "700";
-                    text_create.style.fontSize = "45px"; 
 
+                    text_create.classList.add("text_buttun_white")
                     document.querySelector("#buttun_create").appendChild(text_create)
 
         const div_back = document.createElement("div")
