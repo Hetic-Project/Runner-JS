@@ -22,5 +22,10 @@ body{
 }
 
 .buttun:hover {
-  background-color: red;
+  background-color: #5D5F71;
+  border : solid 2px  #C28F0B;
+}
+
+.buttun {
+transition: all 0.3s ease;
 }
