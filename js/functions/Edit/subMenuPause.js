@@ -64,4 +64,4 @@ function subMenuPause () {
     divTitle.appendChild(Title);
     divBtn.append(btnContinu, btnRestart, btnExit);
 }
-export default subMenuPause
+export default subMenuPause;
