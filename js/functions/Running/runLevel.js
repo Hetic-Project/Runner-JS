@@ -151,7 +151,7 @@ function runLevel(blockA, blockB, blockC) {
                     console.log('colision')
                 }
 
-            }, 1)
+            }, 2)
         }
     }
     
