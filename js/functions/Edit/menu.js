@@ -12,7 +12,6 @@ function menu () {
 
 };
 
-
 function menuBienvenue () {
 
     const menu = document.createElement("div")
@@ -547,8 +546,6 @@ function menuEdition () {
     };
 
 };
-
-
 
 function menuParametre () {
     
