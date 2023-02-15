@@ -1,4 +1,5 @@
 function subMenuPause () {
+    const gamecontent = document.querySelector(".game-content")
     const madiv = document.createElement("div");
     const divBtn = document.createElement("div");
     const divTitle = document.createElement("div");
@@ -39,7 +40,7 @@ function subMenuPause () {
     divBtn.style.gap = "1px";
     divBtn.style.width = '189px';
     divBtn.style.height = '284px';
-    btnContinu.textContent = "Continu";
+    btnContinu.textContent = "Continue";
     btnRestart.textContent = "Restart";
     btnExit.textContent = "Exit";
     btnContinu.className = 'btn';
@@ -56,7 +57,7 @@ function subMenuPause () {
 
 
 
-    document.body.appendChild(madiv);
+    gamecontent.appendChild(madiv);
     madiv.appendChild(divContentMenu)
     divContentMenu.appendChild(divTitle)
     divContentMenu.appendChild(divBtn);
