@@ -161,6 +161,7 @@ function subMenuGameover (nombre_de_point) {
 
                     buttun_restart.style.height = "100%"
                     buttun_restart.style.width = "40%"
+                    buttun_restart.style.border = "0px"
                     
 
                     buttun_restart.classList.add("buttun")
@@ -171,8 +172,9 @@ function subMenuGameover (nombre_de_point) {
                             const text_restart = document.createElement("span")
 
                             text_restart.innerText = "RESTART"
+
                             
-                            text_restart.classList.add("text_buttun_yellow")
+                            text_restart.classList.add("text_buttun_white")
                             document.querySelector("#buttun_restart").appendChild(text_restart)
 
 
@@ -180,6 +182,8 @@ function subMenuGameover (nombre_de_point) {
 
                 buttun_exit.style.height = "40%"
                 buttun_exit.style.width = "40%"
+                buttun_exit.style.border = "0px"
+
 
 
                 buttun_exit.classList.add("buttun")
@@ -191,7 +195,7 @@ function subMenuGameover (nombre_de_point) {
 
                         text_exit.innerText = "EXIT"
                         
-                        text_exit.classList.add("text_buttun_yellow")
+                        text_exit.classList.add("text_buttun_white")
                         document.querySelector("#buttun_exit").appendChild(text_exit)
 
     document.querySelector("#buttun_restart").onclick = function redirection_jouer(){
