@@ -1,9 +1,9 @@
 import {menu} from './functions/Edit/menu.js'
-import subMenuEdition from './functions/Edit/subMenuEdition.js'
+// import subMenuEdition from './functions/Edit/subMenuEdition.js'
 import subMenuPause from './functions/Edit/subMenuPause.js'
 import runLevel from './functions/Running/runLevel.js';
-// menu()
-subMenuEdition()
+menu()
+// subMenuEdition()
 // subMenuPause()
 
 
