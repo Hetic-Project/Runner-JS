@@ -1,9 +1,6 @@
 function subMenuGameover (nombre_de_point) {
     const game_content = document.querySelector(".game-content")
 
-
-    var nombre_de_point = 0
-
     const madiv = document.createElement("div")
 
     madiv.style.height = "100vh"
