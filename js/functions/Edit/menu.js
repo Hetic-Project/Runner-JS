@@ -1,4 +1,7 @@
 import runLevel from "../Running/runLevel.js";
+import subMenuEdition from "./subMenuEdition.js";
+import subMenuPause from "./subMenuPause.js";
+// import subMenuEdition from './functions/Edit/subMenuEdition.js'
 
 const madiv = document.createElement("div");
 madiv.style.width = "100%";
@@ -22,12 +25,17 @@ function menuDuJeu (){
     const menu = document.createElement("div")
 
     menu.style.display = "flex"
-    // menu.style.justifyContent = "center"
+    menu.style.position = "relative"
+    menu.style.top = "0"
+    menu.style.left = "0"
+    menu.style.justifyContent = "center"
+    // menu.style.alignContent = "center"
     menu.style.width = "100%";
     menu.style.height = "100%";
     menu.style.backgroundImage = "url(./img/back.png)";
     menu.style.backgroundSize = "100% 100%";
     menu.style.backgroundRepeat = "no-repeat";
+    menu.style.overflow = "hidden";
 
 
     menu.id = "menu"
@@ -37,11 +45,15 @@ function menuDuJeu (){
         const divNav = document.createElement("div");
 
         divNav.style.display = "flex";
-        // divNav.style.justifyContent = "space-between";
+        divNav.style.position = "fixed"
+        divNav.style.top = "0"
+        divNav.style.left ="0"
+        // divNav.style.marginTop = "20px"
+        divNav.style.justifyContent = "space-between";
         divNav.style.alignItems = "center";
         divNav.style.height = '15vh';
-        // divNav.style.width = "60px"
-        divNav.style.background = 'white';
+        divNav.style.width = "60vh"
+        divNav.style.background = 'none';
 
         divNav.id = "divNav";
         menu.appendChild(divNav);
@@ -50,7 +62,7 @@ function menuDuJeu (){
         const divNavTitle = document.createElement("div");
 
         divNavTitle.style.display = "flex";
-        // divNavTitle.style.marginLeft = "60%";
+        divNavTitle.style.marginTop = "50%";
         // divNavTitle.style.width ="70%";
 
         divNavTitle.id = "divNavTitle";
@@ -61,9 +73,9 @@ function menuDuJeu (){
             Title.textContent = 'RUNNING';
             Title.style.fontSize = '80px';
             Title.style.fontWeight = '900'
-            Title.style.fontStyle = 'normal';
+            // Title.style.fontStyle = 'normal';
             Title.style.color = '#FFBB0B';
-            Title.style.lineHeight = '97px';
+            Title.style.lineHeight = '100px';
 
             Title.id = "Title";
             divNav.appendChild(Title)
@@ -72,7 +84,7 @@ function menuDuJeu (){
         divNavRight.style.justifyContent = 'space-between';
         divNavRight.style.alignItems = 'center';
         // divNavRight.style.width = "30%";        
-        divNavRight.style.marginLeft ="130%";
+        divNavRight.style.marginLeft ="100%";
 
         divNavRight.id = "divNavRight";
         divNav.appendChild(divNavRight);
@@ -109,6 +121,8 @@ function menuDuJeu (){
         divPause.style.width = "50px";
         divPause.style.height = "50px";
         divPause.style.margin = "6% 0% 0% 3%";
+        divPause.style.position = 'absolute';
+        divPause.style.right = '0';
         divPause.code = '<i class="uil uil-pause-circle"></i>';
 
         divPause.id = "divPause";
@@ -124,7 +138,11 @@ function menuDuJeu (){
         pause.id = "pause";
         divPause.appendChild(pause);
 
-
+        document.querySelector("#divPause").onclick = function demander_createt(){
+            gameContent.innerHTML = "";
+            subMenuPause();
+            // alert("créer un niveau")
+        };
         // const divFooter = document.createElement("div");
 
         // divFooter.style.display = "flex";
@@ -167,6 +185,7 @@ function menuBienvenue () {
         div_content.style.height = "75%"
         div_content.style.width = "55%"
         div_content.style.marginTop = "25px"
+        
 
         div_content.id = "div_content"
         document.querySelector("#menu").appendChild(div_content)
@@ -678,8 +697,9 @@ function menuEdition () {
     
 
     document.querySelector("#buttun_create").onclick = function demander_createt(){
-
-        alert("créer un niveau")
+        gameContent.innerHTML = "";
+        subMenuEdition();
+        // alert("créer un niveau")
     };
 
     document.querySelector("#div_buttun_back").onclick = function redirection_retour(){

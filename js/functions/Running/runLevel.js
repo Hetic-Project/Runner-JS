@@ -23,11 +23,11 @@ content.style.alignItems = "flex-end";
 content.style.backgroundColor = "transparent";
 content.style.transition = "2s"
 
-const blocks = [];
-const widthOfBlockA = 200;
+const blocks = []; // prends les blocs de types B et C
+const widthOfBlockA = 200; // largeur du bloc A
 let positionBlock = 400; // la distance qui separe chaque bloc B par rapport
 let numberBlockA = 100; // le nombre de bloc A
-const animationWidh = (widthOfBlockA * numberBlockA) - window.screen.availWidth;
+const animationWidh = (widthOfBlockA * numberBlockA) - window.screen.availWidth; //variable pour calculer la largeur totale de la map pour le slide dans move.js
 let initialSpeed = 100000;
 let blockB_By_BlockA = 3; // un block B tous les 3 block 
 const obstacles = ["B", "C"];
@@ -38,8 +38,8 @@ function createBlockA(block, i) {
     block.style.backgroundColor = "transparent";
     block.style.width = `${widthOfBlockA}px`;
     block.style.height = "100px";
-    content.appendChild(block);
-    gameWindows.appendChild(content);
+    content.appendChild(block); //ajoute le bloc dans la div content
+    gameWindows.appendChild(content); //ajoute le bloc content dans notre page 
 };
 
 function createObstacle(block, j) {
@@ -52,7 +52,7 @@ function createObstacle(block, j) {
         block.style.bottom = "100px";
         block.style.left = `${positionBlock}px`;
         block.style.backgroundImage = "url(../../../img/spike.png)";
-        blocks.push(block)
+        blocks.push(block) // push le bloc B dans notre tableau blocks
         content.appendChild(block);
     } else {
         block = document.createElement('div'); // créer un bloc C
@@ -67,11 +67,12 @@ function createObstacle(block, j) {
         block.style.backgroundSize = "cover";
         block.style.backgroundPositionY = "29px"
         // block.style.backgroundPositionX = "625px"
-        blocks.push(block)
+        blocks.push(block) // push le bloc C dans notre tableau blocks
         content.appendChild(block);
     };
 }
 
+//Fonction qui va ajouter notre personne dans le bloc content avec le style du personnage
 function createCharacter() {
     const character = document.createElement("div");
     character.style.height = "200px"
@@ -91,7 +92,7 @@ function createCharacter() {
     down(character)
 }
 
-
+// Fonction qui créer notre jeu avec le menu, le personnage ainsi que le choix du niveau 
 function runLevel(blockA, blockB, blockC) {
 
     menuDuJeu();
@@ -99,7 +100,7 @@ function runLevel(blockA, blockB, blockC) {
     let i = 0;
     let j = 0;
 
-    let value = parseInt(prompt())
+    let value = parseInt(prompt()) //prends la valeur du joueur 
   
     while (i < numberBlockA) {
       createBlockA(blockA, i);
@@ -118,6 +119,7 @@ function runLevel(blockA, blockB, blockC) {
     let speedMultiplier = 1; // initialisation du multiplicateur de vitesse
     let pointsPerBlock = 0; // initialisation des points
     switch (value) { 
+
       case 1:
         speedMultiplier = 0.9; // définit le multiplicateur de vitesse
         move(content, animationWidh, initialSpeed * speedMultiplier); // déplace la map
