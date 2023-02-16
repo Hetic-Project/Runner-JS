@@ -47,6 +47,7 @@ body{
   border-Radius : 25px;
   color: red;
   font-size:6vw;
+  cursor: pointer;
   }
   
   .text_buttun_white {
@@ -76,4 +77,8 @@ body{
     justify-content: center;
     align-items: center;
     line-height: 100%;
+  }
+
+  #div_back {
+    cursor: pointer;
   }
