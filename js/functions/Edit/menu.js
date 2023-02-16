@@ -378,7 +378,7 @@ function menuJouer () {
                 area_launch.style.display = "flex"
                 area_launch.style.justifyContent = "center"
                 area_launch.style.alignItems = "center";
-                area_launch.style.height = "25%"
+                area_launch.style.height = "40%"
                 area_launch.style.width = "100%"
 
                 area_launch.id = "area_launch"
@@ -387,7 +387,7 @@ function menuJouer () {
 // ====================================== Lancer la partie ===========================================
                 const buttun_launch = document.createElement ("div")
 
-                buttun_launch.style.height = "100%"
+                buttun_launch.style.height = "60%"
                 buttun_launch.style.marginTop = "50px"
                 buttun_launch.style.marginLeft = "65px"
                 buttun_launch.style.marginRight = "30px"
