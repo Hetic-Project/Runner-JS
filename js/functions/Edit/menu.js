@@ -18,6 +18,8 @@ function menu () {
 
 };
 
+export const divNavRight = document.createElement("div");
+
 function menuDuJeu (){
 
     const menu = document.createElement("div")
@@ -78,8 +80,6 @@ function menuDuJeu (){
             Title.id = "Title";
             divNav.appendChild(Title)
 
-        const divNavRight = document.createElement("div");
-
         divNavRight.style.display ='flex';
         divNavRight.style.justifyContent = 'space-between';
         divNavRight.style.alignItems = 'center';
@@ -102,15 +102,15 @@ function menuDuJeu (){
             divNavRight.appendChild(btnMenu);
 
 
-            const score = document.createElement("h3");
+            // const score = document.createElement("h3");
 
-            score.textContent = "score : 50 pts";
-            score.style.color = "#ffffff";
-            score.style.paddingLeft = "20px"
-            // score.style.fontSize = "25px";
+            // score.textContent = "score : 50 pts";
+            // score.style.color = "#ffffff";
+            // score.style.paddingLeft = "20px"
+            // // score.style.fontSize = "25px";
 
-            score.id = "score";
-            divNavRight.appendChild(score);
+            // score.id = "score";
+            // divNavRight.appendChild(score);
 
 
         const divPause = document.createElement("div");
