@@ -1,6 +1,8 @@
 function subMenuEdition(){
+    console.log("coucou")
     const gamecontent = document.querySelector(".game-content")
     const madiv = document.createElement("div");
+
     const divContent = document.createElement("div");
     const divNav = document.createElement("div");
     const divLR = document.createElement("div");
@@ -17,9 +19,8 @@ function subMenuEdition(){
     madiv.style.width = "100%";
     madiv.style.height = "100vh";
     madiv.style.overflow = "hidden";
-    // madiv.style.border = "3px solid #ffffff";
+    madiv.backgroundColor = "yellow"
 
-    // divContent.style.display = "flex";
     divContent.style.width = "100%";
     divContent.style.height = "100vh";
     divContent.style.overflow = "hidden";
@@ -158,7 +159,7 @@ function subMenuEdition(){
 
 
     gamecontent.appendChild(madiv);
-    madiv.appendChild(divContent);
+    madiv.appendChild(divContent)
     divContent.append(divNav,divLR);
     divLR.append(divLeft,divRight);
     divNav.appendChild(Title);
