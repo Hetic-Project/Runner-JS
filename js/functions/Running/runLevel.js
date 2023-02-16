@@ -1,4 +1,4 @@
-import { move, colision } from './move.js';
+import { move} from './move.js';
 import {menuDuJeu} from '../Edit/menu.js'
 import jump from './jump.js';
 import down from './down.js';
@@ -98,8 +98,6 @@ function runLevel(blockA, blockB, blockC) {
 
     let i = 0;
     let j = 0;
-
-    let value = parseInt(prompt())
   
     while (i < numberBlockA) {
       createBlockA(blockA, i);
@@ -114,55 +112,56 @@ function runLevel(blockA, blockB, blockC) {
     }
   
     createCharacter();
-  
-    let speedMultiplier = 1;
-    let points = 0; // initialisation des points
-    switch (value) {
-      case 1:
-        speedMultiplier = 0.9;
-        move(content, animationWidh, initialSpeed * speedMultiplier);
-        points = (i + j) * 10; // calcul les points pour chaque bloc créé
-        break;
-      case 2:
-        speedMultiplier = 0.6;
-        move(content, animationWidh, initialSpeed * speedMultiplier);
-        points = (i + j) * 12; // calcul les points pour chaque bloc créé
-        break;
-      default:
-        break;
-    }
+    move(content, animationWidh, 200000, blocks)
+
+    // let speedMultiplier = 1;
+    // let points = 0; // initialisation des points
+    // switch (value) {
+    //   case 1:
+    //     speedMultiplier = 0.9;
+    //     move(content, animationWidh, initialSpeed * speedMultiplier);
+    //     points = (i + j) * 10; // calcul les points pour chaque bloc créé
+    //     break;
+    //   case 2:
+    //     speedMultiplier = 0.6;
+    //     move(content, animationWidh, initialSpeed * speedMultiplier);
+    //     points = (i + j) * 12; // calcul les points pour chaque bloc créé
+    //     break;
+    //   default:
+    //     break;
+    // }
     
-    const score = points * (1 - speedMultiplier); // Calcul du score final en inversant le "speedMultiplier"
+    // const score = points * (1 - speedMultiplier); // Calcul du score final en inversant le "speedMultiplier"
     
-    console.log(`Nombre de blocs créés : ${i + j}`);
-    console.log(`Nombre de points : ${points}`);
-    console.log(`Multiplicateur de vitesse : ${speedMultiplier}`);
-    console.log(`Score : ${Math.floor(score)}`);
+    // console.log(`Nombre de blocs créés : ${i + j}`);
+    // console.log(`Nombre de points : ${points}`);
+    // console.log(`Multiplicateur de vitesse : ${speedMultiplier}`);
+    // console.log(`Score : ${Math.floor(score)}`);
 
-    let options = {
-        threshold : 0 
-    }
+  //   let options = {
+  //       threshold : 0 
+  //   }
 
-    const observer = new IntersectionObserver(handleIntersection, options);
+  //   const observer = new IntersectionObserver(handleIntersection, options);
 
 
-    function handleIntersection(entries){
+  //   function handleIntersection(entries){
 
-        if (entries[0].isIntersecting){
-            setInterval(() => {
-                console.log(entries[0].target.offsetLeft)
-                if(entries[0].target.offsetLeft === -400){
-                    console.log('colision')
-                }
+  //       if (entries[0].isIntersecting){
+  //           setInterval(() => {
+  //               console.log(entries[0].target.offsetLeft)
+  //               if(entries[0].target.offsetLeft === -400){
+  //                   console.log('colision')
+  //               }
 
-            }, 2)
-        }
-    }
+  //           }, 2)
+  //       }
+  //   }
     
 
-    observer.observe(content)
+  //   observer.observe(content)
     
-    colision();
+  //   colision();
   }
 
 export default runLevel;
