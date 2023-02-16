@@ -1,5 +1,5 @@
 import { move, colision } from './move.js';
-import {menuDuJeu} from '../Edit/menu.js'
+import {divNavRight, menuDuJeu} from '../Edit/menu.js'
 import jump from './jump.js';
 import down from './down.js';
 
@@ -106,38 +106,45 @@ function runLevel(blockA, blockB, blockC) {
       i++;
     }
   
-    while (j < Math.trunc(numberBlockA / blockB_By_BlockA)) {
-      const randomObstacle = Math.round(Math.random(0, 2));
-      createObstacle(obstacles[randomObstacle], j);
-      positionBlock = positionBlock + 600;
-      j++;
+    while (j < Math.trunc(numberBlockA / blockB_By_BlockA)) { // créer un bloc B tous les 3 bloc A
+      const randomObstacle = Math.round(Math.random(0, 2)); // génère un nombre aléatoire entre 0 et 1
+      createObstacle(obstacles[randomObstacle], j); // créer un bloc B ou C
+      positionBlock = positionBlock + 600; // la distance qui separe chaque bloc B par rapport
+      j++; // incrémente le nombre de bloc B
     }
   
     createCharacter();
   
-    let speedMultiplier = 1;
-    let points = 0; // initialisation des points
-    switch (value) {
+    let speedMultiplier = 1; // initialisation du multiplicateur de vitesse
+    let pointsPerBlock = 0; // initialisation des points
+    switch (value) { 
       case 1:
-        speedMultiplier = 0.9;
-        move(content, animationWidh, initialSpeed * speedMultiplier);
-        points = (i + j) * 10; // calcul les points pour chaque bloc créé
+        speedMultiplier = 0.9; // définit le multiplicateur de vitesse
+        move(content, animationWidh, initialSpeed * speedMultiplier); // déplace la map
+        pointsPerBlock = (i + j) * 10; // calcul les points pour chaque bloc créé
         break;
       case 2:
-        speedMultiplier = 0.6;
-        move(content, animationWidh, initialSpeed * speedMultiplier);
-        points = (i + j) * 12; // calcul les points pour chaque bloc créé
+        speedMultiplier = 0.6; // définit le multiplicateur de vitesse
+        move(content, animationWidh, initialSpeed * speedMultiplier); // déplace la map
+        pointsPerBlock = (i + j) * 12; // calcul les points pour chaque bloc créé
         break;
       default:
         break;
     }
     
-    const score = points * (1 - speedMultiplier); // Calcul du score final en inversant le "speedMultiplier"
-    
-    console.log(`Nombre de blocs créés : ${i + j}`);
-    console.log(`Nombre de points : ${points}`);
+    const score = pointsPerBlock * (1 - speedMultiplier); // Calcul du score final en inversant le "speedMultiplier" pour avoir un score plus élevé car speedMultiplier < 1
+    const scoreElement = document.createElement("h3"); 
+
+    console.log(`Nombre de blocs créés : ${i + j}`); 
+    console.log(`Nombre de points : ${pointsPerBlock}`); 
     console.log(`Multiplicateur de vitesse : ${speedMultiplier}`);
-    console.log(`Score : ${Math.floor(score)}`);
+    // console.log(`Score : ${Math.floor(score)}`);
+    
+    scoreElement.textContent = `SCORE : ${Math.floor(score)}`;
+    scoreElement.style.position = "fixed";
+    scoreElement.style.color = "#ffffff";
+    scoreElement.style.paddingLeft = "20px"
+    divNavRight.appendChild(scoreElement);
 
     let options = {
         threshold : 0 
@@ -150,7 +157,7 @@ function runLevel(blockA, blockB, blockC) {
 
         if (entries[0].isIntersecting){
             setInterval(() => {
-                console.log(entries[0].target.offsetLeft)
+                // console.log(entries[0].target.offsetLeft)
                 if(entries[0].target.offsetLeft === -400){
                     console.log('colision')
                 }
