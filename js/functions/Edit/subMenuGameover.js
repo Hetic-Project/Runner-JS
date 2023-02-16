@@ -46,7 +46,7 @@ function subMenuGameover (nombre_de_point) {
                 div_titre.style.width = "80%"
                 div_titre.style.height = "20%"
                 div_titre.style.border = "2px solid #C03030"
-                div_titre.style.borderRadius = "15px"
+                div_titre.style.borderRadius = "10px"
                 div_titre.style.fontSize = "3.3vw"
 
                 div_titre.id = "div_titre"
@@ -101,7 +101,7 @@ function subMenuGameover (nombre_de_point) {
                     div_score.style.display = "flex"
                     div_score.style.justifyContent = "space-around"
                     div_score.style.border = "2px solid white"
-                    div_score.style.borderRadius = "15px"
+                    div_score.style.borderRadius = "10px"
                     div_score.style.width = "40%"
                     div_score.style.height = "48%";
 
@@ -140,7 +140,6 @@ function subMenuGameover (nombre_de_point) {
             area_buttun.style.display = "flex"
             area_buttun.style.flexWrap = "wrap";
             area_buttun.style.justifyContent = "space-around"
-            area_buttun.style.borderRadius = "15px"
             area_buttun.style.width = "100%"
             area_buttun.style.height = "40%";
 
