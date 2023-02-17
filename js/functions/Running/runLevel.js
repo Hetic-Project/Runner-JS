@@ -119,7 +119,7 @@ function runLevel(blockA) {
   createCharacter(); // appel du personnage
   
     let speedMultiplier = 1; // initialisation du multiplicateur de vitesse
-    let initialSpeed = 1; // vitesse de base du jeu
+    let initialSpeed = 200000; // vitesse de base du jeu
 
     // modifier le multiplicateur de vitesse en fonction de l'option sélectionnée
     switch (optionsLevel.level) { // on change la vitesse du jeu en fonction de l'option choisie
@@ -149,15 +149,6 @@ function runLevel(blockA) {
         move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
         break;
     }
-
-    // move.on('moved', () => {
-    //   const { blocks, character } = move.getState(); // récupère les blocs et le personnage
-    //   const currentBlock = blocks.find(block => block.getBoundingClientRect().right < character.getBoundingClientRect().left); // récupère le bloc le plus à gauche
-    //   if (currentBlock && !currentBlock.passed) { // si le bloc existe et qu'il n'a pas encore été passé
-    //     currentBlock.passed = true; // on passe le bloc
-    //     scoreUpdate(); // on met à jour le score
-    //   }
-    // })
 };
 
 export default runLevel;
