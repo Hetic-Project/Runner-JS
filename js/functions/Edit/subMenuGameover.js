@@ -4,20 +4,20 @@ function subMenuGameover (nombre_de_point, animation) {
     const game_content = document.querySelector(".game-content")
 
 
-        const menu = document.createElement("div")
+        const menu_game_over = document.createElement("div")
 
-        menu.style.display = "flex"
-        menu.style.justifyContent = "center"
-        menu.style.alignItems = "center"
-        menu.style.height = "100%"
-        menu.style.width = "100%"
-        menu.style.backgroundColor = "rgba(0,0,0,0.4)"
-        menu.style.zIndex = "1"
-        menu.style.top = "0px"
-        menu.style.position = "fixed";
+        menu_game_over.style.display = "flex"
+        menu_game_over.style.justifyContent = "center"
+        menu_game_over.style.alignItems = "center"
+        menu_game_over.style.height = "100%"
+        menu_game_over.style.width = "100%"
+        menu_game_over.style.backgroundColor = "rgba(0,0,0,0.4)"
+        menu_game_over.style.zIndex = "1"
+        menu_game_over.style.top = "0px"
+        menu_game_over.style.position = "fixed";
 
-        menu.id = "menu"
-        game_content.appendChild(menu)
+        menu_game_over.id = "menu_game_over"
+        game_content.appendChild(menu_game_over)
 
             const div_content = document.createElement("div")
 
@@ -28,7 +28,7 @@ function subMenuGameover (nombre_de_point, animation) {
             div_content.style.flexWrap = "wrap";
 
             div_content.id = "div_content"
-            menu.appendChild(div_content)
+            menu_game_over.appendChild(div_content)
 
 
                 const div_titre = document.createElement("div")
@@ -193,7 +193,7 @@ function subMenuGameover (nombre_de_point, animation) {
 
     document.querySelector("#buttun_restart").onclick = function redirection_jouer(){
         isOpen.gameOver = false
-        menu.style.display = "none"
+        menu_game_over.style.display = "none"
         animation.finish()
         animation.play()
     };

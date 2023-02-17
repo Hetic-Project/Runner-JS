@@ -89,6 +89,9 @@ function colision(animation){
     
     animation.pause();// méthode pause lié à la méthode "animation"
     if (isOpen.gameOver === false) {
+        if (document.getElementById("menu_game_over") !== null) {
+            document.getElementById("menu_game_over").remove()
+        }
         subMenuGameover(0, animation)
         isOpen.gameOver = true
     }
