@@ -3,9 +3,8 @@
 *{
     padding: 0;
     margin: 0;
-
+    
 }
-
 
 body{
     font-family: 'Poppins', sans-serif;
@@ -57,34 +56,34 @@ body{
   border-Color: white;
   border-Radius: 25px;
   color: red;
-  font-size: 6vw;
-}
-
-.text_buttun_white {
-  color: white;
-  font-weight: 700;
-  font-size: 0.4em;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  line-height: 100%;
-}
-
-.text_buttun_white:hover {
-  color: #FFBB0B;
-}
-
-.text_buttun_yellow {
-
-  color: #FFBB0B;
-  font-weight: 700;
-  font-size: 0.4em;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  line-height: 100%;
-}
+  font-size:6vw;
+  }
+  
+  .text_buttun_white {
+    color: white;
+    font-weight: 700;
+    font-size:0.4em;
+    width: 100%; 
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 100%;
+  }
+  
+  .text_buttun_white:hover {
+    color : #FFBB0B;
+  }
+  
+  .text_buttun_yellow {
+  
+    color: #FFBB0B;
+    font-weight: 700;
+    font-size:0.4em;
+    width: 100%; 
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 100%;
+  }

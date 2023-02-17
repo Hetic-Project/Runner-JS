@@ -58,7 +58,21 @@ function subMenuEdition(){
     rightTitle.style.fontSize = "40px"
     rightTitle.style.fontWeight = "900";
 
+<<<<<<< HEAD
     
+=======
+    btnExport.style.display = "flex"
+    btnExport.style.backgroundColor = "#FFBB0B"
+    btnExport.style.justifyContent = "center"
+    btnExport.style.alignItems = "center";
+    btnExport.style.height = "12%"
+    btnExport.style.width = "35%"
+    btnExport.style.border ="solid 3px #FFFFFF"
+    btnExport.style.borderRadius = "25px"
+    btnExport.style.margin = "17% 35%";
+    btnExport.style.cursor = "pointer";
+    btnExport.id = "buttun_export"
+>>>>>>> 455568d084f84d0ff9bb20c812cf200a28072db1
 
     
 
@@ -186,5 +200,5 @@ function subMenuEdition(){
     divNav.append(Title, div_buttun_back);
     divRight.append(rightTitle, form, divForm);
     
-}   
-export default subMenuEdition;
+}
+export default subMenuEdition
