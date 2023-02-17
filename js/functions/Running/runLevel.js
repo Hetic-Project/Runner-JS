@@ -1,9 +1,12 @@
 // Entre accolade car c'est des exports
 import { move} from './move.js';
-import {menuDuJeu} from '../Edit/menu.js'
+import {menuDuJeu, optionsLevel} from '../Edit/menu.js'
 import {jump} from './jump.js';
 import {down} from './down.js';
 
+const params = {
+    numberBlockA: 100,
+}
 
 const gameWindows = document.querySelector('.game-content');
 const content = document.createElement('div');
@@ -25,9 +28,8 @@ content.style.backgroundColor = "transparent";
 const blocks = []; // prends les blocs de types B et C
 const widthOfBlockA = 200; // largeur du bloc A
 let positionBlock = 400; // la distance qui separe chaque bloc B et C par rapport à leur left
-let numberBlockA = 100; // le nombre de bloc A
 // calcule du slide de la map par rapport a la taille de l'écran de l'utilisateur
-const animationWidh = (widthOfBlockA * numberBlockA) - window.screen.availWidth;
+const animationWidth = (widthOfBlockA * params.numberBlockA) - window.screen.availWidth;
 let initialSpeed = 100000; // vitesse de départ du jeu
 let SpaceBetweenObstacles = 3; // espacement en nombre de blocks A entre chaque obstacle
 const obstacles = ["B", "C"];
@@ -100,12 +102,12 @@ function runLevel(blockA) {
     let i = 0;
     let j = 0;
 
-    while (i < numberBlockA) { // tant que le I est inférieur a la valeur de A on créer des blocs A
+    while (i < params.numberBlockA) { // tant que le I est inférieur a la valeur de A on créer des blocs A
       createBlockA(blockA);
       i++;
     }
   
-    while (j < Math.trunc((numberBlockA / SpaceBetweenObstacles) - 4)) {
+    while (j < Math.trunc((params.numberBlockA / SpaceBetweenObstacles) - 4)) {
       const randomObstacle = Math.round(Math.random(0, 2)); // soit 0 = B, soit 1 = C avec 2 exclu
       createObstacle(obstacles[randomObstacle]); // génère aléatoirement un bloc B ou C en fonction du random
       // la distance entre les éléments B et C (A = 200px donc 600px représente 3 blocs A)
@@ -114,38 +116,81 @@ function runLevel(blockA) {
     }
   
     createCharacter(); // appel du personnage
-    move(content, animationWidh, 200000, blocks); // appel la fonction move de move.js
-  }
+    
+    
+      // let value = parseInt(prompt()) //prends la valeur du joueur 
+  
+      let speedMultiplier = 1; // initialisation du multiplicateur de vitesse
+      // let pointsPerBlock = 0; // initialisation des points
+  
+    // ajouter un écouteur d'événement "change" à la liste déroulante
+      
+      // modifier le multiplicateur de vitesse en fonction de l'option sélectionnée
+      switch (optionsLevel.level) { 
+        case "1":
+          speedMultiplier = 0.9;
+          move(content, animationWidth, initialSpeed * speedMultiplier);
+          break;
+        case "2":
+          speedMultiplier = 0.8;
+          move(content, animationWidth, initialSpeed * speedMultiplier);
+          break;
+        case "3":
+          speedMultiplier = 0.65;
+          move(content, animationWidth, initialSpeed * speedMultiplier);
+          break;
+        case "4":
+          speedMultiplier = 0.6;
+          move(content, animationWidth, initialSpeed * speedMultiplier);
+          break;
+        case "5":
+          speedMultiplier = 0.5;
+          move(content, animationWidth, initialSpeed * speedMultiplier);
+          break;      
+        // ajouter des cas pour les autres options
+        default:
+          speedMultiplier = 1;
+          move(content, animationWidth, initialSpeed * speedMultiplier);
+          break;
+      }
+  };
+  
 
   
-  function score() 
-  {
-    let value = parseInt(prompt()) //prends la valeur du joueur 
+  // function score() 
+  // {
+  //   // let value = parseInt(prompt()) //prends la valeur du joueur 
 
-    let speedMultiplier = 1; // initialisation du multiplicateur de vitesse
-    let pointsPerBlock = 0; // initialisation des points
-    switch (value) { 
+  //   let speedMultiplier = 1; // initialisation du multiplicateur de vitesse
+  //   let pointsPerBlock = 0; // initialisation des points
 
-      case 1:
-        speedMultiplier = 0.9; // définit le multiplicateur de vitesse
-        move(content, animationWidh, initialSpeed * speedMultiplier); // déplace la map
-        pointsPerBlock = (i + j) * 10; // calcul les points pour chaque bloc créé
-        break;
-      case 2:
-        speedMultiplier = 0.6; // définit le multiplicateur de vitesse
-        move(content, animationWidh, initialSpeed * speedMultiplier); // déplace la map
-        pointsPerBlock = (i + j) * 12; // calcul les points pour chaque bloc créé
-        break;
-      default:
-        break;
-    }
+  // // ajouter un écouteur d'événement "change" à la liste déroulante
+  // document.addEventListener("change", function() {
+  //   // modifier le multiplicateur de vitesse en fonction de l'option sélectionnée
+  //   switch (options.value) { 
+  //     case "1":
+  //       speedMultiplier = 0.9;
+  //       move(content, animationWidh, initialSpeed * speedMultiplier);
+  //       break;
+  //     case "2":
+  //       speedMultiplier = 0.6;
+  //       move(content, animationWidh, initialSpeed * speedMultiplier);
+  //       break;
+  //     // ajouter des cas pour les autres options
+  //     default:
+  //       speedMultiplier = 1;
+  //       move(content, animationWidh, initialSpeed * speedMultiplier);
+  //       break;
+  //   }
+  // });
+
     
-    const score = pointsPerBlock * (1 - speedMultiplier); // Calcul du score final en inversant le "speedMultiplier" pour avoir un score plus élevé car speedMultiplier < 1
-    const scoreElement = document.createElement("h3"); 
+    // const score = pointsPerBlock * (1 - speedMultiplier); // Calcul du score final en inversant le "speedMultiplier" pour avoir un score plus élevé car speedMultiplier < 1
+    // const scoreElement = document.createElement("h3"); 
 
-    console.log(`Nombre de blocs créés : ${i + j}`); 
-    console.log(`Nombre de points : ${pointsPerBlock}`); 
-    console.log(`Multiplicateur de vitesse : ${speedMultiplier}`);
+    // console.log(`Nombre de blocs créés : ${i + j}`); 
+    // console.log(`Nombre de points : ${pointsPerBlock}`); 
+    // console.log(`Multiplicateur de vitesse : ${speedMultiplier}`);
     // console.log(`Score : ${Math.floor(score)}`);
     
     // scoreElement.textContent = `SCORE : ${Math.floor(score)}`;
@@ -153,7 +198,7 @@ function runLevel(blockA) {
     // scoreElement.style.color = "#ffffff";
     // scoreElement.style.paddingLeft = "20px"
     // divNavRight.appendChild(scoreElement);
-  }
+  // }
 
-export {score};
+// export {score};
 export default runLevel;

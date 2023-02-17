@@ -1,6 +1,6 @@
 import {isJump} from './jump.js';
 import { isDown } from './down.js';
-import { score } from './runLevel.js'
+import runLevel from './runLevel.js'
 
 
 function move(element, animationWidth, level, array) {
@@ -44,7 +44,7 @@ function move(element, animationWidth, level, array) {
             if (input.value > (obstacle.distance - 38) && input.value < (obstacle.distance - 38) + 15)  {
                 if (obstacle.type === "B"){ //si c'est un obstacle B
                     if (isJump.jumping) { // alors il faut sauter 
-                        score();
+                        runLevel();
                         console.log("calcule du score"); //continuer le score
                     }else{
                         colision(moveMap); //ou sinon il y a colision
@@ -52,7 +52,7 @@ function move(element, animationWidth, level, array) {
                     
                 }else {
                     if (isDown.down) { //si il s'est baissé
-                        score();
+                        runLevel();
                         console.log("calcule du score"); //continuer le score
                     }else{
                         colision(moveMap);
