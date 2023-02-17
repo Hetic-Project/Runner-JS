@@ -1,4 +1,6 @@
-function subMenuGameover (nombre_de_point) {
+import { isOpen } from "../Running/move.js";
+
+function subMenuGameover (nombre_de_point, animation) {
     const game_content = document.querySelector(".game-content")
 
 
@@ -190,7 +192,10 @@ function subMenuGameover (nombre_de_point) {
                         document.querySelector("#buttun_exit").appendChild(text_exit)
 
     document.querySelector("#buttun_restart").onclick = function redirection_jouer(){
-        alert("redemarage de la partie")
+        isOpen.gameOver = false
+        menu.style.display = "none"
+        animation.finish()
+        animation.play()
     };
 
     document.querySelector("#buttun_exit").onclick = function redirection_jouer(){

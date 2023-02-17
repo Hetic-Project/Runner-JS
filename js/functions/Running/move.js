@@ -4,11 +4,11 @@ import subMenuPause from '../Edit/subMenuPause.js';
 
 
 const isOpen = {
-    menu: false
+    menu: false,
+    gameOver: false
 }
 
 import subMenuGameover from '../Edit/subMenuGameover.js';
-let gameOver = false 
 
 
 function move(element, animationWidth, level, array) {
@@ -88,9 +88,9 @@ function move(element, animationWidth, level, array) {
 function colision(animation){
     
     animation.pause();// méthode pause lié à la méthode "animation"
-    if (!gameOver) {
-        subMenuGameover(0)
-        gameOver = true
+    if (isOpen.gameOver === false) {
+        subMenuGameover(0, animation)
+        isOpen.gameOver = true
     }
     
 
