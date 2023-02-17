@@ -1,14 +1,6 @@
 function subMenuGameover (nombre_de_point) {
     const game_content = document.querySelector(".game-content")
 
-    const madiv = document.createElement("div")
-
-    madiv.style.height = "100vh"
-    madiv.style.width = "100vw"
-
-    madiv.id = "madiv"
-    game_content.appendChild(madiv)
-
 
         const menu = document.createElement("div")
 
@@ -17,10 +9,13 @@ function subMenuGameover (nombre_de_point) {
         menu.style.alignItems = "center"
         menu.style.height = "100%"
         menu.style.width = "100%"
-        menu.style.backgroundColor = "#0C0F21"
+        menu.style.backgroundColor = "rgba(0,0,0,0.4)"
+        menu.style.zIndex = "1"
+        menu.style.top = "0px"
+        menu.style.position = "fixed";
 
         menu.id = "menu"
-        madiv.appendChild(menu)
+        game_content.appendChild(menu)
 
             const div_content = document.createElement("div")
 
@@ -199,7 +194,7 @@ function subMenuGameover (nombre_de_point) {
     };
 
     document.querySelector("#buttun_exit").onclick = function redirection_jouer(){
-        alert("fonction quitter")
+        location.reload();
     };
 
 
