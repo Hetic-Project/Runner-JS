@@ -1,8 +1,17 @@
 let score = 0;
+let distanceTravelled = 0;
 
-function scoreUpdate() {
-  score += 10; // on ajoute 10 points au score
+// ...
+
+function scoreUpdate(distance) {
+  distanceTravelled += distance;
+  score = Math.floor(distanceTravelled / 200) * 10;
   console.log(score);
 }
 
-export { scoreUpdate };
+function moveContent(distance) {
+  scoreUpdate(distance);
+  move(content, distance, animationWidth);
+}
+
+export {scoreUpdate}

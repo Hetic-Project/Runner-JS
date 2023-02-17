@@ -6,7 +6,7 @@ import {down} from './down.js';
 import { scoreUpdate } from './score.js';
 
 const params = {
-    numberBlockA: 100,
+  numberBlockA: 100,
 }
 
 const gameWindows = document.querySelector('.game-content');
@@ -124,28 +124,33 @@ function runLevel(blockA) {
     // modifier le multiplicateur de vitesse en fonction de l'option sélectionnée
     switch (optionsLevel.level) { // on change la vitesse du jeu en fonction de l'option choisie
       case "1":
-        speedMultiplier = 0.9; 
+        speedMultiplier = 0.8; 
         move(content, animationWidth, initialSpeed * speedMultiplier, blocks); 
         break;
       case "2":
-        speedMultiplier = 0.8;
-        move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
-        break;
-      case "3":
-        speedMultiplier = 0.65;
-        move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
-        break;
-      case "4":
+        console.log("2"); 
         speedMultiplier = 0.6;
         move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
         break;
+      case "3":
+        console.log("3"); 
+        speedMultiplier = 0.4;
+        move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
+        break;
+      case "4":
+        console.log("4"); 
+        speedMultiplier = 0.3;
+        move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
+        break;
       case "5":
-        speedMultiplier = 0.5;
+        console.log("5"); 
+        speedMultiplier = 0.2;
         move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
         break;      
       // ajouter des cas pour les autres options
       default:
-        speedMultiplier = 1;
+        console.log("0"); 
+        speedMultiplier = 0.8;
         move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
         break;
     }
