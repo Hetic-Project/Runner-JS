@@ -166,9 +166,6 @@ function subMenuEdition(){
     divNav.appendChild(Title);
     divRight.append(rightTitle, form, btnExport, divForm);
     btnExport.appendChild(text_import);
-
-    document.querySelector("#buttun_export").onclick = function() {
-        alert("coucou")
     
-}}   
+}
 export default subMenuEdition
