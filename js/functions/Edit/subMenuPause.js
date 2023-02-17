@@ -1,4 +1,4 @@
-function subMenuPause () {
+function subMenuPause (animation) {
     console.log("coucou")
     const gamecontent = document.querySelector(".game-content")
 
@@ -6,9 +6,11 @@ function subMenuPause () {
         madiv.style.display = "flex";
         madiv.style.alignItems = "center";
         madiv.style.justifyContent = "center";
-        madiv.style.backgroundColor = "#FFBB0B";
+        madiv.style.backgroundColor = "rgba(0, 0, 0, .4)";
         madiv.style.width = "100%";
         madiv.style.height = "100vh";
+        madiv.style.position = "fixed";
+        madiv.style.top = "0px";
 
     const divBtn = document.createElement("div");
         divBtn.style.position ='absolute';
@@ -20,6 +22,11 @@ function subMenuPause () {
 
         const btnContinu = document.createElement("button");
             btnContinu.textContent = "Continue";
+            btnContinu.addEventListener("click", () => {
+                madiv.style.display = "none"
+                animation.play()
+            })
+
             btnContinu.className = 'btn';
         const btnRestart = document.createElement("button");
             btnRestart.textContent = "Restart";
@@ -36,13 +43,13 @@ function subMenuPause () {
         divTitle.style.height = '123px';
         divTitle.style.margin = "-160px";
 
-        const Title = document.createElement("h1");
-            Title.textContent = 'PAUSE';
-            Title.style.fontSize = '80px';
-            Title.style.color = '#FFFFFF';
-            Title.style.textAlign= "center";
-            Title.style.border = "3px solid #FFFFFF";
-            Title.style.borderRadius = '14px';
+    const Title = document.createElement("h1");
+        Title.textContent = 'PAUSE';
+        Title.style.fontSize = '80px';
+        Title.style.color = '#FFFFFF';
+        Title.style.textAlign= "center";
+        Title.style.border = "3px solid #FFFFFF";
+        Title.style.borderRadius = '14px';
 
     const divContentMenu = document.createElement("div");
         divContentMenu.style.display = "flex";
@@ -54,10 +61,10 @@ function subMenuPause () {
         divContentMenu.style.width = "10%";
 
     gamecontent.appendChild(madiv);
-    madiv.appendChild(divContentMenu)
-    divContentMenu.appendChild(divTitle)
+    madiv.appendChild(divContentMenu);
+    divContentMenu.appendChild(divTitle);
     divContentMenu.appendChild(divBtn);
     divTitle.appendChild(Title);
     divBtn.append(btnContinu, btnRestart, btnExit);
 }
-export default subMenuPause
+export default subMenuPause;
