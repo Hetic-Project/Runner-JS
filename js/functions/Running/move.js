@@ -1,15 +1,14 @@
-import { menuBienvenue } from "../Edit/menu.js";
+import {isJump} from './jump.js'
+import { isDown } from './down.js';
 
 
 function move(element, animationWidth, level, array) {
     // bouger la map
-    
     const moveMap = element.animate({
         left : `-${animationWidth}px`, // taile d'un bloc A multiplié par le nombre de bloc A
     }, {
         duration: level, // le temps de l'effet de slide jusqu'à (x)px
         iterations: Infinity,
-
     })
     
     const allObstacles = [];
@@ -26,6 +25,7 @@ function move(element, animationWidth, level, array) {
 
     const input = document.createElement('input')
     input.style.border = "3px solid orange"
+    input.setAttribute("type", "number")
     input.style.borderRadius = "5px"
     input.style.padding = "5px"
     input.style.textAlign = "center"
@@ -38,25 +38,32 @@ function move(element, animationWidth, level, array) {
         input.value = moveMap.effect.target.offsetLeft * (-1) 
         allObstacles.forEach((obstacle) => {
             
-            if (input.value > (obstacle.distance - 38) && input.value < (obstacle.distance - 38) + 10)  {
+            if (input.value > (obstacle.distance - 38) && input.value < (obstacle.distance - 38) + 15)  {
                 if (obstacle.type === "B"){
-                    console.log("obstacle bas")
+                    if (isJump.jumping) {
+                        console.log("calcule du score")
+                    }else{
+                        colision(moveMap)
+                    }
+                    
                 }else {
-                    console.log("obstacle haut")
+                    if (isDown.down) {
+                        console.log("calcule du score")
+                    }else{
+                        colision(moveMap)
+                    }
                 }
-
-                // colision()
             }
         })
     
     })
     
-    function colision(){
-        moveMap.pause()
-    }
-
+    
 }
 
+function colision(animation){
+    animation.pause()
+}
 
 
 export {move}
