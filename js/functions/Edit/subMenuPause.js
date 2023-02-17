@@ -19,7 +19,15 @@ function subMenuPause () {
 
         const btnContinu = document.createElement("button");
             btnContinu.textContent = "Continue";
+            btnContinu.id = "btnContinu";
+            btnContinu.className = "btnf";
             btnContinu.className = 'btn';
+            // document.getElementById("#btnContinu").autofocus()
+        // window.onload = function() {
+        //     var button = document.getElementById("btnContinu");
+        //     button.focus();
+        //     };
+              
         const btnRestart = document.createElement("button");
             btnRestart.textContent = "Restart";
             btnRestart.className = 'btn';

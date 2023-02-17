@@ -9,10 +9,8 @@ function subMenuEdition(){
     const divRight = document.createElement("div");
     const divLeft = document.createElement("div");
 
-    const btnExport = document.createElement("button");
     const Title = document.createElement("h1");
     const rightTitle = document.createElement("h2");
-    const text_import = document.createElement("span")
     
 
     madiv.style.display = "flex";
@@ -59,21 +57,9 @@ function subMenuEdition(){
     rightTitle.style.fontSize = "40px"
     rightTitle.style.fontWeight = "900";
 
-    btnExport.style.display = "flex"
-    btnExport.style.backgroundColor = "#FFBB0B"
-    btnExport.style.justifyContent = "center"
-    btnExport.style.alignItems = "center";
-    btnExport.style.height = "12%"
-    btnExport.style.width = "35%"
-    btnExport.style.border ="solid 3px #FFFFFF"
-    btnExport.style.borderRadius = "25px"
-    btnExport.style.margin = "17% 35%";
-    btnExport.style.cursor = "pointer";
+    
 
-    text_import.innerText = "Export LEVEL"
-    text_import.style.fontSize = "20px";
-    text_import.style.fontWeight = "900";
-    text_import.style.color = "#ffffff"
+    
 
     //form
 
@@ -84,6 +70,7 @@ function subMenuEdition(){
     divForm.style.padding = "20px 30px 0px 20px"
 
     const form = document.createElement("form");
+    form.id = "form"
     form.setAttribute('action', '#');
     form.style.margin = "20% 10% 0% 20%"
     // form.style.backgroundColor = "#FFBB0B";
@@ -108,8 +95,11 @@ function subMenuEdition(){
             inputTitre.style.marginLeft = "74px";
             inputTitre.style.color = "white";
             inputTitre.style.paddingLeft ="10px";
+
+            inputTitre.autofocus = au
+            inputTitre.id = "titre"
         div_el1.append(inputLabel, inputTitre);
-        form.append(div_el1);
+        form.appendChild(div_el1);
 
     const div_el2 = document.createElement("div");
     div_el2.style.display = "flex";
@@ -130,41 +120,117 @@ function subMenuEdition(){
             inputCreateur.style.borderRadius = "15px";
             inputCreateur.style.color = "white";
             inputCreateur.style.paddingLeft ="10px";
+            inputCreateur.id = "createur"
         div_el2.append(inputLabel2, inputCreateur);
         form.appendChild(div_el2);
 
     const div_el3 = document.createElement("div");
         
-        const inputLabel3 = document.createElement('label');
-        inputLabel3.textContent = 'DIFFICULTY : ';
-        inputLabel3.style.color = 'white';
-        inputLabel3.style.fontWeight = "900";
-        inputLabel3.style.fontSize = "30px";
-        inputLabel3.style.paddingRight = "70px";
+            const inputLabel3 = document.createElement('label');
+            inputLabel3.textContent = 'DIFFICULTY : ';
+            inputLabel3.style.color = 'white';
+            inputLabel3.style.fontWeight = "900";
+            inputLabel3.style.fontSize = "30px";
+            inputLabel3.style.paddingRight = "70px";
 
-        const inputSelect = document.createElement('select');
-        const options = ["1", "2", "3","4","5"];
-        for(var i = 0; i < options.length; i++) {
-        var option = document.createElement("option");
-        option.text = options[i];
-        inputSelect.add(option);
-        }
-      
-        inputSelect.setAttribute('type', 'number');
+            const inputSelect = document.createElement('select');
+            inputSelect.setAttribute('type', 'number');
+                const options = ["1", "2", "3","4","5"];
+                for(var i = 0; i < options.length; i++) {
+                var option = document.createElement("option");
+                option.text = options[i];
+                inputSelect.add(option);
+                }
+            inputSelect.id = "select"
         div_el3.append(inputLabel3, inputSelect);
         form.appendChild(div_el3);
 
+        const btnExport = document.createElement('button');
+        btnExport.setAttribute('type', 'submit');
+            btnExport.style.display = "flex"
+            btnExport.style.backgroundColor = "#FFBB0B"
+            btnExport.style.justifyContent = "center"
+            btnExport.style.alignItems = "center";
+            btnExport.style.height = "12%"
+            btnExport.style.width = "35%"
+            btnExport.style.border ="solid 3px #FFFFFF"
+            btnExport.style.borderRadius = "25px"
+            btnExport.style.margin = "17% 35%";
+            btnExport.style.cursor = "pointer";
+            btnExport.textContent = "Export LEVEL";
+            btnExport.innerText = "Export LEVEL"
+            btnExport.style.fontSize = "20px";
+            btnExport.style.fontWeight = "900";
+            btnExport.style.color = "#ffffff";
+            btnExport.id = "btnExport";
+            
+            form.appendChild(btnExport);
+            
+            // const loginForm = document.querySelector('#form');
+            // const submitButton = loginForm.querySelector('#btnExport');
+            
+            // submitButton.addEventListener('click', function(event) {
+            //   event.preventDefault();
+            //   login();
+            // });
+
+            // function login() {
+            //     const Titre = loginForm.querySelector('#titre').value;
+            //     const Createur = loginForm.querySelector('#createur').value;
+            //     const Difficulty = loginForm.querySelector("#select").value;
+              
+            //     // Vérifier que les champs ne sont pas vides
+            //     if (!Titre || !Createur) {
+            //       alert('Veuillez saisir votre adresse e-mail et votre mot de passe.');
+            //       return;
+            //     }
+            //   }
+              
+            
 
     divForm.appendChild(form);
 
+    const div_buttun_back = document.createElement("div")
+
+            div_buttun_back.style.display = "flex"
+            div_buttun_back.style.height = "30%"
+            div_buttun_back.style.width = "35%"
+            div_buttun_back.style.marginLeft = "40px"
+
+            div_buttun_back.id = "div_buttun_back" 
+            // div_buttun_back.appendChild(div_buttun_back)
+
+                const arrow_svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
+
+                arrow_svg.setAttribute("width", "64");
+                arrow_svg.setAttribute("height", "54");
+                arrow_svg.setAttribute("viewBox", "0 0 64 54");
+                arrow_svg.setAttribute("fill", "none");
+
+                const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
+                path.setAttribute("d", "M13.3617 13.462L26.7234 0L35.219 0C39.8916 0 43.7146 0.0511006 43.7146 0.113557C43.7146 0.176013 39.2683 4.70662 33.8339 10.1816C28.2907 15.7662 23.9532 20.2518 23.9532 20.3999C23.9532 20.6496 25.0245 20.6658 43.9766 20.702L64 20.7402V27.0754V33.4106L44.0515 33.4489C25.1705 33.4851 24.1029 33.5013 24.1029 33.751C24.1029 33.899 28.4083 38.3523 33.9088 43.8939C39.302 49.3273 43.7146 53.824 43.7146 53.8864C43.7146 53.9489 39.8923 54 35.2207 54H26.7267L13.3634 40.5389C6.01351 33.1352 -1.00432e-06 27.0431 -1.00432e-06 27.0008C-1.00432e-06 26.9585 6.01277 20.8661 13.3617 13.462Z");
+                path.setAttribute("fill", "#762929");
+                arrow_svg.appendChild(path);
+
+                div_buttun_back.appendChild(arrow_svg)
+
+                const arrow_text = document.createElement("span")
+
+                arrow_text.innerText = "RETOUR"
+                arrow_text.style.fontWeight = "700"
+                arrow_text.style.fontSize = "45px"
+                arrow_text.style.color = "black"
+                arrow_text.style.lineHeight = "54px";
+                arrow_text.style.marginLeft = "20px"
+
+                div_buttun_back.appendChild(arrow_text)
 
     gamecontent.appendChild(madiv);
     madiv.appendChild(divContent)
     divContent.append(divNav,divLR);
     divLR.append(divLeft,divRight);
-    divNav.appendChild(Title);
-    divRight.append(rightTitle, form, btnExport, divForm);
-    btnExport.appendChild(text_import);
+    divNav.append(Title, div_buttun_back);
+    divRight.append(rightTitle, form, divForm);
     
 }   
 export default subMenuEdition;
