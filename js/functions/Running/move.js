@@ -1,13 +1,12 @@
 import {isJump} from './jump.js';
 import { isDown } from './down.js';
 import subMenuPause from '../Edit/subMenuPause.js';
-import {scoreUpdate} from './score.js';
-
 
 const isOpen = {
     menu: false,
     gameOver: false
 }
+
 
 import subMenuGameover from '../Edit/subMenuGameover.js';
 
@@ -29,7 +28,7 @@ function move(element, animationWidth, level, array) {
         const typeObstacle = obstacle.className; //récupère la class de l'obstacle, B ou C
         allObstacles.push({"type": typeObstacle, "distance": positionObstacle });
     });
-   
+
     const divDistence = document.createElement('div');
     divDistence.style.position = "fixed";
     divDistence.style.bottom = "0px";
@@ -53,16 +52,12 @@ function move(element, animationWidth, level, array) {
             if (input.value > (obstacle.distance - 38) && input.value < (obstacle.distance - 38) + 15)  {
                 if (obstacle.type === "B"){ //si c'est un obstacle B
                     if (isJump.jumping) { // alors il faut sauter 
-                        //la fonction score ici Lucas 
-                        console.log(scoreUpdate); //continuer le score
                     }else{
                         colision(moveMap); //ou sinon il y a colision
                     }
                     
                 }else {
                     if (isDown.down) { //si il s'est baissé
-                        //et la Lucas ^^
-                        console.log(scoreUpdate); //continuer le score
                     }else{
                         colision(moveMap);
                     }
@@ -72,6 +67,39 @@ function move(element, animationWidth, level, array) {
     
     })
 
+    let score = 0; // initialisation du score
+    let distanceTravelled = 0; // initialisation de la distance parcourue
+    const intervalDuration = 10; // durée de l'actualisation du score
+  
+    const divScore = document.createElement('div');
+    divScore.style.position = "fixed";
+    divScore.style.color = "white";
+    divScore.style.top = "50px";
+    divScore.style.right = "20px";
+  
+    const scoreDisplay = document.createElement('span');
+    scoreDisplay.style.border = "3px solid orange";
+    scoreDisplay.style.borderRadius = "5px";
+    scoreDisplay.style.padding = "5px";
+    scoreDisplay.style.textAlign = "center";
+    scoreDisplay.style.width = "100px";
+    scoreDisplay.innerHTML = `Score: ${score}`;
+    divScore.appendChild(scoreDisplay); // ajoute le score à la div
+    element.appendChild(divScore); // ajoute la div au body
+  
+    setInterval(() => {
+        input.value = moveMap.effect.target.offsetLeft * (-1); // cette ligne fait en sorte que la valeur de la distance parcourue soit mise à jour
+        const distance = parseInt(input.value); // le parseInt est nécessaire pour convertir la valeur en nombre entier
+      
+        if (distance > distanceTravelled + 200) { // mettre à jour le score toutes les 200 unités
+          const points = 10; // 10 points pour 200 unités (ici c'est donc des pixels)
+          score += points; // ajoute les points au score
+          scoreDisplay.innerHTML = `Score: ${score}`; // mettre à jour le score
+          distanceTravelled = distance; // mets à jour la distance parcourue
+        }
+      }, intervalDuration); // actualisation toutes les 10ms
+            
+      
     // event pause 
     document.addEventListener( "keydown", (e) => {
         if(e.keyCode === 27){
