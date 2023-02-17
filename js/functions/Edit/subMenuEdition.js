@@ -173,6 +173,7 @@ function subMenuEdition(){
     div_el3.append(inputLabel3, inputSelect);
     form.appendChild(div_el3);
 
+
     btnExport.style.display = "flex"
     btnExport.style.backgroundColor = "#FFBB0B"
     btnExport.style.justifyContent = "center"

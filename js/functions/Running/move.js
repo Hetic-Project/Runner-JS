@@ -1,6 +1,7 @@
 import {isJump} from './jump.js';
 import { isDown } from './down.js';
 import subMenuPause from '../Edit/subMenuPause.js';
+import {scoreUpdate} from './score.js';
 
 
 const isOpen = {
@@ -53,7 +54,7 @@ function move(element, animationWidth, level, array) {
                 if (obstacle.type === "B"){ //si c'est un obstacle B
                     if (isJump.jumping) { // alors il faut sauter 
                         //la fonction score ici Lucas 
-                        console.log("calcule du score"); //continuer le score
+                        console.log(scoreUpdate); //continuer le score
                     }else{
                         colision(moveMap); //ou sinon il y a colision
                     }
@@ -61,7 +62,7 @@ function move(element, animationWidth, level, array) {
                 }else {
                     if (isDown.down) { //si il s'est baissé
                         //et la Lucas ^^
-                        console.log("calcule du score"); //continuer le score
+                        console.log(scoreUpdate); //continuer le score
                     }else{
                         colision(moveMap);
                     }
