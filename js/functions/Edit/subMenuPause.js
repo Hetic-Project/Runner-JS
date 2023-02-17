@@ -1,4 +1,4 @@
-function subMenuPause () {
+function subMenuPause (animation) {
     console.log("coucou")
     const gamecontent = document.querySelector(".game-content")
 
@@ -6,9 +6,11 @@ function subMenuPause () {
         madiv.style.display = "flex";
         madiv.style.alignItems = "center";
         madiv.style.justifyContent = "center";
-        madiv.style.backgroundColor = "#FFBB0B";
+        madiv.style.backgroundColor = "rgba(0, 0, 0, .4)";
         madiv.style.width = "100%";
         madiv.style.height = "100vh";
+        madiv.style.position = "fixed";
+        madiv.style.top = "0px";
 
     const divBtn = document.createElement("div");
         divBtn.style.position ='absolute';
@@ -18,15 +20,20 @@ function subMenuPause () {
         divBtn.style.width = '189px';
         divBtn.style.height = '284px';
 
-    const btnContinu = document.createElement("button");
-        btnContinu.textContent = "Continue";
-        btnContinu.className = 'btn';
-    const btnRestart = document.createElement("button");
-        btnRestart.textContent = "Restart";
-        btnRestart.className = 'btn';
-    const btnExit = document.createElement("button");
-        btnExit.textContent = "Exit";
-        btnExit.className = 'btn';
+        const btnContinu = document.createElement("button");
+            btnContinu.textContent = "Continue";
+            btnContinu.addEventListener("click", () => {
+                madiv.style.display = "none"
+                animation.play()
+            })
+
+            btnContinu.className = 'btn';
+        const btnRestart = document.createElement("button");
+            btnRestart.textContent = "Restart";
+            btnRestart.className = 'btn';
+        const btnExit = document.createElement("button");
+            btnExit.textContent = "Exit";
+            btnExit.className = 'btn';
 
     const divTitle = document.createElement("div");
         divTitle.style.border = '3px solid #FFFFFF';
