@@ -1,56 +1,60 @@
-import {isJump} from './jump.js'
+import {isJump} from './jump.js';
 import { isDown } from './down.js';
 
 
 function move(element, animationWidth, level, array) {
-    // bouger la map
+    // animation pour bouger la map
     const moveMap = element.animate({
-        left : `-${animationWidth}px`, // taile d'un bloc A multiplié par le nombre de bloc A
+        left : `-${animationWidth}px`, // taile d'un bloc A multiplié par le nombre de bloc A 
     }, {
         duration: level, // le temps de l'effet de slide jusqu'à (x)px
-        iterations: Infinity,
-    })
+        iterations: 1,
+        fill: "forwards",
+    });
     
-    const allObstacles = [];
+    const allObstacles = []; //récupere la distance et le type de l'obstacle sous forme de clé/valeur
     array.map((obstacle) => {
-        const positionObstacle = parseInt(obstacle.style.left.replace("px", ""))
-        const typeObstacle = obstacle.className
-        allObstacles.push({"type": typeObstacle, "distance": positionObstacle })
-    })
+        // récupère la left des obstacles et remplace le "px" par "vide" donc enleve le px de la valeur de déplacement des obstacles pour pouvoir le parseInt
+        const positionObstacle = parseInt(obstacle.style.left.replace("px", "")) ;
+        const typeObstacle = obstacle.className; //récupère la class de l'obstacle, B ou C
+        allObstacles.push({"type": typeObstacle, "distance": positionObstacle });
+    });
    
-    const divDistence = document.createElement('div')
-    divDistence.style.position = "fixed"
-    divDistence.style.bottom = "0px"
-    divDistence.style.right = "0px"
+    const divDistence = document.createElement('div');
+    divDistence.style.position = "fixed";
+    divDistence.style.bottom = "0px";
+    divDistence.style.right = "0px";
 
-    const input = document.createElement('input')
-    input.style.border = "3px solid orange"
-    input.setAttribute("type", "number")
-    input.style.borderRadius = "5px"
-    input.style.padding = "5px"
-    input.style.textAlign = "center"
-    input.style.width = "100px"
-    divDistence.appendChild(input)
-    element.appendChild(divDistence)
-
-    setInterval(() => {
-            
-        input.value = moveMap.effect.target.offsetLeft * (-1) 
-        allObstacles.forEach((obstacle) => {
-            
+    const input = document.createElement('input');
+    input.style.border = "3px solid orange";
+    input.style.borderRadius = "5px";
+    input.style.padding = "5px";
+    input.style.textAlign = "center";
+    input.style.width = "100px";
+    divDistence.appendChild(input);
+    element.appendChild(divDistence);
+    
+    setInterval(() => { // tout les X temps, relance 
+             
+        input.value = moveMap.effect.target.offsetLeft * (-1); //- + - = +
+        
+        allObstacles.forEach((obstacle) => { // Pour tous les obstacles
+            // si la distance de l'obstacle moins la largeur du personnage est inférieur à la valeur de la position des obstacles alors il y a colision
             if (input.value > (obstacle.distance - 38) && input.value < (obstacle.distance - 38) + 15)  {
-                if (obstacle.type === "B"){
-                    if (isJump.jumping) {
-                        console.log("calcule du score")
+                if (obstacle.type === "B"){ //si c'est un obstacle B
+                    if (isJump.jumping) { // alors il faut sauter 
+                        //la fonction score ici Lucas 
+                        console.log("calcule du score"); //continuer le score
                     }else{
-                        colision(moveMap)
+                        colision(moveMap); //ou sinon il y a colision
                     }
                     
                 }else {
-                    if (isDown.down) {
-                        console.log("calcule du score")
+                    if (isDown.down) { //si il s'est baissé
+                        //et la Lucas ^^
+                        console.log("calcule du score"); //continuer le score
                     }else{
-                        colision(moveMap)
+                        colision(moveMap);
                     }
                 }
             }
@@ -62,7 +66,7 @@ function move(element, animationWidth, level, array) {
 }
 
 function colision(animation){
-    animation.pause()
+    animation.pause();// méthode pause lié à la méthode "animation"
 }
 
 

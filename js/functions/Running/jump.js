@@ -3,6 +3,7 @@ const isJump = {
   jumping : false
 }
 function jump(character) {
+  
     let maxHeight = 100; // taille de saut maximum
     let duration = 1200; // durée de l'animation
     let start = null; // l'animation commence à null
@@ -35,21 +36,3 @@ function jump(character) {
   
   export {jump, isJump };
   
-  
-    //         animationInProgress = true;
-    //         character.style.backgroundImage = "url('./jump.gif')";
-    //         character.style.backgroundPositionY = "-85px"
-    //         character.style.bottom = "280px";
-    //         character.style.left = "15px";
-    //         character.style.height = "120px"
-
-    //         setTimeout(() => {
-    //             character.style.bottom = "200px"
-    //             character.style.backgroundPositionY = "-50px"
-    //             character.style.height = "200px"
-    //             character.style.backgroundImage = "url('./running.gif')";
-    //             animationInProgress = false;
-    //         }, 1100)
-
-// keyCode : I = 73
-// keyCode : K = 75 
