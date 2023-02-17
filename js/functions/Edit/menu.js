@@ -28,7 +28,6 @@ function menuDuJeu (){
         menu.style.top = "0";
         menu.style.left = "0";
         menu.style.justifyContent = "center";
-        // menu.style.alignContent = "center"
         menu.style.width = "100%";
         menu.style.height = "100%";
         menu.style.backgroundImage = "url(./img/back.png)";
@@ -46,7 +45,6 @@ function menuDuJeu (){
         divNav.style.position = "fixed";
         divNav.style.top = "0";
         divNav.style.left ="0";
-        // divNav.style.marginTop = "20px"
         divNav.style.justifyContent = "space-between";
         divNav.style.alignItems = "center";
         divNav.style.height = '15vh';
@@ -58,8 +56,10 @@ function menuDuJeu (){
 
     const divNavTitle = document.createElement("div");
         divNavTitle.style.display = "flex";
-        divNavTitle.style.marginTop = "50%";
-        // divNavTitle.style.width ="70%";
+        divNavTitle.style.marginleft = "100%";
+        divNavTitle.style.border = " 2px solid white"
+        divNavTitle.style.backgroundColor = "white"
+        divNavTitle.style.position = "fixed";
         divNavTitle.id = "divNavTitle";
         divNav.appendChild(divNavTitle);
 
@@ -68,23 +68,21 @@ function menuDuJeu (){
         Title.textContent = 'RUNNING';
         Title.style.fontSize = '80px';
         Title.style.fontWeight = '900'
-        // Title.style.fontStyle = 'normal';
         Title.style.color = '#FFBB0B';
         Title.style.lineHeight = '100px';
+        Title.style.marginLeft = "50px"
         Title.id = "Title";
         divNav.appendChild(Title);
 
         divNavRight.style.display ='flex';
         divNavRight.style.justifyContent = 'space-between';
         divNavRight.style.alignItems = 'center';
-        // divNavRight.style.width = "30%";        
-        divNavRight.style.marginLeft ="100%";
-
+        divNavRight.style.border = " 2px solid white"       
+        divNavRight.style.marginLeft ="200%";
         divNavRight.id = "divNavRight";
         divNav.appendChild(divNavRight);
 
     const btnMenu = document.createElement("btn");
-
         btnMenu.textContent = 'Menu';
         btnMenu.style.backgroundColor = '#FFBB0B';
         btnMenu.style.padding = '10px';
@@ -94,61 +92,43 @@ function menuDuJeu (){
         btnMenu.id = "btnMenu";
         divNavRight.appendChild(btnMenu);
 
-        // const score = document.createElement("h3");
-        // score.textContent = "score : 50 pts";
-        // score.style.color = "#ffffff";
-        // score.style.paddingLeft = "20px"
-        // score.style.fontSize = "25px";
-        // score.id = "score";
-        // divNavRight.appendChild(score);
+    const score = document.createElement("h3");
+        score.textContent = "score : 50 pts";
+        score.style.color = "#ffffff";
+        score.style.paddingLeft = "20px"
+        score.style.fontSize = "20px";
+
+        score.id = "score";
+        divNavRight.appendChild(score);
 
     const divPause = document.createElement("div");
 
         divPause.style.display = "flex";
-        divPause.style.borderRadius = "50%";
+        divPause.style.borderRadius = "10%";
         divPause.style.backgroundColor = "#ffffff";
-        divPause.style.width = "50px";
-        divPause.style.height = "50px";
+        divPause.style.width = "70px";
+        divPause.style.height = "70px";
         divPause.style.margin = "6% 0% 0% 3%";
         divPause.style.position = 'absolute';
-        divPause.style.right = '0';
-        divPause.code = '<i class="uil uil-pause-circle"></i>';
+        divPause.style.right = "60px"
+
         divPause.id = "divPause";
         menu.appendChild(divPause);
 
             
     const pause = document.createElement("span")
-
-        pause.innerHTML = '<i class="uil uil-pause-circle"></i>';
+        pause.textContent = "Appuyez ECHAP \n Pour PAUSE"
+        pause.style.fontSize = "15px"
         pause.style.width = "50px";
-        pause.style.height = "50px";
+        pause.style.height = "60px";
         pause.id = "pause";
         divPause.appendChild(pause);
 
     document.querySelector("#divPause").onclick = function demander_createt(){
         gameContent.innerHTML = "";
         subMenuPause();
-            // alert("créer un niveau")
     };
-        // const divFooter = document.createElement("div");
-
-        // divFooter.style.display = "flex";
-        // divFooter.style.width = "100%";
-        // divFooter.style.height = "50px";
-        // divFooter.style.border = '3px solid #FFBB0B';
-        // divFooter.style.backgroundImage = "url('./img/back.png')";
-        // divFooter.style.margin = "400px";
-
-        // divFooter.id = "divFooter";
-        // document.querySelector("#menu").appendChild(divFooter);
-
-        // const obstacle = document.createElement("img")
-        // obstacle.src = "./img/corboitachi.png";
-        // obstacle.style.width = "60px";
-        // obstacle.style.height = "60px";
-
-        // obstacle.id = "obstacle";
-        // document.querySelector("#divFooter").appendChild(obstacle);
+        
 };
 
 function menuBienvenue () {
