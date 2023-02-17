@@ -1,3 +1,5 @@
+import {isOpen} from '../Running/move.js';
+
 function subMenuPause (animation) {
     console.log("coucou")
     const gamecontent = document.querySelector(".game-content")
@@ -23,14 +25,23 @@ function subMenuPause (animation) {
         const btnContinu = document.createElement("button");
             btnContinu.textContent = "Continue";
             btnContinu.addEventListener("click", () => {
-                madiv.style.display = "none"
-                animation.play()
-            })
+                isOpen.menu = false;
+                madiv.style.display = "none";
+                animation.play();
+            });
 
             btnContinu.className = 'btn';
         const btnRestart = document.createElement("button");
             btnRestart.textContent = "Restart";
             btnRestart.className = 'btn';
+
+            btnRestart.addEventListener("click", () => {
+                madiv.style.display = "none";
+                animation.finish()
+                animation.play()
+                
+            })
+
         const btnExit = document.createElement("button");
             btnExit.textContent = "Exit";
             btnExit.className = 'btn';
