@@ -150,7 +150,7 @@ function subMenuGameover (nombre_de_point, animation) {
                 area_buttun_restart.id = "area_buttun_restart"
                 document.querySelector("#area_buttun").appendChild(area_buttun_restart)
 
-                    const buttun_restart = document.createElement ("div")
+                    const buttun_restart = document.createElement ("button")
 
                     buttun_restart.style.height = "100%"
                     buttun_restart.style.width = "40%"
@@ -171,7 +171,7 @@ function subMenuGameover (nombre_de_point, animation) {
                             document.querySelector("#buttun_restart").appendChild(text_restart)
 
 
-                const buttun_exit = document.createElement ("div")
+                const buttun_exit = document.createElement ("button")
 
                 buttun_exit.style.height = "40%"
                 buttun_exit.style.width = "40%"

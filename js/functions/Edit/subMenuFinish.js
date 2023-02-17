@@ -1,4 +1,3 @@
-import { isOpen } from "../Running/move.js";
 
 function subMenuFinish (nombre_de_point, animation) {
     const game_content = document.querySelector(".game-content")
@@ -140,13 +139,45 @@ function subMenuFinish (nombre_de_point, animation) {
             area_buttun.id = "area_buttun"
             div_content.appendChild(area_buttun)
 
+                const area_buttun_next_level = document.createElement ("div")
 
-                const buttun_exit = document.createElement ("div")
+                area_buttun_next_level.style.display = "flex"
+                area_buttun_next_level.style.justifyContent = "center"
+                area_buttun_next_level.style.height = "40%"
+                area_buttun_next_level.style.width = "100%"
+
+                area_buttun_next_level.id = "area_buttun_next_level"
+                document.querySelector("#area_buttun").appendChild(area_buttun_next_level)
+
+                    const buttun_next_level = document.createElement ("button")
+
+                    buttun_next_level.style.height = "100%"
+                    buttun_next_level.style.width = "40%"
+                    buttun_next_level.style.border = "0px"
+
+                    
+
+                    buttun_next_level.classList.add("buttun")
+                    buttun_next_level.id = "buttun_next_level"
+                    document.querySelector("#area_buttun_next_level").appendChild(buttun_next_level)
+
+
+                            const text_next_level = document.createElement("span")
+
+                            text_next_level.innerText = "NEXT LEVEL"
+
+                            
+                            text_next_level.classList.add("text_buttun_white")
+                            document.querySelector("#buttun_next_level").appendChild(text_next_level)
+
+
+                const buttun_exit = document.createElement ("button")
 
                 buttun_exit.style.height = "40%"
                 buttun_exit.style.width = "40%"
                 buttun_exit.style.border = "0px"
-                buttun_exit.style.cursor = "pointer"
+
+
 
                 buttun_exit.classList.add("buttun")
                 buttun_exit.id = "buttun_exit"
@@ -160,6 +191,12 @@ function subMenuFinish (nombre_de_point, animation) {
                         text_exit.classList.add("text_buttun_white")
                         document.querySelector("#buttun_exit").appendChild(text_exit)
 
+
+
+    document.querySelector("#buttun_next_level").onclick = function redirection_jouer(){
+        alert("next_level")
+       
+    };
 
     document.querySelector("#buttun_exit").onclick = function redirection_jouer(){
         location.reload();

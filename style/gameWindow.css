@@ -34,7 +34,7 @@ align-content: center;
 height : 25%;
 width : 50%;
 border :solid 2px;
-border-Color : white;
+/* border-Color : white; */
 border-Radius : 25px;
 color: red;
 font-size:6vw;
