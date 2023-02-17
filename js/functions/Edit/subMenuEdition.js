@@ -69,6 +69,7 @@ function subMenuEdition(){
     btnExport.style.borderRadius = "25px"
     btnExport.style.margin = "17% 35%";
     btnExport.style.cursor = "pointer";
+    btnExport.id = "buttun_export"
 
     text_import.innerText = "Export LEVEL"
     text_import.style.fontSize = "20px";
@@ -165,6 +166,9 @@ function subMenuEdition(){
     divNav.appendChild(Title);
     divRight.append(rightTitle, form, btnExport, divForm);
     btnExport.appendChild(text_import);
+
+    document.querySelector("#buttun_export").onclick = function() {
+        alert("coucou")
     
-}   
-export default subMenuEdition;
+}}   
+export default subMenuEdition
