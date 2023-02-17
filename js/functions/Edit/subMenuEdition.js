@@ -67,6 +67,7 @@ function subMenuEdition(){
     btnExport.style.borderRadius = "25px"
     btnExport.style.margin = "17% 35%";
     btnExport.style.cursor = "pointer";
+    btnExport.id = "buttun_export"
 
     text_import.innerText = "Export LEVEL"
     text_import.style.fontSize = "20px";
@@ -164,5 +165,5 @@ function subMenuEdition(){
     divRight.append(rightTitle, form, btnExport, divForm);
     btnExport.appendChild(text_import);
     
-}   
-export default subMenuEdition;
+}
+export default subMenuEdition
