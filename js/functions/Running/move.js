@@ -1,8 +1,15 @@
 import {isJump} from './jump.js';
 import { isDown } from './down.js';
 import subMenuPause from '../Edit/subMenuPause.js';
+
+
+const isOpen = {
+    menu: false
+}
+
 import subMenuGameover from '../Edit/subMenuGameover.js';
 let gameOver = false 
+
 
 function move(element, animationWidth, level, array) {
     // animation pour bouger la map
@@ -64,12 +71,15 @@ function move(element, animationWidth, level, array) {
     
     })
 
- 
     // event pause 
     document.addEventListener( "keydown", (e) => {
         if(e.keyCode === 27){
-            moveMap.pause()
-            subMenuPause(moveMap)
+            
+            if(isOpen.menu === false){
+                isOpen.menu = true
+                moveMap.pause()
+                subMenuPause(moveMap)
+            }
         }
     })
     
@@ -87,4 +97,4 @@ function colision(animation){
 }
 
 
-export {move}
+export {move, isOpen}
