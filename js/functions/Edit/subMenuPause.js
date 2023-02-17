@@ -29,19 +29,14 @@ function subMenuPause (animation) {
                 madiv.style.display = "none";
                 animation.play();
             });
-
             btnContinu.className = 'btn';
-            // document.getElementById("#btnContinu").autofocus()
-        // window.onload = function() {
-        //     var button = document.getElementById("btnContinu");
-        //     button.focus();
-        //     };
-              
+
         const btnRestart = document.createElement("button");
             btnRestart.textContent = "Restart";
             btnRestart.className = 'btn';
 
             btnRestart.addEventListener("click", () => {
+                isOpen.menu = false;
                 madiv.style.display = "none";
                 animation.finish()
                 animation.play()

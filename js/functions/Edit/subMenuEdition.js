@@ -58,9 +58,6 @@ function subMenuEdition(){
     rightTitle.style.fontSize = "40px"
     rightTitle.style.fontWeight = "900";
 
-<<<<<<< HEAD
-    
-=======
     btnExport.style.display = "flex"
     btnExport.style.backgroundColor = "#FFBB0B"
     btnExport.style.justifyContent = "center"
@@ -72,7 +69,6 @@ function subMenuEdition(){
     btnExport.style.margin = "17% 35%";
     btnExport.style.cursor = "pointer";
     btnExport.id = "buttun_export"
->>>>>>> 455568d084f84d0ff9bb20c812cf200a28072db1
 
     
 
