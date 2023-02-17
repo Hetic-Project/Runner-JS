@@ -1,7 +1,9 @@
+
 import { move} from './move.js';
 import {menuDuJeu} from '../Edit/menu.js'
 import {jump} from './jump.js';
 import {down} from './down.js';
+
 
 const gameWindows = document.querySelector('.game-content');
 const content = document.createElement('div');
@@ -19,13 +21,13 @@ content.style.left = "0px"
 content.style.display = "flex";
 content.style.alignItems = "flex-end";
 content.style.backgroundColor = "transparent";
-content.style.transition = "2s"
 
-const blocks = [];
-const widthOfBlockA = 200;
+const blocks = []; // prends les blocs de types B et C
+const widthOfBlockA = 200; // largeur du bloc A
 let positionBlock = 400; // la distance qui separe chaque bloc B par rapport
 let numberBlockA = 100; // le nombre de bloc A
 const animationWidh = (widthOfBlockA * numberBlockA) - window.screen.availWidth;
+
 let blockB_By_BlockA = 3; // un block B tous les 3 block 
 const obstacles = ["B", "C"];
 
@@ -35,8 +37,8 @@ function createBlockA(block) {
     block.style.backgroundColor = "transparent";
     block.style.width = `${widthOfBlockA}px`;
     block.style.height = "100px";
-    content.appendChild(block);
-    gameWindows.appendChild(content);
+    content.appendChild(block); //ajoute le bloc dans la div content
+    gameWindows.appendChild(content); //ajoute le bloc content dans notre page 
 };
 
 function createObstacle(block) {
@@ -49,7 +51,7 @@ function createObstacle(block) {
         block.style.bottom = "100px";
         block.style.left = `${positionBlock}px`;
         block.style.backgroundImage = "url(../../../img/spike.png)";
-        blocks.push(block)
+        blocks.push(block) // push le bloc B dans notre tableau blocks
         content.appendChild(block);
     } else {
         block = document.createElement('div'); // créer un bloc C
@@ -68,6 +70,7 @@ function createObstacle(block) {
     };
 }
 
+//Fonction qui va ajouter notre personne dans le bloc content avec le style du personnage
 function createCharacter() {
     const character = document.createElement("div");
     character.style.height = "200px"
@@ -88,13 +91,14 @@ function createCharacter() {
 }
 
 
+// Fonction qui créer notre jeu avec le menu, le personnage ainsi que le choix du niveau 
 function runLevel(blockA) {
 
     menuDuJeu();
 
     let i = 0;
     let j = 0;
-  
+
     while (i < numberBlockA) {
       createBlockA(blockA);
       i++;

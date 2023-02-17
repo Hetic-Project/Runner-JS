@@ -18,6 +18,8 @@ function menu () {
 
 };
 
+export const divNavRight = document.createElement("div");
+
 function menuDuJeu (){
 
     const menu = document.createElement("div")
@@ -78,13 +80,11 @@ function menuDuJeu (){
             Title.id = "Title";
             divNav.appendChild(Title)
 
-        const divNavRight = document.createElement("div");
-
         divNavRight.style.display ='flex';
         divNavRight.style.justifyContent = 'space-between';
         divNavRight.style.alignItems = 'center';
         // divNavRight.style.width = "30%";        
-        divNavRight.style.marginLeft ="130%";
+        divNavRight.style.marginLeft ="100%";
 
         divNavRight.id = "divNavRight";
         divNav.appendChild(divNavRight);
@@ -102,15 +102,15 @@ function menuDuJeu (){
             divNavRight.appendChild(btnMenu);
 
 
-            const score = document.createElement("h3");
+            // const score = document.createElement("h3");
 
-            score.textContent = "score : 50 pts";
-            score.style.color = "#ffffff";
-            score.style.paddingLeft = "20px"
-            // score.style.fontSize = "25px";
+            // score.textContent = "score : 50 pts";
+            // score.style.color = "#ffffff";
+            // score.style.paddingLeft = "20px"
+            // // score.style.fontSize = "25px";
 
-            score.id = "score";
-            divNavRight.appendChild(score);
+            // score.id = "score";
+            // divNavRight.appendChild(score);
 
 
         const divPause = document.createElement("div");
@@ -121,6 +121,8 @@ function menuDuJeu (){
         divPause.style.width = "50px";
         divPause.style.height = "50px";
         divPause.style.margin = "6% 0% 0% 3%";
+        divPause.style.position = 'absolute';
+        divPause.style.right = '0';
         divPause.code = '<i class="uil uil-pause-circle"></i>';
 
         divPause.id = "divPause";
