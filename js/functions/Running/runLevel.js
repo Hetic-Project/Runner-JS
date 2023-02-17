@@ -26,7 +26,8 @@ const blocks = []; // prends les blocs de types B et C
 const widthOfBlockA = 200; // largeur du bloc A
 let positionBlock = 400; // la distance qui separe chaque bloc B par rapport
 let numberBlockA = 100; // le nombre de bloc A
-const animationWidh = (widthOfBlockA * numberBlockA) - window.screen.availWidth;
+// calcule du slide de la map par rapport a la taille de l'écran de l'utilisateur
+const animationWidh = (widthOfBlockA * numberBlockA) - window.screen.availWidth; 
 
 let blockB_By_BlockA = 3; // un block B tous les 3 block 
 const obstacles = ["B", "C"];
