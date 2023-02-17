@@ -428,7 +428,7 @@ function menuJouer () {
                     const liste_deroulante = document.createElement("select");
 
                     const options = ["1", "2", "3","4","5"];
-                    for(var i = 0; i < options.length; i++) {
+                    for(var i = 0; i < options.length; i++) { // 
                       var option = document.createElement("option");
                       option.text = options[i];
                       liste_deroulante.add(option);
@@ -913,4 +913,4 @@ function menuParametre () {
         
 }
 
-export { menu, menuDuJeu, menuBienvenue};
+export { menu, menuDuJeu, menuBienvenue, menuJouer };
