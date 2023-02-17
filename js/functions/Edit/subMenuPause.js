@@ -43,13 +43,13 @@ function subMenuPause (animation) {
         divTitle.style.height = '123px';
         divTitle.style.margin = "-160px";
 
-        const Title = document.createElement("h1");
-            Title.textContent = 'PAUSE';
-            Title.style.fontSize = '80px';
-            Title.style.color = '#FFFFFF';
-            Title.style.textAlign= "center";
-            Title.style.border = "3px solid #FFFFFF";
-            Title.style.borderRadius = '14px';
+    const Title = document.createElement("h1");
+        Title.textContent = 'PAUSE';
+        Title.style.fontSize = '80px';
+        Title.style.color = '#FFFFFF';
+        Title.style.textAlign= "center";
+        Title.style.border = "3px solid #FFFFFF";
+        Title.style.borderRadius = '14px';
 
     const divContentMenu = document.createElement("div");
         divContentMenu.style.display = "flex";
@@ -61,10 +61,10 @@ function subMenuPause (animation) {
         divContentMenu.style.width = "10%";
 
     gamecontent.appendChild(madiv);
-    madiv.appendChild(divContentMenu)
-    divContentMenu.appendChild(divTitle)
+    madiv.appendChild(divContentMenu);
+    divContentMenu.appendChild(divTitle);
     divContentMenu.appendChild(divBtn);
     divTitle.appendChild(Title);
     divBtn.append(btnContinu, btnRestart, btnExit);
 }
-export default subMenuPause
+export default subMenuPause;
