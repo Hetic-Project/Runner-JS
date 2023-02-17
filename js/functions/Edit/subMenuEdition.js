@@ -1,4 +1,4 @@
-import createLevel from './functions/Edit/createLevel.js'
+import createLevel from "./createLevel.js";
 function subMenuEdition(){
     const gamecontent = document.querySelector(".game-content")
     const madiv = document.createElement("div");
@@ -6,23 +6,23 @@ function subMenuEdition(){
     const divNav = document.createElement("div");
     const divLR = document.createElement("div");
     const divRight = document.createElement("div");
-    const divRightInfo = document.createElement("div");
     const divLeft = document.createElement("div");
 
-    const btnExport = document.createElement("button");
     const Title = document.createElement("h1");
     const rightTitle = document.createElement("h2");
     const text_import = document.createElement("span")
     
 
-    // madiv.style.display = "flex";
+    madiv.style.display = "flex";
     madiv.style.width = "100%";
     madiv.style.height = "100vh";
+    madiv.style.overflow = "hidden";
     // madiv.style.border = "3px solid #ffffff";
 
     // divContent.style.display = "flex";
     divContent.style.width = "100%";
     divContent.style.height = "100vh";
+    divContent.style.overflow = "hidden";
 
     divNav.style.display = "flex";
     divNav.style.alignContent = "center";
@@ -40,21 +40,22 @@ function subMenuEdition(){
     divLR.style.position = 'relative';
     divLR.style.width = '100%';
     divLR.style.height = '100vh';
+
     divLeft.style.width = "60%";
     divLeft.style.height = "90vh";
     divLeft.style.backgroundColor = "#FFBB0B";
-   
-    const newDiv = document.createElement("div")
-    newDiv.id = "divAdd"
-    const addBloc = document.querySelector("#divAdd");
-    addBloc = createLevel()
-    newDiv.appendChild(addBloc)
-    divLeft.appendChild(newDiv)
+    divLeft.style.overflow="auto";
+    divLeft.style.overflowX="visible";
+    divLeft.style.overflowY="hidden"
+    createLevel();
+    let leveldiv = document.querySelector(".leveldiv");
+    divLeft.appendChild(leveldiv);
+    
 
     divRight.style.width = "40%";
     divRight.style.height = "90vh";
-  //  divRight.style.backgroundImage = "url('./img/back.png')";
-    divRight.style.backgroundColor ="black"
+    divRight.style.backgroundColor = "black"
+    divRight.style.backgroundImage = "url('./img/back.png')";
     divRight.style.backgroundSize = "100% 100%";
     divRight.style.backgroundRepeat = "no-repeat";
     divRight.style.justifyContent = "center";
@@ -64,22 +65,6 @@ function subMenuEdition(){
     rightTitle.style.textAlign = "center";
     rightTitle.style.fontSize = "40px"
     rightTitle.style.fontWeight = "900";
-
-    btnExport.style.display = "flex"
-    btnExport.style.backgroundColor = "#FFBB0B"
-    btnExport.style.justifyContent = "center"
-    btnExport.style.alignItems = "center";
-    btnExport.style.height = "12%"
-    btnExport.style.width = "35%"
-    btnExport.style.border ="solid 3px #FFFFFF"
-    btnExport.style.borderRadius = "25px"
-    btnExport.style.margin = "17% 35%";
-    btnExport.style.cursor = "pointer";
-
-    text_import.innerText = "Export LEVEL"
-    text_import.style.fontSize = "20px";
-    text_import.style.fontWeight = "900";
-    text_import.style.color = "#ffffff"
 
     //form
 
@@ -114,6 +99,7 @@ function subMenuEdition(){
             inputTitre.style.marginLeft = "74px";
             inputTitre.style.color = "white";
             inputTitre.style.paddingLeft ="10px";
+            inputTitre.id ="input_titre"
         div_el1.append(inputLabel, inputTitre);
         form.append(div_el1);
 
@@ -136,6 +122,7 @@ function subMenuEdition(){
             inputCreateur.style.borderRadius = "15px";
             inputCreateur.style.color = "white";
             inputCreateur.style.paddingLeft ="10px";
+            inputCreateur.id ="input_createur"
         div_el2.append(inputLabel2, inputCreateur);
         form.appendChild(div_el2);
 
@@ -155,22 +142,43 @@ function subMenuEdition(){
         option.text = options[i];
         inputSelect.add(option);
         }
-      
+        inputSelect.id = "input_select"
         inputSelect.setAttribute('type', 'number');
         div_el3.append(inputLabel3, inputSelect);
         form.appendChild(div_el3);
-
+        const btnExport = document.createElement("button");
+        btnExport.style.display = "flex"
+        btnExport.style.backgroundColor = "#FFBB0B"
+        btnExport.style.justifyContent = "center"
+        btnExport.style.alignItems = "center";
+        btnExport.style.height = "12%"
+        btnExport.style.width = "35%"
+        btnExport.style.border ="solid 3px #FFFFFF"
+        btnExport.style.borderRadius = "25px"
+        btnExport.style.margin = "17% 35%";
+        btnExport.style.cursor = "pointer";
+        btnExport.textContent = "Export LEVEL";
+        btnExport.innerText = "Export LEVEL"
+        btnExport.style.fontSize = "20px";
+        btnExport.style.fontWeight = "900";
+        btnExport.style.color = "#ffffff";
+        form.appendChild(btnExport);
 
     divForm.appendChild(form);
-
+    form.appendChild(btnExport);
 
     gamecontent.appendChild(madiv);
     madiv.appendChild(divContent);
     divContent.append(divNav,divLR);
     divLR.append(divLeft,divRight);
     divNav.appendChild(Title);
-    divRight.append(rightTitle, form, btnExport, divForm);
-    btnExport.appendChild(text_import);
-    
-}   
+    divRight.append(rightTitle, form, divForm,);
+   
+}
+
+
+
+
+
+
 export default subMenuEdition;

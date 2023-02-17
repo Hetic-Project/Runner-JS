@@ -1,38 +1,31 @@
+import createLevel from "./createLevel.js";
+import subMenuEdition from "./subMenuEdition.js";
+function exportLevel(){
+var levelData =  {
+  "title": titre,
+  "creator": nameCreateur,
+  "difficulty": difficult,
+  "blocks": [
+  {"type A": typeA},
+  {"type B": TypeB},
+  {"type C": TypeC}
 
-function createLevel() {
-    const level = 
-      {
-        "title": "titleInput.value",
-        "creator": "nameinput.value",
-        "difficulty": "difficultinput.value",
-        "blocks": [
-        {"type": "A"},
-        {"type": "B"},
-        ...
-        ]
-       }
-       
-    };
-    return level;
+]
+ }; 
+
+// Créez un objet blob à partir des données
+var blob = new Blob([JSON.stringify(levelData, null, 2)], {type: 'application/json'});
+
+// Créez un lien de téléchargement pour le fichier JPMR
+var link = document.createElement('a');
+link.href = window.URL.createObjectURL(blob);
+link.download = 'mon_niveau.jpmr';
+
+// Ajoutez le lien de téléchargement à la page et cliquez dessus pour déclencher le téléchargement
+document.body.appendChild(link);
+link.click();
+document.body.removeChild(link);
   
-  
-  // Appeler la fonction pour créer le level
-  const level = createLevel();
-  
-  // Convertir l'objet level en une chaîne de caractères JSON
-  const levelJSON = JSON.stringify(level);
-  
-  // Créer un objet Blob avec la chaîne de caractères JSON
-  const blob = new Blob([levelJSON], { type: 'application/json' });
-  
-  // Créer un élément <a> pour télécharger le fichier
-  const downloadLink = document.createElement('a');
-  downloadLink.href = URL.createObjectURL(blob);
-  downloadLink.download = 'level.jmpr';
-  
-  // Cliquer sur l'élément <a> pour télécharger le fichier
-  downloadLink.click();
-  
-  // Confirmer que le level a été enregistré
-  console.log('Le level a été enregistré avec succès dans un fichier JPMR !');
-  
+}
+ 
+export default exportLevel;

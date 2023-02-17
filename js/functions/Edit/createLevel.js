@@ -1,10 +1,10 @@
+import exportLevel from "./exportLevel.js";
 function createLevel(){
     createButtons()
     let addBlocA = document.getElementById('bloc_A');
     addBlocA.addEventListener("click", function(){
-        
         createBlockA();
-        
+
     })
     let addBlocB = document.getElementById('bloc_B');
     addBlocB.addEventListener("click", function(){
@@ -18,10 +18,17 @@ function createLevel(){
     })
 
     document.getElementById("bloc_Aremove").addEventListener("click", function(){
-        console.log(numberBlockA)
+        
         let BlocAremove = document.getElementById("A"+ (numberBlockA-1));
         BlocAremove.remove();
         numberBlockA = numberBlockA -1;
+        let map = document.querySelector(".map");
+        let floorwidth = document.getElementById("floor").offsetWidth;
+        map.style.width=`${floorwidth}px`
+        if (numberBlockA==1){
+            let containerAremove = document.getElementById("floor")
+            containerAremove.remove();
+        }
      })
      document.getElementById("bloc_Bremove").addEventListener("click", function(){
         let BlocBremove = document.getElementById("B"+ (numberBlockB-1));
@@ -42,9 +49,19 @@ function createButtons(){
         let leveldiv = document.createElement("div")
         leveldiv.classList.add("leveldiv")
         leveldiv.style.display = "flex";
-        leveldiv.style.width = "100%";
-        leveldiv.style.height = "100vh";
+        leveldiv.style.minWidth = "100%";
+        leveldiv.style.height = "90vh";
         leveldiv.style.position = "relative";
+
+        let map = document.createElement("div")
+        map.classList.add("map")
+        map.style.display = "flex";
+        map.style.alignItems ="flex-end"
+        map.style.width = "100%";
+        map.style.height = "400px";
+        map.style.position = "absolute";
+        map.style.bottom ="0"
+        map.style.left ="0"
 
         let textdiv = document.createElement("div")
         textdiv.classList.add("textdiv")
@@ -59,12 +76,15 @@ function createButtons(){
         text3.innerHTML = "Obstacle 2"
         text3.classList.add("text3")
 
+        const top = document.createElement("div")
+        top.id="topSection"
+        leveldiv.appendChild(top)
 
-        leveldiv.appendChild(textdiv)
+        top.appendChild(textdiv)
         textdiv.appendChild(text)
         textdiv.appendChild(text2)
         textdiv.appendChild(text3)
-        
+
 
     let buttons = document.createElement("div");
     buttons.classList.add("buttons")
@@ -93,50 +113,48 @@ function createButtons(){
     button2Remove.id = "bloc_Bremove"
     button3.id = "bloc_C" 
     button3Remove.id = "bloc_Cremove" 
-   
 
-
-    
     buttons.appendChild(button1)
     buttons.appendChild(button1Remove)
     buttons.appendChild(button2)
     buttons.appendChild(button2Remove)
     buttons.appendChild(button3)
     buttons.appendChild(button3Remove)
-    leveldiv.appendChild(buttons)
+    top.appendChild(buttons)
     document.body.appendChild(leveldiv)
+    leveldiv.appendChild(map)
     
 }
 var numberBlockA = 1
 function createBlockA(){
-    let leveldiv = document.querySelector(".leveldiv");
+    let map = document.querySelector(".map");
     let divContainer = document.querySelector(".container");
     if (!divContainer) {
         divContainer = document.createElement("div");
         divContainer.classList.add("container");
         divContainer.id = "floor"
-        leveldiv.style.height = "100vh";
         divContainer.style.display = "flex";
         divContainer.style.alignItems = "flex-end";
         divContainer.style.position = "absolute";
         divContainer.style.bottom ="0";
-        
+        map.appendChild(divContainer);
+
     }
     let blockA = document.createElement("div");
     blockA.classList.add("blockA");
     blockA.style.width = "200px";
-    blockA.style.height = "200px";
+    blockA.style.height = "100px";
     blockA.id = "A" + numberBlockA;
     /*blockA.style.backgroundColor = "red";
     blockA.style.border = "1px solid black";*/
     blockA.style.display = "inline-block";
-    let img1 = new Image(200,200)
+    let img1 = new Image(200,100)
     img1.src = './img/test.png'
-    
-    
+
     blockA.appendChild(img1)
-    leveldiv.appendChild(divContainer);
     divContainer.appendChild(blockA);
+    let floorwidth = document.getElementById("floor").offsetWidth;
+    map.style.width=`${floorwidth}px`
 
     numberBlockA++;
 
@@ -145,100 +163,60 @@ function createBlockA(){
 
 var numberBlockB = 1
 function createBlockB(){
+
     
-    
-    let divContainer = document.querySelector(".container");
+
+    let floorwidth = document.getElementById("floor").offsetWidth;
+    let map = document.querySelector(".map");
     let blockB = document.createElement("div");
     blockB.classList.add("blockB");
     blockB.id="B"+numberBlockB;
-    blockB.style.width = "200px";
-    blockB.style.height = "300px";
-    blockB.style.display = "inline-block";
-    blockB.style.position = "relative";
+    blockB.style.position="absolute"
+    blockB.style.width = "50px";
+    blockB.style.height = "50px";
+    blockB.style.bottom="100px";
+    blockB.style.left =`${floorwidth-50}px`;
+
+    let img2 = new Image(50,50)
+    img2.src = './img/spikes.png'
+    blockB.appendChild(img2)
+    map.appendChild(blockB)
     numberBlockB++;
 
-
-    let floor = document.createElement("div");
-    floor.classList.add("floor");
-    floor.style.width = "200px";
-    floor.style.height = "200px";
-    floor.style.position = "absolute";
-    floor.style.bottom ="0";
-    
-    let img1 = new Image(200,200)
-    img1.src = './img/test.png'
-    floor.appendChild(img1)
-    blockB.appendChild(floor)
-
-    let obstacle = document.createElement("div");
-    obstacle.classList.add("obstacle");
-    obstacle.style.width = "200px";
-    obstacle.style.height = "100px";
-    obstacle.style.position = "absolute";
-    obstacle.style.bottom ="200px";
-
-    let img2 = new Image(200,100)
-    img2.src = './img/spikes.png'
-    obstacle.appendChild(img2)
-
-    blockB.appendChild(obstacle)
-
-
-    divContainer.appendChild(blockB);
-
-    
-    
-    
-
-    
-
-
-
+    map.style.width=`${floorwidth}px`
 
 }
 
 
 
 var numberBlockC = 1
-/*let positionBlockC =floorwidth;*/
 function createBlockC(){
     let floorwidth = document.getElementById("floor").offsetWidth;
-    let leveldiv = document.querySelector(".leveldiv");
-    
+    let map = document.querySelector(".map");
     let divContainerC = document.createElement("div");
         divContainerC.classList.add("containerC");
         divContainerC.style.display = "flex";
         divContainerC.style.alignItems = "flex-end";
         divContainerC.style.position = "absolute";
-        divContainerC.style.bottom ="400px";
+        divContainerC.style.bottom ="200px";
         divContainerC.style.left =`${floorwidth}px`;
         divContainerC.id = "C" + numberBlockC;
-        
-    
 
     let blockC = document.createElement("div");
     blockC.classList.add("blockC");
     blockC.style.width = "100px";
     blockC.style.height = "100px";
-    
-        
+
 
     blockC.style.display = "inline-block";
     let img1 = new Image(100,100)
     img1.src = './img/corbo_itachi.png'
-    
-    
+
     blockC.appendChild(img1)
-    leveldiv.appendChild(divContainerC);
+    map.appendChild(divContainerC);
     divContainerC.appendChild(blockC);
 
     numberBlockC++;
 
-
-
-
 }
-
 export default createLevel;
-
-
