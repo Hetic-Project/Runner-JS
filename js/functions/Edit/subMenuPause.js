@@ -1,4 +1,5 @@
 function subMenuPause () {
+    console.log("coucou")
     const gamecontent = document.querySelector(".game-content")
 
     const madiv = document.createElement("div");

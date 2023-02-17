@@ -166,6 +166,7 @@ function menuDuJeu (){
 
 function menuBienvenue () {
 
+    const gameWindow = document.querySelector(".game-content")
     const menu = document.createElement("div")
 
     menu.style.display = "flex"
@@ -177,8 +178,8 @@ function menuBienvenue () {
     menu.style.backgroundRepeat = "no-repeat";
 
     menu.id = "menu"
-    document.querySelector("#madiv").appendChild(menu)
-
+    madiv.appendChild(menu)
+    gameWindow.appendChild(madiv)
 
         const div_content = document.createElement("div")
 
@@ -188,7 +189,7 @@ function menuBienvenue () {
         
 
         div_content.id = "div_content"
-        document.querySelector("#menu").appendChild(div_content)
+        menu.appendChild(div_content)
 
             // text
 
@@ -203,7 +204,7 @@ function menuBienvenue () {
             big_text.style.width = "100%"
             
             big_text.id = "big_text"
-            document.querySelector("#div_content").appendChild(big_text)
+            div_content.appendChild(big_text)
 
 
                 const bienvenue =document.createElement("h2")
@@ -215,7 +216,7 @@ function menuBienvenue () {
                 bienvenue.style.lineHeight = "73px";
                 bienvenue.style.color = "#FFBB0B"
 
-                document.querySelector("#big_text").appendChild(bienvenue)
+                big_text.appendChild(bienvenue)
 
 
                 const runner_text =document.createElement("h1")
@@ -226,7 +227,7 @@ function menuBienvenue () {
                 runner_text.style.lineHeight = "182px";
                 runner_text.style.color = "#FFFFFF"
 
-                document.querySelector("#big_text").appendChild(runner_text)
+                big_text.appendChild(runner_text)
 
             // bouton
 
@@ -242,14 +243,14 @@ function menuBienvenue () {
             buttun_area.style.width = "100%"
 
             buttun_area.id = "buttun_area"
-            document.querySelector("#div_content").appendChild(buttun_area)
+            div_content.appendChild(buttun_area)
 
 
                 const buttun_jouer = document.createElement ("div") 
 
                 buttun_jouer.classList.add("buttun")
                 buttun_jouer.id = "buttun_jouer"
-                document.querySelector("#buttun_area").appendChild(buttun_jouer)
+                buttun_area.appendChild(buttun_jouer)
 
 
                     const text_jouer = document.createElement("span")
@@ -258,7 +259,7 @@ function menuBienvenue () {
 
                     text_jouer.classList.add("text_buttun_white")
                     text_jouer.id = "text_jouer"
-                    document.querySelector("#buttun_jouer").appendChild(text_jouer)
+                    buttun_jouer.appendChild(text_jouer)
 
 
                 const buttun_edition = document.createElement ("div")
@@ -267,7 +268,7 @@ function menuBienvenue () {
                 buttun_edition.id = "buttun_edition"
 
 
-                document.querySelector("#buttun_area").appendChild(buttun_edition)
+                buttun_area.appendChild(buttun_edition)
 
 
                     const text_edition = document.createElement("span")
@@ -275,14 +276,14 @@ function menuBienvenue () {
                     text_edition.innerText = "EDITION"
                     
                     text_edition.classList.add("text_buttun_yellow")
-                    document.querySelector("#buttun_edition").appendChild(text_edition)
+                    buttun_edition.appendChild(text_edition)
 
 
                 const buttun_parametre = document.createElement ("div")
 
                 buttun_parametre.classList.add("buttun")
                 buttun_parametre.id = "buttun_parametre"
-                document.querySelector("#buttun_area").appendChild(buttun_parametre)
+                buttun_area.appendChild(buttun_parametre)
 
 
                     const text_parametre = document.createElement("span")
@@ -290,19 +291,19 @@ function menuBienvenue () {
                     text_parametre.innerText = "PARAMETRE"
                     
                     text_parametre.classList.add("text_buttun_white")
-                    document.querySelector("#buttun_parametre").appendChild(text_parametre)
+                    buttun_parametre.appendChild(text_parametre)
 
-    document.querySelector("#buttun_jouer").onclick = function redirection_jouer(){
+    buttun_jouer.onclick = function redirection_jouer(){
         madiv.innerHTML = ""
         menuJouer();
     };
 
-    document.querySelector("#buttun_edition").onclick = function redirection_edition(){
+    buttun_edition.onclick = function redirection_edition(){
         madiv.innerHTML = "";
         menuEdition();
     };
 
-    document.querySelector("#buttun_parametre").onclick = function redirection_parametre(){
+    buttun_parametre.onclick = function redirection_parametre(){
         madiv.innerHTML = "";
         menuParametre();
     };
@@ -912,4 +913,4 @@ function menuParametre () {
         
 }
 
-export { menu, menuDuJeu};
+export { menu, menuDuJeu, menuBienvenue};
