@@ -9,16 +9,17 @@ function subMenuEdition(){
     const divLR = document.createElement("div");
     const divRight = document.createElement("div");
     const divLeft = document.createElement("div");
-    const btnExport = document.createElement("button");
     const Title = document.createElement("h1");
     const rightTitle = document.createElement("h2");
     const text_import = document.createElement("span");
+    const btnExport = document.createElement("button");
 
     madiv.style.display = "flex";
     madiv.style.width = "100%";
     madiv.style.height = "100vh";
     madiv.style.overflow = "hidden";
-    madiv.backgroundColor = "yellow"
+    madiv.backgroundColor = "yellow";
+    madiv.style.overflowX = "auto"
     divContent.style.width = "100%";
     divContent.style.height = "100vh";
     divContent.style.overflow = "hidden";
@@ -171,7 +172,7 @@ function subMenuEdition(){
     inputSelect.setAttribute('type', 'number');
     div_el3.append(inputLabel3, inputSelect);
     form.appendChild(div_el3);
-    const btnExport = document.createElement("button");
+
     btnExport.style.display = "flex"
     btnExport.style.backgroundColor = "#FFBB0B"
     btnExport.style.justifyContent = "center"

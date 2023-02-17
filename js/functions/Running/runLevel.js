@@ -79,7 +79,7 @@ function createCharacter() {
     character.style.position = "fixed"; // Colle le personnage sur l'écran
     character.style.left = "0px";
     character.style.bottom = "100px";
-    character.style.backgroundImage = "url('./running.gif')";
+    character.style.backgroundImage = "url('./img/running.gif')";
     character.style.backgroundSize = "400px";
     character.style.backgroundPosition = "center";
     character.style.backgroundPositionY = "-40px";
