@@ -46,6 +46,10 @@ function subMenuPause (animation) {
             btnExit.textContent = "Exit";
             btnExit.className = 'btn';
 
+            btnExit.addEventListener("click", () => {
+                madiv.style.display = "none"
+                location.reload();})
+
     const divTitle = document.createElement("div");
         divTitle.style.border = '3px solid #FFFFFF';
         divTitle.style.borderRadius = '14px';
@@ -77,5 +81,7 @@ function subMenuPause (animation) {
     divContentMenu.appendChild(divBtn);
     divTitle.appendChild(Title);
     divBtn.append(btnContinu, btnRestart, btnExit);
+
+    
 }
 export default subMenuPause;
