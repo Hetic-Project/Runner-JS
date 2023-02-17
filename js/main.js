@@ -1,14 +1,11 @@
-import menu from './functions/Edit/menu.js'
-//import runLevel from './functions/Running/runLevel.js';
-import subMenuEdition from './functions/Edit/subMenuEdition.js';
-import easy from '../config/easy.json' assert {type : "json"};
-import createLevel from './functions/Edit/createLevel.js';
-//import { importLevel } from './functions/Edit/importLevel.js';
-//menu()
+import {menu} from './functions/Edit/menu.js'
+import subMenuEdition from './functions/Edit/subMenuEdition.js'
+// import subMenuGameover from "./functions/Edit/subMenuGameover.js"
+import subMenuPause from './functions/Edit/subMenuPause.js'
+menu()
+// subMenuEdition()
+// subMenuPause()
 
-
-//createLevel()
-//subMenuEdition()
 
 
 
