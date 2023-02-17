@@ -1,4 +1,5 @@
 import createLevel from "./createLevel.js";
+import exportLevel from "./exportLevel.js";
 function subMenuEdition(){
     const gamecontent = document.querySelector(".game-content")
     const madiv = document.createElement("div");
@@ -8,6 +9,7 @@ function subMenuEdition(){
     const divRight = document.createElement("div");
     const divLeft = document.createElement("div");
 
+    const btnExport = document.createElement("button");
     const Title = document.createElement("h1");
     const rightTitle = document.createElement("h2");
     const text_import = document.createElement("span")
@@ -45,7 +47,6 @@ function subMenuEdition(){
     divLeft.style.height = "90vh";
     divLeft.style.backgroundColor = "#FFBB0B";
     divLeft.style.overflow="auto";
-    divLeft.style.overflowX="visible";
     divLeft.style.overflowY="hidden"
     createLevel();
     let leveldiv = document.querySelector(".leveldiv");
@@ -54,7 +55,7 @@ function subMenuEdition(){
 
     divRight.style.width = "40%";
     divRight.style.height = "90vh";
-    divRight.style.backgroundColor = "black"
+    divRight.style.backgroundColor ="black"
     divRight.style.backgroundImage = "url('./img/back.png')";
     divRight.style.backgroundSize = "100% 100%";
     divRight.style.backgroundRepeat = "no-repeat";
@@ -65,6 +66,23 @@ function subMenuEdition(){
     rightTitle.style.textAlign = "center";
     rightTitle.style.fontSize = "40px"
     rightTitle.style.fontWeight = "900";
+
+    btnExport.style.display = "flex"
+    btnExport.id="export"
+    btnExport.style.backgroundColor = "#FFBB0B"
+    btnExport.style.justifyContent = "center"
+    btnExport.style.alignItems = "center";
+    btnExport.style.height = "12%"
+    btnExport.style.width = "35%"
+    btnExport.style.border ="solid 3px #FFFFFF"
+    btnExport.style.borderRadius = "25px"
+    btnExport.style.margin = "17% 35%";
+    btnExport.style.cursor = "pointer";
+
+    text_import.innerText = "Export LEVEL"
+    text_import.style.fontSize = "20px";
+    text_import.style.fontWeight = "900";
+    text_import.style.color = "#ffffff"
 
     //form
 
@@ -122,7 +140,7 @@ function subMenuEdition(){
             inputCreateur.style.borderRadius = "15px";
             inputCreateur.style.color = "white";
             inputCreateur.style.paddingLeft ="10px";
-            inputCreateur.id ="input_createur"
+            inputCreateur.id = "input_creator"
         div_el2.append(inputLabel2, inputCreateur);
         form.appendChild(div_el2);
 
@@ -142,42 +160,38 @@ function subMenuEdition(){
         option.text = options[i];
         inputSelect.add(option);
         }
-        inputSelect.id = "input_select"
+      
         inputSelect.setAttribute('type', 'number');
+        inputSelect.id = "input_select"
         div_el3.append(inputLabel3, inputSelect);
         form.appendChild(div_el3);
-        const btnExport = document.createElement("button");
-        btnExport.style.display = "flex"
-        btnExport.style.backgroundColor = "#FFBB0B"
-        btnExport.style.justifyContent = "center"
-        btnExport.style.alignItems = "center";
-        btnExport.style.height = "12%"
-        btnExport.style.width = "35%"
-        btnExport.style.border ="solid 3px #FFFFFF"
-        btnExport.style.borderRadius = "25px"
-        btnExport.style.margin = "17% 35%";
-        btnExport.style.cursor = "pointer";
-        btnExport.textContent = "Export LEVEL";
-        btnExport.innerText = "Export LEVEL"
-        btnExport.style.fontSize = "20px";
-        btnExport.style.fontWeight = "900";
-        btnExport.style.color = "#ffffff";
-        form.appendChild(btnExport);
+
+
+        form.appendChild(btnExport)
+        
+
 
     divForm.appendChild(form);
-    form.appendChild(btnExport);
+
 
     gamecontent.appendChild(madiv);
     madiv.appendChild(divContent);
     divContent.append(divNav,divLR);
     divLR.append(divLeft,divRight);
     divNav.appendChild(Title);
-    divRight.append(rightTitle, form, divForm,);
-   
-}
+    divRight.append(rightTitle, form, divForm);
+    btnExport.appendChild(text_import);
+    const titleInput = document.getElementById("input_titre");
+    const creatorInput = document.getElementById("input_creator");
+   const difficultyInput = document.getElementById("input_select");
 
+    const devexport= document.getElementById('export');
+        devexport.addEventListener("click", function(){
+            exportLevel(titleInput,creatorInput,difficultyInput);
+        })
 
-
+    
+} 
 
 
 

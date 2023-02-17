@@ -1,4 +1,3 @@
-import exportLevel from "./exportLevel.js";
 function createLevel(){
     createButtons()
     let addBlocA = document.getElementById('bloc_A');
@@ -219,4 +218,5 @@ function createBlockC(){
     numberBlockC++;
 
 }
+
 export default createLevel;

@@ -5,6 +5,9 @@
 
 .leveldiv{
   transition: margin-left 0.5s ease;
+  overflow: auto;
+  overflow-y:hidden ;
+
 }
 
 
