@@ -7,7 +7,7 @@ function down(character) {
     document.addEventListener("keydown" , (event) => {
         if ( event.keyCode == 40) {
             isDown.down = true;
-            character.style.backgroundImage = "url('./roulade.gif')";
+            character.style.backgroundImage = "url('./img/roulade.gif')";
             character.style.backgroundPositionY = "-155px";
             character.style.width = "80px";
             character.style.height = "85px";

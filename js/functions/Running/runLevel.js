@@ -1,9 +1,13 @@
 // Entre accolade car c'est des exports
 import { move} from './move.js';
-import {menuDuJeu} from '../Edit/menu.js'
+import {menuDuJeu, optionsLevel } from '../Edit/menu.js'
 import {jump} from './jump.js';
 import {down} from './down.js';
+import { scoreUpdate } from './score.js';
 
+const params = {
+    numberBlockA: 100,
+}
 
 const gameWindows = document.querySelector('.game-content');
 const content = document.createElement('div');
@@ -27,7 +31,7 @@ const widthOfBlockA = 200; // largeur du bloc A
 let positionBlock = 400; // la distance qui separe chaque bloc B et C par rapport à leur left
 let numberBlockA = 100; // le nombre de bloc A
 // calcule du slide de la map par rapport a la taille de l'écran de l'utilisateur
-const animationWidh = (widthOfBlockA * numberBlockA) - window.screen.availWidth; 
+const animationWidth = (widthOfBlockA * numberBlockA) - window.screen.availWidth; 
 let SpaceBetweenObstacles = 3; // espacement en nombre de blocks A entre chaque obstacle
 const obstacles = ["B", "C"];
 
@@ -79,7 +83,7 @@ function createCharacter() {
     character.style.position = "fixed"; // Colle le personnage sur l'écran
     character.style.left = "0px";
     character.style.bottom = "100px";
-    character.style.backgroundImage = "url('./running.gif')";
+    character.style.backgroundImage = "url('./img/running.gif')";
     character.style.backgroundSize = "400px";
     character.style.backgroundPosition = "center";
     character.style.backgroundPositionY = "-40px";
@@ -94,27 +98,66 @@ function createCharacter() {
 // Fonction qui créer notre jeu avec le menu, le personnage ainsi que le choix du niveau 
 function runLevel(blockA) {
 
-    menuDuJeu();
+  menuDuJeu();
 
-    let i = 0;
-    let j = 0;
+  let i = 0;
+  let j = 0;
 
-    while (i < numberBlockA) { // tant que le I est inférieur a la valeur de A on créer des blocs A
-      createBlockA(blockA);
-      i++;
-    }
-  
-    while (j < Math.trunc((numberBlockA / SpaceBetweenObstacles) - 4)) {
-      const randomObstacle = Math.round(Math.random(0, 2)); // soit 0 = B, soit 1 = C avec 2 exclu
-      createObstacle(obstacles[randomObstacle]); // génère aléatoirement un bloc B ou C en fonction du random
-      // la distance entre les éléments B et C (A = 200px donc 600px représente 3 blocs A)
-      positionBlock = positionBlock + 600; 
-      j++;
-    }
-  
-    createCharacter(); // appel du personnage
-    move(content, animationWidh, 200000, blocks); // appel la fonction move de move.js
-
+  while (i < params.numberBlockA) { // tant que le I est inférieur a la valeur de A on créer des blocs A
+    createBlockA(blockA);
+    i++;
   }
+
+  while (j < Math.trunc((params.numberBlockA / SpaceBetweenObstacles) - 4)) {
+    const randomObstacle = Math.round(Math.random(0, 2)); // soit 0 = B, soit 1 = C avec 2 exclu
+    createObstacle(obstacles[randomObstacle]); // génère aléatoirement un bloc B ou C en fonction du random
+    // la distance entre les éléments B et C (A = 200px donc 600px représente 3 blocs A)
+    positionBlock = positionBlock + 600; 
+    j++;
+  }
+
+  createCharacter(); // appel du personnage
+  
+    let speedMultiplier = 1; // initialisation du multiplicateur de vitesse
+    let initialSpeed = 1; // vitesse de base du jeu
+
+    // modifier le multiplicateur de vitesse en fonction de l'option sélectionnée
+    switch (optionsLevel.level) { // on change la vitesse du jeu en fonction de l'option choisie
+      case "1":
+        speedMultiplier = 0.9; 
+        move(content, animationWidth, initialSpeed * speedMultiplier, blocks); 
+        break;
+      case "2":
+        speedMultiplier = 0.8;
+        move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
+        break;
+      case "3":
+        speedMultiplier = 0.65;
+        move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
+        break;
+      case "4":
+        speedMultiplier = 0.6;
+        move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
+        break;
+      case "5":
+        speedMultiplier = 0.5;
+        move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
+        break;      
+      // ajouter des cas pour les autres options
+      default:
+        speedMultiplier = 1;
+        move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
+        break;
+    }
+
+    // move.on('moved', () => {
+    //   const { blocks, character } = move.getState(); // récupère les blocs et le personnage
+    //   const currentBlock = blocks.find(block => block.getBoundingClientRect().right < character.getBoundingClientRect().left); // récupère le bloc le plus à gauche
+    //   if (currentBlock && !currentBlock.passed) { // si le bloc existe et qu'il n'a pas encore été passé
+    //     currentBlock.passed = true; // on passe le bloc
+    //     scoreUpdate(); // on met à jour le score
+    //   }
+    // })
+};
 
 export default runLevel;

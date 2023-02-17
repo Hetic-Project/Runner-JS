@@ -171,7 +171,6 @@ function subMenuEdition(){
     inputSelect.setAttribute('type', 'number');
     div_el3.append(inputLabel3, inputSelect);
     form.appendChild(div_el3);
-    const btnExport = document.createElement("button");
     btnExport.style.display = "flex"
     btnExport.style.backgroundColor = "#FFBB0B"
     btnExport.style.justifyContent = "center"
