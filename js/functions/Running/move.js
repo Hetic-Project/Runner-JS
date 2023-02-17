@@ -1,6 +1,7 @@
 import {isJump} from './jump.js';
 import { isDown } from './down.js';
 import subMenuPause from '../Edit/subMenuPause.js';
+import subMenuFinish from '../Edit/subMenuFinish.js';
 
 
 const isOpen = {
