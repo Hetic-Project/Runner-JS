@@ -29,9 +29,8 @@ content.style.backgroundColor = "transparent";
 const blocks = []; // prends les blocs de types B et C
 const widthOfBlockA = 200; // largeur du bloc A
 let positionBlock = 400; // la distance qui separe chaque bloc B et C par rapport à leur left
-let numberBlockA = 100; // le nombre de bloc A
-// calcule du slide de la map par rapport a la taille de l'écran de l'utilisateur
-const animationWidth = (widthOfBlockA * numberBlockA) - window.screen.availWidth; 
+let numberBlockA = 100; // nombre de bloc A
+const animationWidth = (widthOfBlockA * numberBlockA) - window.screen.availWidth; // calcule du slide de la map par rapport a la taille de l'écran de l'utilisateur
 let SpaceBetweenObstacles = 3; // espacement en nombre de blocks A entre chaque obstacle
 const obstacles = ["B", "C"];
 
