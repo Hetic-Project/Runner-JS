@@ -14,7 +14,7 @@ var blob = new Blob([JSON.stringify(levelData, null, 2)], {type: 'application/js
 
 var link = document.createElement('a');
 link.href = window.URL.createObjectURL(blob);
-link.download = 'mon_niveau.jmpr';
+link.download = `${title.value}.jmpr`;
 
 document.body.appendChild(link);
 link.click();
