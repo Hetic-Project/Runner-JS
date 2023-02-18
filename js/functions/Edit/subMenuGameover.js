@@ -148,7 +148,7 @@ function subMenuGameover (nombre_de_point, animation) {
                 area_buttun_restart.style.width = "100%"
 
                 area_buttun_restart.id = "area_buttun_restart"
-                document.querySelector("#area_buttun").appendChild(area_buttun_restart)
+                area_buttun.appendChild(area_buttun_restart)
 
                     const buttun_restart = document.createElement ("button")
 
@@ -159,7 +159,7 @@ function subMenuGameover (nombre_de_point, animation) {
 
                     buttun_restart.classList.add("buttun")
                     buttun_restart.id = "buttun_restart"
-                    document.querySelector("#area_buttun_restart").appendChild(buttun_restart)
+                    area_buttun_restart.appendChild(buttun_restart)
 
 
                             const text_restart = document.createElement("span")
@@ -168,7 +168,7 @@ function subMenuGameover (nombre_de_point, animation) {
 
                             
                             text_restart.classList.add("text_buttun_white")
-                            document.querySelector("#buttun_restart").appendChild(text_restart)
+                            buttun_restart.appendChild(text_restart)
 
 
                 const buttun_exit = document.createElement ("button")
@@ -181,7 +181,7 @@ function subMenuGameover (nombre_de_point, animation) {
 
                 buttun_exit.classList.add("buttun")
                 buttun_exit.id = "buttun_exit"
-                document.querySelector("#area_buttun").appendChild(buttun_exit)
+                area_buttun.appendChild(buttun_exit)
 
 
                         const text_exit = document.createElement("span")
@@ -189,16 +189,20 @@ function subMenuGameover (nombre_de_point, animation) {
                         text_exit.innerText = "EXIT"
                         
                         text_exit.classList.add("text_buttun_white")
-                        document.querySelector("#buttun_exit").appendChild(text_exit)
+                        buttun_exit.appendChild(text_exit)
 
-    document.querySelector("#buttun_restart").onclick = function redirection_jouer(){
-        isOpen.gameOver = false
+    buttun_restart.onclick = function redirection_jouer(){
+
+        isOpen.gameOver = true
         menu_game_over.style.display = "none"
         animation.finish()
         animation.play()
+        setTimeout(() => {
+            isOpen.gameOver = false
+        }, 3000);
     };
 
-    document.querySelector("#buttun_exit").onclick = function redirection_jouer(){
+    buttun_exit.onclick = function redirection_jouer(){
         location.reload();
     };
 

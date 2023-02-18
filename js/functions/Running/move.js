@@ -2,13 +2,16 @@ import {isJump} from './jump.js';
 import { isDown } from './down.js';
 import subMenuPause from '../Edit/subMenuPause.js';
 import {optionsLevel} from '../Edit/menu.js'
-import {subMenuFinish, finishScore} from '../Edit/subMenuFinish.js';
+import {subMenuFinish} from '../Edit/subMenuFinish.js';
 
 const isOpen = {
     menu: false,
     gameOver: false
 }
 
+const finishScore = {
+    score: 0,
+}
 
 import subMenuGameover from '../Edit/subMenuGameover.js';
 
@@ -25,8 +28,9 @@ function move(element, animationWidth, level, array) {
         fill: "forwards",
     })
     moveMap.onfinish = () => {
+        
         if(isOpen.gameOver === false){
-            subMenuFinish(0, moveMap)
+            subMenuFinish(finishScore.score, moveMap)
         }
     }
     
@@ -100,32 +104,32 @@ function move(element, animationWidth, level, array) {
         case "1":
           console.log("11");
           scoreSpeedMultiplier = 0.2; 
-          scoreMultiplier = 1;
+        //   scoreMultiplier = 1;
           break;
         case "2":
           console.log("12"); 
           scoreSpeedMultiplier = 0.4;
-          scoreMultiplier = 1;
+        //   scoreMultiplier = 1;
           break;
         case "3":
           console.log("13"); 
           scoreSpeedMultiplier = 0.5;
-          scoreMultiplier = 1.2;
+        //   scoreMultiplier = 1.2;
           break;
         case "4":
           console.log("14"); 
           scoreSpeedMultiplier = 0.7;
-          scoreMultiplier = 1.3;
+        //   scoreMultiplier = 1.3;
           break;
         case "5":
           console.log("15"); 
           scoreSpeedMultiplier = 0.9;
-          scoreMultiplier = 1.4;
+        //   scoreMultiplier = 1.4;
           break;      
         default:
           console.log("10"); 
           scoreSpeedMultiplier = 0.2;
-          scoreMultiplier = 1;
+        //   scoreMultiplier = 1;
           break;
       }
 
@@ -135,9 +139,9 @@ function move(element, animationWidth, level, array) {
       
         if (distance > distanceTravelled + 200) { // mettre à jour le score toutes les 200 unités
           const points = 10; // 10 points pour 200 unités (ici c'est donc des pixels)
-          score = Math.round(score + (points * (scoreSpeedMultiplier * scoreMultiplier))); // ajoute les points au score
+          score = Math.round(score + (points * scoreSpeedMultiplier)); // ajoute les points au score
           scoreDisplay.innerHTML = `Score: ${score}`; // mettre à jour le score
-          finishScore.score = score
+            finishScore.score = score
           distanceTravelled = distance; // mets à jour la distance parcourue
         }
       }, intervalDuration); // actualisation toutes les 10ms
@@ -160,8 +164,8 @@ function move(element, animationWidth, level, array) {
 function colision(animation){
     
     animation.pause();// méthode pause lié à la méthode "animation"
-    if (isOpen.gameOver === false) {
-        subMenuGameover(0, animation)
+    if (isOpen.gameOver === false) { 
+        subMenuGameover(finishScore.score, animation)
         isOpen.gameOver = true
     }
     
