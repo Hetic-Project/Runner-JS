@@ -5,7 +5,7 @@ function createLevel(){
         createBlockA();
         console.log(blocks)
         let sol =document.getElementById('nombresol')
-        sol.textContent=`Nombre de Sols Crées: ${numberBlockA-1}`
+        sol.textContent=`Sols Crées: ${numberBlockA-1}`
 
     })
     let addBlocB = document.getElementById('bloc_B');
@@ -13,14 +13,14 @@ function createLevel(){
         createBlockB();
         console.log(blocks)
         let obs1 =document.getElementById('numberobs1')
-        obs1.textContent=`Nombre d'obstacles 1 Crées: ${numberBlockB-1}`
+        obs1.textContent=`Obstacles 1 Crées: ${numberBlockB-1}`
     })
     let addBlocC = document.getElementById('bloc_C');
     addBlocC.addEventListener("click", function(){
         createBlockC();
         console.log(blocks)
         let obs2 =document.getElementById('numberobs2')
-        obs2.textContent=`Nombre d'obstacles 2 Crées: ${numberBlockC-1}`
+        obs2.textContent=`Obstacles 2 Crées: ${numberBlockC-1}`
     })
 
     document.getElementById("bloc_Aremove").addEventListener("click", function(){
@@ -31,7 +31,7 @@ function createLevel(){
         console.log(blocks)
         numberBlockA = numberBlockA -1;
         let sol =document.getElementById('nombresol')
-        sol.textContent=`Nombre de Sols Crées: ${numberBlockA-1}`
+        sol.textContent=`Sols Crées: ${numberBlockA-1}`
 
 
         let map = document.querySelector(".map");
@@ -49,7 +49,7 @@ function createLevel(){
         console.log(blocks)
         numberBlockB = numberBlockB -1;
         let obs1 =document.getElementById('numberobs1')
-        obs1.textContent=`Nombre d'obstacles 1 Crées: ${numberBlockB-1}`
+        obs1.textContent=`Obstacles 1 Crées: ${numberBlockB-1}`
      })
      document.getElementById("bloc_Cremove").addEventListener("click", function(){
         let BlocCremove = document.getElementById("C"+ (numberBlockC-1));
@@ -58,7 +58,7 @@ function createLevel(){
         console.log(blocks)
         numberBlockC = numberBlockC -1;
         let obs2 =document.getElementById('numberobs2')
-        obs2.textContent=`Nombre d'obstacles 2 Crées: ${numberBlockC-1}`
+        obs2.textContent=`Obstacles 2 Crées: ${numberBlockC-1}`
      })
 
 
@@ -151,13 +151,13 @@ function createButtons(){
     const obstacle2 = document.createElement("p")
     sol.className="numbers"
     sol.id="nombresol"
-    sol.textContent=`Nombre de Sols Crées: ${numberBlockA-1}`
+    sol.textContent=`Sols Crées: ${numberBlockA-1}`
     obstacle1.className="numbers"
     obstacle1.id="numberobs1"
-    obstacle1.textContent=`Nombre d'obstacles 1 Crées: ${numberBlockB-1}`
+    obstacle1.textContent=`Obstacles 1 Crées: ${numberBlockB-1}`
     obstacle2.className="numbers"
     obstacle2.id="numberobs2"
-    obstacle2.textContent=`Nombre d'obstacles 2 Crées:${numberBlockC-1}`
+    obstacle2.textContent=`Obstacles 2 Crées: ${numberBlockC-1}`
     top.appendChild(numbersDiv)
     numbersDiv.appendChild(sol)
     numbersDiv.appendChild(obstacle1)
@@ -214,7 +214,7 @@ function createBlockB(){
     blockB.style.height = "50px";
     blockB.style.bottom="100px";
     blockB.style.left =`${floorwidth-50}px`;
-    
+
 
     let img2 = new Image(50,50)
     img2.src = './img/spikes.png'
@@ -271,3 +271,4 @@ const removeLastBlock = (type) => {
 
 export {blocks,numberBlockA,numberBlockB,numberBlockC};
 export default createLevel;
+

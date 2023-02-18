@@ -5,7 +5,7 @@
 
 .leveldiv{
   transition: margin-left 0.5s ease;
-  overflow-x: auto;
+  overflow: auto;
   overflow-y: hidden;
 }
 
@@ -35,7 +35,7 @@
     margin-top: 10px;
     margin-left: 110px;
     left: 0px;
-    
+
 }
 
 .text3{
@@ -55,16 +55,18 @@
 
 
 .numbersDiv{
-  position: absolute;
-  right: 0;
-  top: 10px;
+  display: inline-flex;
+
+    flex-wrap: wrap;
+    position: absolute;
+    top: 90px;
+    left: 30px;
 }
 .numbers{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
+
   margin-top: 10px;
-  margin-right: 20px;
+  margin-left: 30px;
+  font-size: 17px;
 
 
 }
