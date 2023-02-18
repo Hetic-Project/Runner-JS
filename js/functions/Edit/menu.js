@@ -76,14 +76,14 @@ function menuDuJeu (){
         divNavRight.style.display ='flex';
         divNavRight.style.justifyContent = 'space-between';
         divNavRight.style.alignItems = 'center';
-        divNavRight.style.border = " 2px solid white"       
+        // divNavRight.style.border = " 2px solid white"       
         divNavRight.style.marginLeft ="205%";
-        divNavRight.style.marginTop = "15px"
+        divNavRight.style.marginTop = "1px"
         divNavRight.id = "divNavRight";
         divNav.appendChild(divNavRight);
 
     const btnMenu = document.createElement("btn");
-        btnMenu.textContent = 'Echap \t  || ';
+        btnMenu.textContent = 'Echap \t  \t || ';
         btnMenu.style.backgroundColor = '#FFBB0B';
         btnMenu.style.padding = '10px';
         btnMenu.style.borderRadius = '20px';
@@ -852,31 +852,35 @@ function menuParametre () {
     const divEchap = document.createElement ("div");
 
         divEchap.style.display = "flex";
-        divEchap.style.justifyContent = "center";
+        divEchap.style.justifyContent = "space-between";
         divEchap.style.alignItems = "center";
-        divEchap.textContent = "ECHAP"
-        divEchap.style.fontWeight = "900"
-        divEchap.style.color = "white"
-        divEchap.style.fontSize = "25px"
-        divEchap.style.height = "25%";
-        divEchap.style.width = "50%";
-        divEchap.style.marginRight = "0px"
         divEchap.style.borderRadius = "25px";
+        divEchap.style.marginRight = "40px"
         divEchap.id = "divEchap";
 
         document.querySelector("#text_area").appendChild(divEchap);
 
     const toucheEchap = document.createElement("span");
 
-        toucheEchap.innerText = ": PAUSE";
-        toucheEchap.style.marginLeft = "20px";
+        toucheEchap.innerText = "ECHAP :";
+        toucheEchap.style.marginLeft = "35px";
         toucheEchap.style.fontSize = "24px";
-        toucheEchap.style.fontWeight = "500";
-        toucheEchap.style.color = "white";
         toucheEchap.style.fontWeight = "700";
+        toucheEchap.style.color = "white";
         toucheEchap.style.paddingRight = "15px"; 
 
         document.querySelector("#divEchap").appendChild(toucheEchap);
+
+    const touchePause = document.createElement("span");
+
+        touchePause.innerText = "PAUSE";
+        touchePause.style.paddingRight = "40px";
+        touchePause.style.fontSize = "24px";
+        touchePause.style.fontWeight = "500";
+        touchePause.style.color = "white";
+        touchePause.style.fontWeight = "700";
+
+        document.querySelector("#divEchap").appendChild(touchePause);
 
 
     const div_back = document.createElement("div");
@@ -1033,28 +1037,6 @@ function menuParametre () {
 
     div_el3.append(label3, input3);
     form.append(div_el3);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     document.querySelector("#div_buttun_back").onclick = function redirection_retour(){
         madiv.innerHTML = "";

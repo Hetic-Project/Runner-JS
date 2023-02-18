@@ -87,7 +87,7 @@ function move(element, animationWidth, level, array) {
     const divScore = document.createElement('div');
     divScore.style.position = "fixed";
     divScore.style.color = "white";
-    divScore.style.top = "62px";
+    divScore.style.top = "53px";
     divScore.style.right = "20px";
   
     const scoreDisplay = document.createElement('span');
