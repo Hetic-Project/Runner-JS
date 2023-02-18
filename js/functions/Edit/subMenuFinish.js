@@ -1,5 +1,7 @@
-
-function subMenuFinish (nombre_de_point, animation) {
+const finishScore = {
+    score: null
+}
+function subMenuFinish (nombre_de_point) {
     const game_content = document.querySelector(".game-content")
 
 
@@ -209,4 +211,4 @@ function subMenuFinish (nombre_de_point, animation) {
 
 }
 
-export default subMenuFinish
+export {subMenuFinish, finishScore}

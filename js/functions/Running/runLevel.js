@@ -28,7 +28,7 @@ content.style.backgroundColor = "transparent";
 const blocks = []; // prends les blocs de types B et C
 const widthOfBlockA = 200; // largeur du bloc A
 let positionBlock = 400; // la distance qui separe chaque bloc B et C par rapport à leur left
-let numberBlockA = 100; // nombre de bloc A
+let numberBlockA = 25; // nombre de bloc A
 const animationWidth = (widthOfBlockA * numberBlockA) - window.screen.availWidth; // calcule du slide de la map par rapport a la taille de l'écran de l'utilisateur
 let SpaceBetweenObstacles = 3; // espacement en nombre de blocks A entre chaque obstacle
 
@@ -119,44 +119,34 @@ function runLevel(object) {
 
   createCharacter(); // appel du personnage
 
-  
-
   if(params.isImport === true){
 
-    let speedMultiplier;
+    let speedMultiplier = object.difficulty
     let initialSpeed = 200000;
-    
-    console.log(object.difficulty)
-    console.log(params.isImport)
 
-    switch (object.difficulty) { // on change la vitesse du jeu en fonction de l'option choisie
-      case "1":
-        speedMultiplier = 0.9; 
-        move(content, animationWidth, initialSpeed * speedMultiplier, blocks); 
-        break;
-      case "2":
-        speedMultiplier = 0.8;
-        move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
-        break;
-      case "3":
-        speedMultiplier = 0.65;
-        move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
-        break;
-      case "4":
+    if(speedMultiplier === 1){
+      speedMultiplier = 0.8; 
+      move(content, animationWidth, initialSpeed * speedMultiplier, blocks); 
+    }
+    else if (speedMultiplier === 2){
         speedMultiplier = 0.6;
         move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
-        break;
-      case "5":
-        speedMultiplier = 0.5;
-        move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
-        break;      
-      // ajouter des cas pour les autres options
-      default:
-        console.log("je suis ans le default")
-        speedMultiplier = 1;
-        move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
-        break;
     }
+    else if (speedMultiplier === 3){
+      speedMultiplier = 0.4;
+      move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
+    }
+    else if (speedMultiplier === 4){
+      speedMultiplier = 0.3;
+      move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
+    }
+    else if (speedMultiplier === 5){
+      speedMultiplier = 0.2;
+      move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
+    }else{
+      console.log("Le fichier ne comporte aucune vitesse")
+    }
+  
   }else {
 
     let speedMultiplier = 1

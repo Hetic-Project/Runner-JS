@@ -2,6 +2,7 @@ import {isJump} from './jump.js';
 import { isDown } from './down.js';
 import subMenuPause from '../Edit/subMenuPause.js';
 import {optionsLevel} from '../Edit/menu.js'
+import {subMenuFinish, finishScore} from '../Edit/subMenuFinish.js';
 
 const isOpen = {
     menu: false,
@@ -22,7 +23,12 @@ function move(element, animationWidth, level, array) {
         duration: level, // le temps de l'effet de slide jusqu'à (x)px
         iterations: 1,
         fill: "forwards",
-    });
+    })
+    moveMap.onfinish = () => {
+        if(isOpen.gameOver === false){
+            subMenuFinish(0, moveMap)
+        }
+    }
     
     const allObstacles = []; //récupere la distance et le type de l'obstacle sous forme de clé/valeur
     array.map((obstacle) => {
@@ -131,6 +137,7 @@ function move(element, animationWidth, level, array) {
           const points = 10; // 10 points pour 200 unités (ici c'est donc des pixels)
           score = Math.round(score + (points * (scoreSpeedMultiplier * scoreMultiplier))); // ajoute les points au score
           scoreDisplay.innerHTML = `Score: ${score}`; // mettre à jour le score
+          finishScore.score = score
           distanceTravelled = distance; // mets à jour la distance parcourue
         }
       }, intervalDuration); // actualisation toutes les 10ms
