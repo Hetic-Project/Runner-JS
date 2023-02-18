@@ -1,5 +1,3 @@
-import createLevel from "./createLevel.js";
-import subMenuEdition from "./subMenuEdition.js";
 import { blocks } from "./createLevel.js";
 function exportLevel(title,creator,difficulty){
 var levelData =  {
