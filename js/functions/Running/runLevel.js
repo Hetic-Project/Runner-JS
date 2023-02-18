@@ -28,7 +28,7 @@ content.style.backgroundColor = "transparent";
 const blocks = []; // prends les blocs de types B et C
 const widthOfBlockA = 200; // largeur du bloc A
 let positionBlock = 400; // la distance qui separe chaque bloc B et C par rapport à leur left
-let numberBlockA = 25; // nombre de bloc A
+let numberBlockA = 100; // nombre de bloc A
 const animationWidth = (widthOfBlockA * numberBlockA) - window.screen.availWidth; // calcule du slide de la map par rapport a la taille de l'écran de l'utilisateur
 let SpaceBetweenObstacles = 3; // espacement en nombre de blocks A entre chaque obstacle
 
@@ -159,22 +159,18 @@ function runLevel(object) {
         move(content, animationWidth, initialSpeed * speedMultiplier, blocks); 
         break;
       case "2":
-        console.log("2"); 
         speedMultiplier = 0.6;
         move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
         break;
       case "3":
-        console.log("3"); 
         speedMultiplier = 0.4;
         move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
         break;
       case "4":
-        console.log("4"); 
         speedMultiplier = 0.3;
         move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
         break;
       case "5":
-        console.log("5"); 
         speedMultiplier = 0.2;
         move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
         break;      

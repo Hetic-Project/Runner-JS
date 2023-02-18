@@ -1,6 +1,3 @@
-const finishScore = {
-    score: null
-}
 function subMenuFinish (nombre_de_point) {
     const game_content = document.querySelector(".game-content")
 
@@ -149,7 +146,7 @@ function subMenuFinish (nombre_de_point) {
                 area_buttun_next_level.style.width = "100%"
 
                 area_buttun_next_level.id = "area_buttun_next_level"
-                document.querySelector("#area_buttun").appendChild(area_buttun_next_level)
+                area_buttun.appendChild(area_buttun_next_level)
 
                     const buttun_next_level = document.createElement ("button")
 
@@ -161,7 +158,7 @@ function subMenuFinish (nombre_de_point) {
 
                     buttun_next_level.classList.add("buttun")
                     buttun_next_level.id = "buttun_next_level"
-                    document.querySelector("#area_buttun_next_level").appendChild(buttun_next_level)
+                    area_buttun_next_level.appendChild(buttun_next_level)
 
 
                             const text_next_level = document.createElement("span")
@@ -170,7 +167,7 @@ function subMenuFinish (nombre_de_point) {
 
                             
                             text_next_level.classList.add("text_buttun_white")
-                            document.querySelector("#buttun_next_level").appendChild(text_next_level)
+                            buttun_next_level.appendChild(text_next_level)
 
 
                 const buttun_exit = document.createElement ("button")
@@ -183,7 +180,7 @@ function subMenuFinish (nombre_de_point) {
 
                 buttun_exit.classList.add("buttun")
                 buttun_exit.id = "buttun_exit"
-                document.querySelector("#area_buttun").appendChild(buttun_exit)
+                area_buttun.appendChild(buttun_exit)
 
 
                         const text_exit = document.createElement("span")
@@ -191,16 +188,16 @@ function subMenuFinish (nombre_de_point) {
                         text_exit.innerText = "EXIT"
                         
                         text_exit.classList.add("text_buttun_white")
-                        document.querySelector("#buttun_exit").appendChild(text_exit)
+                        buttun_exit.appendChild(text_exit)
 
 
 
-    document.querySelector("#buttun_next_level").onclick = function redirection_jouer(){
+    buttun_next_level.onclick = function redirection_jouer(){
         alert("next_level")
        
     };
 
-    document.querySelector("#buttun_exit").onclick = function redirection_jouer(){
+    buttun_exit.onclick = function redirection_jouer(){
         location.reload();
     };
 
@@ -211,4 +208,4 @@ function subMenuFinish (nombre_de_point) {
 
 }
 
-export {subMenuFinish, finishScore}
+export {subMenuFinish}
