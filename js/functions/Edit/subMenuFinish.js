@@ -1,23 +1,22 @@
-import { isOpen } from "../Running/move.js";
 
-function subMenuGameover (nombre_de_point, animation) {
+function subMenuFinish (nombre_de_point, animation) {
     const game_content = document.querySelector(".game-content")
 
 
-        const menu_game_over = document.createElement("div")
+        const menu_finish = document.createElement("div")
 
-        menu_game_over.style.display = "flex"
-        menu_game_over.style.justifyContent = "center"
-        menu_game_over.style.alignItems = "center"
-        menu_game_over.style.height = "100%"
-        menu_game_over.style.width = "100%"
-        menu_game_over.style.backgroundColor = "rgba(0,0,0,0.4)"
-        menu_game_over.style.zIndex = "1"
-        menu_game_over.style.top = "0px"
-        menu_game_over.style.position = "fixed";
+        menu_finish.style.display = "flex"
+        menu_finish.style.justifyContent = "center"
+        menu_finish.style.alignItems = "center"
+        menu_finish.style.height = "100%"
+        menu_finish.style.width = "100%"
+        menu_finish.style.backgroundColor = "rgba(0,0,0,0.4)"
+        menu_finish.style.zIndex = "1"
+        menu_finish.style.top = "0px"
+        menu_finish.style.position = "fixed";
 
-        menu_game_over.id = "menu_game_over"
-        game_content.appendChild(menu_game_over)
+        menu_finish.id = "menu_finish"
+        game_content.appendChild(menu_finish)
 
             const div_content = document.createElement("div")
 
@@ -28,7 +27,7 @@ function subMenuGameover (nombre_de_point, animation) {
             div_content.style.flexWrap = "wrap";
 
             div_content.id = "div_content"
-            menu_game_over.appendChild(div_content)
+            menu_finish.appendChild(div_content)
 
 
                 const div_titre = document.createElement("div")
@@ -39,7 +38,7 @@ function subMenuGameover (nombre_de_point, animation) {
                 div_titre.style.justifyContent = "space-around"
                 div_titre.style.width = "80%"
                 div_titre.style.height = "20%"
-                div_titre.style.border = "2px solid #C03030"
+                div_titre.style.border = "2px solid green"
                 div_titre.style.borderRadius = "10px"
                 div_titre.style.fontSize = "3.3vw"
 
@@ -49,7 +48,7 @@ function subMenuGameover (nombre_de_point, animation) {
 
                     const skull = document.createElement("img")
                     
-                    skull.src = "./img/skull-icon.png"
+                    skull.src = "./img/coupe.png"
                     skull.style.width = "50px";
                     skull.style.height = "50px";
                     skull.style.marginBottom = "4px"
@@ -60,8 +59,8 @@ function subMenuGameover (nombre_de_point, animation) {
 
                     const titre = document.createElement("span")
 
-                    titre.innerText = "GAME OVER"
-                    titre.style.color = "#C03030"
+                    titre.innerText = "VICTORY"
+                    titre.style.color = "green"
                     titre.style.fontWeight = "900";
                     titre.style.lineHeight = "97px";
 
@@ -70,7 +69,7 @@ function subMenuGameover (nombre_de_point, animation) {
 
                     const skull_two = document.createElement("img")
                     
-                    skull_two.src = "./img/skull-icon.png"
+                    skull_two.src = "./img/coupe.png"
                     skull_two.style.width = "50px";
                     skull_two.style.height = "50px";
                     skull_two.style.marginBottom = "4px"
@@ -140,35 +139,36 @@ function subMenuGameover (nombre_de_point, animation) {
             area_buttun.id = "area_buttun"
             div_content.appendChild(area_buttun)
 
-                const area_buttun_restart = document.createElement ("div")
+                const area_buttun_next_level = document.createElement ("div")
 
-                area_buttun_restart.style.display = "flex"
-                area_buttun_restart.style.justifyContent = "center"
-                area_buttun_restart.style.height = "40%"
-                area_buttun_restart.style.width = "100%"
+                area_buttun_next_level.style.display = "flex"
+                area_buttun_next_level.style.justifyContent = "center"
+                area_buttun_next_level.style.height = "40%"
+                area_buttun_next_level.style.width = "100%"
 
-                area_buttun_restart.id = "area_buttun_restart"
-                document.querySelector("#area_buttun").appendChild(area_buttun_restart)
+                area_buttun_next_level.id = "area_buttun_next_level"
+                document.querySelector("#area_buttun").appendChild(area_buttun_next_level)
 
-                    const buttun_restart = document.createElement ("button")
+                    const buttun_next_level = document.createElement ("button")
 
-                    buttun_restart.style.height = "100%"
-                    buttun_restart.style.width = "40%"
-                    buttun_restart.style.border = "0px"
+                    buttun_next_level.style.height = "100%"
+                    buttun_next_level.style.width = "40%"
+                    buttun_next_level.style.border = "0px"
+
                     
 
-                    buttun_restart.classList.add("buttun")
-                    buttun_restart.id = "buttun_restart"
-                    document.querySelector("#area_buttun_restart").appendChild(buttun_restart)
+                    buttun_next_level.classList.add("buttun")
+                    buttun_next_level.id = "buttun_next_level"
+                    document.querySelector("#area_buttun_next_level").appendChild(buttun_next_level)
 
 
-                            const text_restart = document.createElement("span")
+                            const text_next_level = document.createElement("span")
 
-                            text_restart.innerText = "RESTART"
+                            text_next_level.innerText = "NEXT LEVEL"
 
                             
-                            text_restart.classList.add("text_buttun_white")
-                            document.querySelector("#buttun_restart").appendChild(text_restart)
+                            text_next_level.classList.add("text_buttun_white")
+                            document.querySelector("#buttun_next_level").appendChild(text_next_level)
 
 
                 const buttun_exit = document.createElement ("button")
@@ -191,11 +191,11 @@ function subMenuGameover (nombre_de_point, animation) {
                         text_exit.classList.add("text_buttun_white")
                         document.querySelector("#buttun_exit").appendChild(text_exit)
 
-    document.querySelector("#buttun_restart").onclick = function redirection_jouer(){
-        isOpen.gameOver = false
-        menu_game_over.style.display = "none"
-        animation.finish()
-        animation.play()
+
+
+    document.querySelector("#buttun_next_level").onclick = function redirection_jouer(){
+        alert("next_level")
+       
     };
 
     document.querySelector("#buttun_exit").onclick = function redirection_jouer(){
@@ -209,4 +209,4 @@ function subMenuGameover (nombre_de_point, animation) {
 
 }
 
-export default subMenuGameover
+export default subMenuFinish

@@ -226,7 +226,7 @@ function menuBienvenue () {
         div_content.appendChild(buttun_area);
 
 
-    const buttun_jouer = document.createElement ("div");
+    const buttun_jouer = document.createElement ("button");
 
         buttun_jouer.classList.add("buttun");
         buttun_jouer.id = "buttun_jouer";
@@ -241,7 +241,7 @@ function menuBienvenue () {
         buttun_jouer.appendChild(text_jouer);
 
 
-    const buttun_edition = document.createElement ("div");
+    const buttun_edition = document.createElement ("button");
 
         buttun_edition.classList.add("buttun");
         buttun_edition.id = "buttun_edition";
@@ -255,7 +255,7 @@ function menuBienvenue () {
         buttun_edition.appendChild(text_edition);
 
 
-    const buttun_parametre = document.createElement ("div");
+    const buttun_parametre = document.createElement ("button");
 
         buttun_parametre.classList.add("buttun");
         buttun_parametre.id = "buttun_parametre";
@@ -355,7 +355,7 @@ function menuJouer () {
         document.querySelector("#div_content").appendChild(buttun_area);
 
 
-    const buttun_import = document.createElement ("div");
+    const buttun_import = document.createElement ("button");
 
         buttun_import.classList.add("buttun");
         buttun_import.id = "buttun_import";
@@ -383,7 +383,7 @@ function menuJouer () {
 
 // ====================================== Lancer la partie ===========================================
 
-    const buttun_launch = document.createElement ("div");
+    const buttun_launch = document.createElement ("button");
 
         buttun_launch.style.height = "100%";
         buttun_launch.style.marginTop = "50px";
@@ -428,12 +428,15 @@ function menuJouer () {
         document.querySelector("#menu").appendChild(div_back);
 
 
-    const div_buttun_back = document.createElement("div");
+    const div_buttun_back = document.createElement("button");
 
         div_buttun_back.style.display = "flex";
         div_buttun_back.style.height = "30%";
         div_buttun_back.style.width = "35%";
         div_buttun_back.style.marginLeft = "40px";
+        div_buttun_back.style.backgroundColor = "transparent"
+        div_buttun_back.style.border = "0px"
+        div_buttun_back.style.cursor = "pointer";
         div_buttun_back.id = "div_buttun_back" ;
         document.querySelector("#div_back").appendChild(div_buttun_back);
 
@@ -575,7 +578,7 @@ function menuEdition () {
         document.querySelector("#div_content").appendChild(buttun_area);
 
 
-    const buttun_import = document.createElement ("div");
+    const buttun_import = document.createElement ("button");
 
         buttun_import.classList.add("buttun");
         buttun_import.id = "buttun_import";
@@ -591,7 +594,7 @@ function menuEdition () {
         document.querySelector("#buttun_import").appendChild(text_import);
 
 
-    const buttun_create = document.createElement ("div");
+    const buttun_create = document.createElement ("button");
 
         buttun_create.style.marginTop = "50px";
         buttun_create.classList.add("buttun");
@@ -617,12 +620,15 @@ function menuEdition () {
         document.querySelector("#menu").appendChild(div_back);
 
 
-    const div_buttun_back = document.createElement("div");
+    const div_buttun_back = document.createElement("button");
 
         div_buttun_back.style.display = "flex";
         div_buttun_back.style.height = "30%";
         div_buttun_back.style.width = "35%";
         div_buttun_back.style.marginLeft = "40px";
+        div_buttun_back.style.backgroundColor = "transparent"
+        div_buttun_back.style.border = "0px"
+        div_buttun_back.style.cursor = "pointer";
         div_buttun_back.id = "div_buttun_back" ;
 
         document.querySelector("#div_back").appendChild(div_buttun_back);
@@ -846,13 +852,16 @@ function menuParametre () {
         document.querySelector("#menu").appendChild(div_back);
 
 
-    const div_buttun_back = document.createElement("div");
+    const div_buttun_back = document.createElement("button");
 
         div_buttun_back.style.display = "flex";
         div_buttun_back.style.height = "30%";
         div_buttun_back.style.width = "35%";
         div_buttun_back.style.marginLeft = "40px";
+        div_buttun_back.style.backgroundColor = "transparent"
+        div_buttun_back.style.border = "0px";
         div_buttun_back.id = "div_buttun_back" ;
+        div_buttun_back.style.cursor = "pointer";
 
         document.querySelector("#div_back").appendChild(div_buttun_back);
 

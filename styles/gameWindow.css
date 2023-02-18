@@ -49,6 +49,8 @@ body{
   border-Radius: 25px;
   color: red;
   font-size:6vw;
+  background-color: transparent;
+  cursor: pointer;
   }
   
   .text_buttun_white {
