@@ -367,7 +367,7 @@ function menuJouer () {
 
         buttun_launch.style.height = "100%";
         buttun_launch.style.marginTop = "50px";
-        buttun_launch.style.marginLeft = "65px";
+        buttun_launch.style.marginLeft = "90px";
         buttun_launch.style.marginRight = "30px";
         buttun_launch.classList.add("buttun");
         buttun_launch.id = "buttun_launch";
@@ -384,6 +384,12 @@ function menuJouer () {
 
     // la liste déroulante pour le niveau 
     const liste_deroulante = document.createElement("select");
+    liste_deroulante.style.width = "50px"
+    liste_deroulante.style.height = "30px"
+    liste_deroulante.style.borderRadius ="10px"
+    liste_deroulante.style.border = "2px solid #FFBB0B"
+    liste_deroulante.style.backgroundColor = "#FFBB0B"
+
     const options = ["1", "2", "3", "4", "5"];
         for(var i = 0; i < options.length; i++) {
             var option = document.createElement("option");
@@ -714,6 +720,18 @@ function menuParametre () {
 
 
     // bouton
+    const area = document.createElement("div") //Contenant de text_area et form_area
+        area.style.display = "flex"
+        area.style.position = "relative"
+        area.style.alignItems ="center"
+        area.style.padding = "10px"
+        area.style.width = "100%"
+        area.style.height = "60%"
+        area.style.border = "5px solid #FFBB0B"
+        area.style.borderRadius = "15px"
+        
+    area.id = "area"
+    document.querySelector("#div_content").appendChild(area)
 
     const text_area = document.createElement("div")
 
@@ -723,10 +741,13 @@ function menuParametre () {
         text_area.style.flexDirection = "column";
         text_area.style.justifyContent = "center";
         text_area.style.height = "60%";
-        text_area.style.width = "100%";
+        text_area.style.width = "50%";
+        text_area.style.border = "2px solid white"
+        text_area.style.borderRadius = "10px"
+        text_area.style.marginRight = "10px"
         text_area.id = "text_area";
 
-        document.querySelector("#div_content").appendChild(text_area);
+        document.querySelector("#area").appendChild(text_area);
 
 
     const div_sauter = document.createElement ("div");
@@ -762,11 +783,11 @@ function menuParametre () {
 
         text_up.innerText = ": SAUTER";
         text_up.style.marginLeft = "20px";
-        text_up.style.fontSize = "40px";
+        text_up.style.fontSize = "250px";
         text_up.style.fontWeight = "500";
         text_up.style.color = "white";
         text_up.style.fontWeight = "700";
-        text_up.style.fontSize = "45px"; 
+        text_up.style.fontSize = "25px"; 
 
          document.querySelector("#div_sauter").appendChild(text_up);
 
@@ -801,11 +822,11 @@ function menuParametre () {
 
         text_down.innerText = ": GLISSER";
         text_down.style.marginLeft = "20px";
-        text_down.style.fontSize = "40px";
+        text_down.style.fontSize = "25px";
         text_down.style.fontWeight = "500";
         text_down.style.color = "white";
         text_down.style.fontWeight = "700";
-        text_down.style.fontSize = "45px"; 
+        // text_down.style.fontSize = "45px"; 
 
         document.querySelector("#div_glisser").appendChild(text_down);
 
@@ -854,6 +875,105 @@ function menuParametre () {
         arrow_text.style.marginLeft = "20px"
 
         document.querySelector("#div_buttun_back").appendChild(arrow_text);
+
+        // Form
+
+    const form_area = document.createElement("div")
+
+        form_area.style.display = "flex";
+        form_area.style.alignItems = "center";
+        form_area.style.justifyContent = "center";
+        form_area.style.flexDirection = "left";
+        form_area.style.justifyContent = "center";
+        form_area.style.height = "60%";
+        form_area.style.width = "50%";
+        form_area.style.border = "2px solid white"
+        form_area.style.borderRadius = "10px"
+        form_area.id = "form_area";
+
+        document.querySelector("#area").appendChild(form_area);
+
+    const form = document.createElement("form");
+        form.setAttribute('action', '#');
+
+        form.id = "form"
+        document.querySelector("#form_area").appendChild(form)
+
+    const div_el1 = document.createElement("div");
+        div_el1.style.display = "flex";
+        div_el1.style.alignContent = "center";
+        div_el1.style.paddingBottom = "20px";
+
+    const label1 = document.createElement('label');
+        label1.textContent = 'CHANGE TO -> ';
+        label1.style.color = 'white';
+        label1.style.fontSize = "20px";
+        // label1.style.paddingRight = "10px";
+
+    const input1 = document.createElement("input");
+        input1.setAttribute('type', 'text');
+        input1.setAttribute('name', 'nom');
+        input1.style.background = "none";
+        input1.style.border = "1px solid white";
+        input1.style.borderRadius = "15px";
+        input1.style.marginLeft = "65px";
+        input1.style.color = "white";
+        input1.style.paddingLeft ="5px";
+        input1.style.width = "35px"
+        input1.style.height = "35px"
+
+    div_el1.append(label1, input1);
+    form.append(div_el1);
+
+    const div_el2 = document.createElement("div");
+        div_el2.style.display = "flex";
+        div_el2.style.alignContent = "center";
+        // div_el2.style.paddingBottom = "20px";
+
+    const label2 = document.createElement('label');
+        label2.textContent = 'CHANGE TO -> ';
+        label2.style.color = 'white';
+        label2.style.fontSize = "20px";
+        label2.style.marginRight = "63px";
+
+
+    const input2 = document.createElement('input');
+        input2.setAttribute('name', 'prenom');
+        input2.setAttribute('type', 'text');
+        input2.style.background = "none";
+        input2.style.border = "1px solid white";
+        input2.style.borderRadius = "15px";
+        input2.style.color = "white";
+        input2.style.paddingLeft ="10px";
+        input2.style.width = "35px"
+        input2.style.height = "35px"
+        input2.id ="input_createur";
+        
+
+    div_el2.append(label2, input2);
+    form.appendChild(div_el2);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     document.querySelector("#div_buttun_back").onclick = function redirection_retour(){
         madiv.innerHTML = "";
