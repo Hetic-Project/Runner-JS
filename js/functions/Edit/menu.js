@@ -10,9 +10,9 @@ const madiv = document.createElement("div");
 
 document.querySelector(".game-content").appendChild(madiv)
 const gameContent = document.querySelector(".game-content")
-
-const optionsLevel = {}
-
+const optionsLevel = {
+    level: null,
+}
 function menu () {
     
     menuBienvenue()

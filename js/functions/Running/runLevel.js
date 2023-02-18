@@ -3,12 +3,9 @@ import { move} from './move.js';
 import {menuDuJeu, optionsLevel } from '../Edit/menu.js'
 import {jump} from './jump.js';
 import {down} from './down.js';
-import { scoreUpdate } from './score.js';
 
 const params = {
-
     isImport : false
-
 }
 
 const gameWindows = document.querySelector('.game-content');
@@ -31,9 +28,8 @@ content.style.backgroundColor = "transparent";
 const blocks = []; // prends les blocs de types B et C
 const widthOfBlockA = 200; // largeur du bloc A
 let positionBlock = 400; // la distance qui separe chaque bloc B et C par rapport à leur left
-let numberBlockA = 100; // le nombre de bloc A
-// calcule du slide de la map par rapport a la taille de l'écran de l'utilisateur
-const animationWidth = (widthOfBlockA * numberBlockA) - window.screen.availWidth; 
+let numberBlockA = 100; // nombre de bloc A
+const animationWidth = (widthOfBlockA * numberBlockA) - window.screen.availWidth; // calcule du slide de la map par rapport a la taille de l'écran de l'utilisateur
 let SpaceBetweenObstacles = 3; // espacement en nombre de blocks A entre chaque obstacle
 
 function createBlockA(blockType) {
@@ -169,23 +165,27 @@ function runLevel(object) {
     // modifier le multiplicateur de vitesse en fonction de l'option sélectionnée
     switch (optionsLevel.level) { // on change la vitesse du jeu en fonction de l'option choisie
       case "1":
-        speedMultiplier = 0.9; 
+        speedMultiplier = 0.8; 
         move(content, animationWidth, initialSpeed * speedMultiplier, blocks); 
         break;
       case "2":
-        speedMultiplier = 0.8;
-        move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
-        break;
-      case "3":
-        speedMultiplier = 0.65;
-        move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
-        break;
-      case "4":
+        console.log("2"); 
         speedMultiplier = 0.6;
         move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
         break;
+      case "3":
+        console.log("3"); 
+        speedMultiplier = 0.4;
+        move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
+        break;
+      case "4":
+        console.log("4"); 
+        speedMultiplier = 0.3;
+        move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
+        break;
       case "5":
-        speedMultiplier = 0.5;
+        console.log("5"); 
+        speedMultiplier = 0.2;
         move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
         break;      
       // ajouter des cas pour les autres options
@@ -197,37 +197,6 @@ function runLevel(object) {
   }
   }
 
-  // let initialSpeed = 200000; // vitesse de base du jeu
-
-  // // modifier le multiplicateur de vitesse en fonction de l'option sélectionnée
-  // switch (optionsLevel.level) { // on change la vitesse du jeu en fonction de l'option choisie
-  //   case "1":
-  //     speedMultiplier = 0.9; 
-  //     move(content, animationWidth, initialSpeed * speedMultiplier, blocks); 
-  //     break;
-  //   case "2":
-  //     speedMultiplier = 0.8;
-  //     move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
-  //     break;
-  //   case "3":
-  //     speedMultiplier = 0.65;
-  //     move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
-  //     break;
-  //   case "4":
-  //     speedMultiplier = 0.6;
-  //     move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
-  //     break;
-  //   case "5":
-  //     speedMultiplier = 0.5;
-  //     move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
-  //     break;      
-  //   // ajouter des cas pour les autres options
-  //   default:
-  //     console.log("je suis ans le default")
-  //     speedMultiplier = 1;
-  //     move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
-  //     break;
-  // }
 };
 
 export  {runLevel, params };
