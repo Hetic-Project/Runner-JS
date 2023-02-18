@@ -80,10 +80,7 @@ function subMenuEdition(){
     btnExport.style.cursor = "pointer";
     btnExport.id = "buttun_export"
 
-    text_import.innerText = "Export LEVEL"
-    text_import.style.fontSize = "20px";
-    text_import.style.fontWeight = "900";
-    text_import.style.color = "#ffffff"
+    
 
     //form
 
