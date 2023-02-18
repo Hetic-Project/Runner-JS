@@ -19,7 +19,7 @@ function jump(character) {
   
     function jumpAnimation(timestamp) {
       if (!start) start = timestamp; // si l'animation n'a pas commencé, elle se lance
-      character.style.backgroundImage = "url('./jump.gif')"; // change l'image du personnage
+      character.style.backgroundImage = "url('./img/jump.gif')"; // change l'image du personnage
       let timeElapsed = timestamp - start; // calcule le temps écoulé depuis le début de l'animation
       let progress = Math.min(timeElapsed / duration, 1); // calcul le pourcentage de progression de l'animation
       let height = maxHeight * (-4 * progress * (progress - 1)); // j'utilise la formule d'une parabole pour définir le saut
@@ -28,7 +28,7 @@ function jump(character) {
         requestAnimationFrame(jumpAnimation); // si l'animation n'est pas terminée, elle continue de s'exécuter
       } else {
         isJump.jumping = false; // si l'anim est terminée, elle s'arrête
-        character.style.backgroundImage = "url('./running.gif')"; // réinitialise l'image du personnage
+        character.style.backgroundImage = "url('./img/running.gif')"; // réinitialise l'image du personnage
         character.style.bottom = `${initialY}px`; // réinitialise la position du personnage
       }
     }

@@ -10,8 +10,9 @@ const madiv = document.createElement("div");
 
 document.querySelector(".game-content").appendChild(madiv)
 const gameContent = document.querySelector(".game-content")
-
-
+const optionsLevel = {
+    level: null,
+}
 function menu () {
     
     menuBienvenue()
@@ -389,6 +390,9 @@ function menuJouer () {
             option.text = options[i];
             liste_deroulante.add(option);
         }
+        liste_deroulante.addEventListener("change", function(e) {
+            optionsLevel.level = e.target.value;
+        });
 
         document.querySelector("#area_launch").appendChild(liste_deroulante);
 
@@ -858,4 +862,4 @@ function menuParametre () {
         
 }
 
-export { menu, menuDuJeu, menuBienvenue};
+export { menu, menuDuJeu, menuBienvenue, menuJouer, optionsLevel };
