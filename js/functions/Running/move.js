@@ -149,7 +149,6 @@ function colision(animation){
     if (isOpen.gameOver === false) {
         if (document.getElementById("menu_game_over") !== null) {
             document.getElementById("menu_game_over").remove()
-            //changement ici
         }
         subMenuGameover(0, animation)
         isOpen.gameOver = true
