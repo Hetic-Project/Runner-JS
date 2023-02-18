@@ -1,6 +1,7 @@
 import {isJump} from './jump.js';
 import { isDown } from './down.js';
 import subMenuPause from '../Edit/subMenuPause.js';
+import {optionsLevel} from '../Edit/menu.js'
 
 const isOpen = {
     menu: false,
@@ -10,6 +11,7 @@ const isOpen = {
 
 import subMenuGameover from '../Edit/subMenuGameover.js';
 
+let scoreSpeedMultiplier = null;
 
 function move(element, animationWidth, level, array) {
     // animation pour bouger la map
@@ -86,14 +88,41 @@ function move(element, animationWidth, level, array) {
     scoreDisplay.innerHTML = `Score: ${score}`;
     divScore.appendChild(scoreDisplay); // ajoute le score à la div
     element.appendChild(divScore); // ajoute la div au body
-  
+
+    switch (optionsLevel.level) { // on change la vitesse du jeu en fonction de l'option choisie
+        case "1":
+          console.log("11");
+          scoreSpeedMultiplier = 0.8; 
+          break;
+        case "2":
+          console.log("12"); 
+          scoreSpeedMultiplier = 0.6;
+          break;
+        case "3":
+          console.log("13"); 
+          scoreSpeedMultiplier = 0.4;
+          break;
+        case "4":
+          console.log("14"); 
+          scoreSpeedMultiplier = 0.3;
+          break;
+        case "5":
+          console.log("15"); 
+          scoreSpeedMultiplier = 0.2;
+          break;      
+        default:
+          console.log("10"); 
+          scoreSpeedMultiplier = 0.8;
+          break;
+      }
+
     setInterval(() => {
         input.value = moveMap.effect.target.offsetLeft * (-1); // cette ligne fait en sorte que la valeur de la distance parcourue soit mise à jour
         const distance = parseInt(input.value); // le parseInt est nécessaire pour convertir la valeur en nombre entier
       
         if (distance > distanceTravelled + 200) { // mettre à jour le score toutes les 200 unités
           const points = 10; // 10 points pour 200 unités (ici c'est donc des pixels)
-          score += points; // ajoute les points au score
+          score = score + (points * scoreSpeedMultiplier); // ajoute les points au score
           scoreDisplay.innerHTML = `Score: ${score}`; // mettre à jour le score
           distanceTravelled = distance; // mets à jour la distance parcourue
         }
@@ -118,6 +147,9 @@ function colision(animation){
     
     animation.pause();// méthode pause lié à la méthode "animation"
     if (isOpen.gameOver === false) {
+        if (document.getElementById("menu_game_over") !== null) {
+            document.getElementById("menu_game_over").remove()
+        }
         subMenuGameover(0, animation)
         isOpen.gameOver = true
     }

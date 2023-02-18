@@ -1,4 +1,4 @@
-import runLevel from "../Running/runLevel.js";
+import {runLevel, params} from "../Running/runLevel.js";
 import subMenuEdition from "./subMenuEdition.js";
 import subMenuPause from "./subMenuPause.js";
 // import subMenuEdition from './functions/Edit/subMenuEdition.js'
@@ -206,7 +206,7 @@ function menuBienvenue () {
         div_content.appendChild(buttun_area);
 
 
-    const buttun_jouer = document.createElement ("div");
+    const buttun_jouer = document.createElement ("button");
 
         buttun_jouer.classList.add("buttun");
         buttun_jouer.id = "buttun_jouer";
@@ -221,7 +221,7 @@ function menuBienvenue () {
         buttun_jouer.appendChild(text_jouer);
 
 
-    const buttun_edition = document.createElement ("div");
+    const buttun_edition = document.createElement ("button");
 
         buttun_edition.classList.add("buttun");
         buttun_edition.id = "buttun_edition";
@@ -235,7 +235,7 @@ function menuBienvenue () {
         buttun_edition.appendChild(text_edition);
 
 
-    const buttun_parametre = document.createElement ("div");
+    const buttun_parametre = document.createElement ("button");
 
         buttun_parametre.classList.add("buttun");
         buttun_parametre.id = "buttun_parametre";
@@ -335,7 +335,7 @@ function menuJouer () {
         document.querySelector("#div_content").appendChild(buttun_area);
 
 
-    const buttun_import = document.createElement ("div");
+    const buttun_import = document.createElement ("button");
 
         buttun_import.classList.add("buttun");
         buttun_import.id = "buttun_import";
@@ -363,7 +363,7 @@ function menuJouer () {
 
 // ====================================== Lancer la partie ===========================================
 
-    const buttun_launch = document.createElement ("div");
+    const buttun_launch = document.createElement ("button");
 
         buttun_launch.style.height = "100%";
         buttun_launch.style.marginTop = "50px";
@@ -414,12 +414,15 @@ function menuJouer () {
         document.querySelector("#menu").appendChild(div_back);
 
 
-    const div_buttun_back = document.createElement("div");
+    const div_buttun_back = document.createElement("button");
 
         div_buttun_back.style.display = "flex";
         div_buttun_back.style.height = "30%";
         div_buttun_back.style.width = "35%";
         div_buttun_back.style.marginLeft = "40px";
+        div_buttun_back.style.backgroundColor = "transparent"
+        div_buttun_back.style.border = "0px"
+        div_buttun_back.style.cursor = "pointer";
         div_buttun_back.id = "div_buttun_back" ;
         document.querySelector("#div_back").appendChild(div_buttun_back);
 
@@ -448,34 +451,40 @@ function menuJouer () {
 
         document.querySelector("#div_buttun_back").appendChild(arrow_text);
 
+//Pourquoi un var ??????????????????????????????????????????????????????????????????????
+
         document.querySelector("#buttun_import").onclick = function() {
-            var input = document.createElement("input");
+
+            const input = document.createElement("input");
             input.type = "file";
                     
             input.addEventListener("change", function() {
-                var file = input.files[0];
-                var reader = new FileReader();
-                      
+                const file = input.files[0];
+                const reader = new FileReader();
+                
                 reader.addEventListener("load", function() {
-                // Stocker le contenu du fichier dans le stockage local avec la clé "map"
-                    localStorage.setItem("map", reader.result);
-                    alert("Le fichier sélectionné a été stocké localement.");
+                    params.isImport = true;
+                    div_buttun_back.style.display = "none";
+                    div_content.style.display = "none";
+                    runLevel(JSON.parse(reader.result));
+               
                 }); 
                 reader.readAsText(file);
-                });
-                input.click();
-            };
+            
+            });
+            input.click()
+            
+            
+
+        };
 
         document.querySelector("#buttun_launch").onclick = function redirection_menu_du_jeu(){
 
         gameContent.innerHTML = "";
-        const easy = fetch("../config/easy.json")
+        fetch("../config/level.json")
         .then((res) => res.json())
         .then((data) => {
-            const A = data.blocks[0].type;
-            const B = data.blocks[1].type;
-            const C = data.blocks[2].type;
-            runLevel(A, B, C);
+            runLevel(data);
         });
     };
 
@@ -555,7 +564,7 @@ function menuEdition () {
         document.querySelector("#div_content").appendChild(buttun_area);
 
 
-    const buttun_import = document.createElement ("div");
+    const buttun_import = document.createElement ("button");
 
         buttun_import.classList.add("buttun");
         buttun_import.id = "buttun_import";
@@ -571,7 +580,7 @@ function menuEdition () {
         document.querySelector("#buttun_import").appendChild(text_import);
 
 
-    const buttun_create = document.createElement ("div");
+    const buttun_create = document.createElement ("button");
 
         buttun_create.style.marginTop = "50px";
         buttun_create.classList.add("buttun");
@@ -597,12 +606,15 @@ function menuEdition () {
         document.querySelector("#menu").appendChild(div_back);
 
 
-    const div_buttun_back = document.createElement("div");
+    const div_buttun_back = document.createElement("button");
 
         div_buttun_back.style.display = "flex";
         div_buttun_back.style.height = "30%";
         div_buttun_back.style.width = "35%";
         div_buttun_back.style.marginLeft = "40px";
+        div_buttun_back.style.backgroundColor = "transparent"
+        div_buttun_back.style.border = "0px"
+        div_buttun_back.style.cursor = "pointer";
         div_buttun_back.id = "div_buttun_back" ;
 
         document.querySelector("#div_back").appendChild(div_buttun_back);
@@ -841,13 +853,16 @@ function menuParametre () {
         document.querySelector("#menu").appendChild(div_back);
 
 
-    const div_buttun_back = document.createElement("div");
+    const div_buttun_back = document.createElement("button");
 
         div_buttun_back.style.display = "flex";
         div_buttun_back.style.height = "30%";
         div_buttun_back.style.width = "35%";
         div_buttun_back.style.marginLeft = "40px";
+        div_buttun_back.style.backgroundColor = "transparent"
+        div_buttun_back.style.border = "0px";
         div_buttun_back.id = "div_buttun_back" ;
+        div_buttun_back.style.cursor = "pointer";
 
         document.querySelector("#div_back").appendChild(div_buttun_back);
 
