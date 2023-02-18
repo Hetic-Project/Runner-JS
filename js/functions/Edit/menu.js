@@ -29,7 +29,6 @@ function menuDuJeu (){
         menu.style.top = "0";
         menu.style.left = "0";
         menu.style.justifyContent = "center";
-        // menu.style.alignContent = "center"
         menu.style.width = "100%";
         menu.style.height = "100%";
         menu.style.backgroundImage = "url(./img/back.png)";
@@ -47,7 +46,6 @@ function menuDuJeu (){
         divNav.style.position = "fixed";
         divNav.style.top = "0";
         divNav.style.left ="0";
-        // divNav.style.marginTop = "20px"
         divNav.style.justifyContent = "space-between";
         divNav.style.alignItems = "center";
         divNav.style.height = '15vh';
@@ -59,8 +57,10 @@ function menuDuJeu (){
 
     const divNavTitle = document.createElement("div");
         divNavTitle.style.display = "flex";
-        divNavTitle.style.marginTop = "50%";
-        // divNavTitle.style.width ="70%";
+        divNavTitle.style.marginleft = "100%";
+        divNavTitle.style.border = " 2px solid white"
+        divNavTitle.style.backgroundColor = "white"
+        divNavTitle.style.position = "fixed";
         divNavTitle.id = "divNavTitle";
         divNav.appendChild(divNavTitle);
 
@@ -69,23 +69,22 @@ function menuDuJeu (){
         Title.textContent = 'RUNNING';
         Title.style.fontSize = '80px';
         Title.style.fontWeight = '900'
-        // Title.style.fontStyle = 'normal';
         Title.style.color = '#FFBB0B';
         Title.style.lineHeight = '100px';
+        Title.style.marginLeft = "50px"
         Title.id = "Title";
         divNav.appendChild(Title);
 
         divNavRight.style.display ='flex';
         divNavRight.style.justifyContent = 'space-between';
         divNavRight.style.alignItems = 'center';
-        // divNavRight.style.width = "30%";        
-        divNavRight.style.marginLeft ="100%";
-
+        divNavRight.style.border = " 2px solid white"       
+        divNavRight.style.marginLeft ="205%";
+        divNavRight.style.marginTop = "15px"
         divNavRight.id = "divNavRight";
         divNav.appendChild(divNavRight);
 
     const btnMenu = document.createElement("btn");
-
         btnMenu.textContent = 'Menu';
         btnMenu.style.backgroundColor = '#FFBB0B';
         btnMenu.style.padding = '10px';
@@ -95,61 +94,45 @@ function menuDuJeu (){
         btnMenu.id = "btnMenu";
         divNavRight.appendChild(btnMenu);
 
-        // const score = document.createElement("h3");
-        // score.textContent = "score : 50 pts";
-        // score.style.color = "#ffffff";
-        // score.style.paddingLeft = "20px"
-        // score.style.fontSize = "25px";
-        // score.id = "score";
-        // divNavRight.appendChild(score);
+    const score = document.createElement("h3");
+        score.textContent = "score : 50 pts";
+        score.style.color = "#ffffff";
+        score.style.opacity ="0%"
+        score.style.paddingLeft = "20px"
+        score.style.fontSize = "20px";
+
+        score.id = "score";
+        divNavRight.appendChild(score);
 
     const divPause = document.createElement("div");
 
         divPause.style.display = "flex";
-        divPause.style.borderRadius = "50%";
+        divPause.style.borderRadius = "10%";
+        divPause.style.border = "2px solid #FFBB0B"
         divPause.style.backgroundColor = "#ffffff";
-        divPause.style.width = "50px";
-        divPause.style.height = "50px";
-        divPause.style.margin = "6% 0% 0% 3%";
+        divPause.style.width = "80px";
+        divPause.style.height = "90px";
+        divPause.style.margin = "8% 0% 0% 3%";
         divPause.style.position = 'absolute';
-        divPause.style.right = '0';
-        divPause.code = '<i class="uil uil-pause-circle"></i>';
+        divPause.style.right = "60px"
+
         divPause.id = "divPause";
         menu.appendChild(divPause);
 
             
     const pause = document.createElement("span")
-
-        pause.innerHTML = '<i class="uil uil-pause-circle"></i>';
+        pause.textContent = "Appuyez ECHAP \n Pour PAUSE"
+        pause.style.fontSize = "15px"
         pause.style.width = "50px";
-        pause.style.height = "50px";
+        pause.style.height = "60px";
         pause.id = "pause";
         divPause.appendChild(pause);
 
     document.querySelector("#divPause").onclick = function demander_createt(){
         gameContent.innerHTML = "";
         subMenuPause();
-            // alert("créer un niveau")
     };
-        // const divFooter = document.createElement("div");
-
-        // divFooter.style.display = "flex";
-        // divFooter.style.width = "100%";
-        // divFooter.style.height = "50px";
-        // divFooter.style.border = '3px solid #FFBB0B';
-        // divFooter.style.backgroundImage = "url('./img/back.png')";
-        // divFooter.style.margin = "400px";
-
-        // divFooter.id = "divFooter";
-        // document.querySelector("#menu").appendChild(divFooter);
-
-        // const obstacle = document.createElement("img")
-        // obstacle.src = "./img/corboitachi.png";
-        // obstacle.style.width = "60px";
-        // obstacle.style.height = "60px";
-
-        // obstacle.id = "obstacle";
-        // document.querySelector("#divFooter").appendChild(obstacle);
+        
 };
 
 function menuBienvenue () {
@@ -387,7 +370,7 @@ function menuJouer () {
 
         buttun_launch.style.height = "100%";
         buttun_launch.style.marginTop = "50px";
-        buttun_launch.style.marginLeft = "65px";
+        buttun_launch.style.marginLeft = "90px";
         buttun_launch.style.marginRight = "30px";
         buttun_launch.classList.add("buttun");
         buttun_launch.id = "buttun_launch";
@@ -404,6 +387,12 @@ function menuJouer () {
 
     // la liste déroulante pour le niveau 
     const liste_deroulante = document.createElement("select");
+    liste_deroulante.style.width = "50px"
+    liste_deroulante.style.height = "30px"
+    liste_deroulante.style.borderRadius ="10px"
+    liste_deroulante.style.border = "2px solid #FFBB0B"
+    liste_deroulante.style.backgroundColor = "#FFBB0B"
+
     const options = ["1", "2", "3", "4", "5"];
         for(var i = 0; i < options.length; i++) {
             var option = document.createElement("option");
@@ -746,6 +735,18 @@ function menuParametre () {
 
 
     // bouton
+    const area = document.createElement("div") //Contenant de text_area et form_area
+        area.style.display = "flex"
+        area.style.position = "relative"
+        area.style.alignItems ="center"
+        area.style.padding = "10px"
+        area.style.width = "100%"
+        area.style.height = "60%"
+        area.style.border = "5px solid #FFBB0B"
+        area.style.borderRadius = "15px"
+        
+    area.id = "area"
+    document.querySelector("#div_content").appendChild(area)
 
     const text_area = document.createElement("div")
 
@@ -755,10 +756,13 @@ function menuParametre () {
         text_area.style.flexDirection = "column";
         text_area.style.justifyContent = "center";
         text_area.style.height = "60%";
-        text_area.style.width = "100%";
+        text_area.style.width = "50%";
+        text_area.style.border = "2px solid white"
+        text_area.style.borderRadius = "10px"
+        text_area.style.marginRight = "10px"
         text_area.id = "text_area";
 
-        document.querySelector("#div_content").appendChild(text_area);
+        document.querySelector("#area").appendChild(text_area);
 
 
     const div_sauter = document.createElement ("div");
@@ -794,11 +798,11 @@ function menuParametre () {
 
         text_up.innerText = ": SAUTER";
         text_up.style.marginLeft = "20px";
-        text_up.style.fontSize = "40px";
+        text_up.style.fontSize = "250px";
         text_up.style.fontWeight = "500";
         text_up.style.color = "white";
         text_up.style.fontWeight = "700";
-        text_up.style.fontSize = "45px"; 
+        text_up.style.fontSize = "25px"; 
 
          document.querySelector("#div_sauter").appendChild(text_up);
 
@@ -833,11 +837,11 @@ function menuParametre () {
 
         text_down.innerText = ": GLISSER";
         text_down.style.marginLeft = "20px";
-        text_down.style.fontSize = "40px";
+        text_down.style.fontSize = "25px";
         text_down.style.fontWeight = "500";
         text_down.style.color = "white";
         text_down.style.fontWeight = "700";
-        text_down.style.fontSize = "45px"; 
+        // text_down.style.fontSize = "45px"; 
 
         document.querySelector("#div_glisser").appendChild(text_down);
 
@@ -889,6 +893,105 @@ function menuParametre () {
         arrow_text.style.marginLeft = "20px"
 
         document.querySelector("#div_buttun_back").appendChild(arrow_text);
+
+        // Form
+
+    const form_area = document.createElement("div")
+
+        form_area.style.display = "flex";
+        form_area.style.alignItems = "center";
+        form_area.style.justifyContent = "center";
+        form_area.style.flexDirection = "left";
+        form_area.style.justifyContent = "center";
+        form_area.style.height = "60%";
+        form_area.style.width = "50%";
+        form_area.style.border = "2px solid white"
+        form_area.style.borderRadius = "10px"
+        form_area.id = "form_area";
+
+        document.querySelector("#area").appendChild(form_area);
+
+    const form = document.createElement("form");
+        form.setAttribute('action', '#');
+
+        form.id = "form"
+        document.querySelector("#form_area").appendChild(form)
+
+    const div_el1 = document.createElement("div");
+        div_el1.style.display = "flex";
+        div_el1.style.alignContent = "center";
+        div_el1.style.paddingBottom = "20px";
+
+    const label1 = document.createElement('label');
+        label1.textContent = 'CHANGE TO -> ';
+        label1.style.color = 'white';
+        label1.style.fontSize = "20px";
+        // label1.style.paddingRight = "10px";
+
+    const input1 = document.createElement("input");
+        input1.setAttribute('type', 'text');
+        input1.setAttribute('name', 'nom');
+        input1.style.background = "none";
+        input1.style.border = "1px solid white";
+        input1.style.borderRadius = "15px";
+        input1.style.marginLeft = "65px";
+        input1.style.color = "white";
+        input1.style.paddingLeft ="5px";
+        input1.style.width = "35px"
+        input1.style.height = "35px"
+
+    div_el1.append(label1, input1);
+    form.append(div_el1);
+
+    const div_el2 = document.createElement("div");
+        div_el2.style.display = "flex";
+        div_el2.style.alignContent = "center";
+        // div_el2.style.paddingBottom = "20px";
+
+    const label2 = document.createElement('label');
+        label2.textContent = 'CHANGE TO -> ';
+        label2.style.color = 'white';
+        label2.style.fontSize = "20px";
+        label2.style.marginRight = "63px";
+
+
+    const input2 = document.createElement('input');
+        input2.setAttribute('name', 'prenom');
+        input2.setAttribute('type', 'text');
+        input2.style.background = "none";
+        input2.style.border = "1px solid white";
+        input2.style.borderRadius = "15px";
+        input2.style.color = "white";
+        input2.style.paddingLeft ="10px";
+        input2.style.width = "35px"
+        input2.style.height = "35px"
+        input2.id ="input_createur";
+        
+
+    div_el2.append(label2, input2);
+    form.appendChild(div_el2);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
     document.querySelector("#div_buttun_back").onclick = function redirection_retour(){
         madiv.innerHTML = "";
