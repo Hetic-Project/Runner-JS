@@ -1,4 +1,4 @@
-import runLevel from "../Running/runLevel.js";
+import {runLevel, params} from "../Running/runLevel.js";
 import subMenuEdition from "./subMenuEdition.js";
 import subMenuPause from "./subMenuPause.js";
 // import subMenuEdition from './functions/Edit/subMenuEdition.js'
@@ -10,8 +10,9 @@ const madiv = document.createElement("div");
 
 document.querySelector(".game-content").appendChild(madiv)
 const gameContent = document.querySelector(".game-content")
-
-
+const optionsLevel = {
+    level: null,
+}
 function menu () {
     
     menuBienvenue()
@@ -409,6 +410,9 @@ function menuJouer () {
             option.text = options[i];
             liste_deroulante.add(option);
         }
+        liste_deroulante.addEventListener("change", function(e) {
+            optionsLevel.level = e.target.value;
+        });
 
         document.querySelector("#area_launch").appendChild(liste_deroulante);
 
@@ -461,34 +465,40 @@ function menuJouer () {
 
         document.querySelector("#div_buttun_back").appendChild(arrow_text);
 
+//Pourquoi un var ??????????????????????????????????????????????????????????????????????
+
         document.querySelector("#buttun_import").onclick = function() {
-            var input = document.createElement("input");
+
+            const input = document.createElement("input");
             input.type = "file";
                     
             input.addEventListener("change", function() {
-                var file = input.files[0];
-                var reader = new FileReader();
-                      
+                const file = input.files[0];
+                const reader = new FileReader();
+                
                 reader.addEventListener("load", function() {
-                // Stocker le contenu du fichier dans le stockage local avec la clé "map"
-                    localStorage.setItem("map", reader.result);
-                    alert("Le fichier sélectionné a été stocké localement.");
+                    params.isImport = true;
+                    div_buttun_back.style.display = "none";
+                    div_content.style.display = "none";
+                    runLevel(JSON.parse(reader.result));
+               
                 }); 
                 reader.readAsText(file);
-                });
-                input.click();
-            };
+            
+            });
+            input.click()
+            
+            
+
+        };
 
         document.querySelector("#buttun_launch").onclick = function redirection_menu_du_jeu(){
 
         gameContent.innerHTML = "";
-        const easy = fetch("../config/easy.json")
+        fetch("../config/level.json")
         .then((res) => res.json())
         .then((data) => {
-            const A = data.blocks[0].type;
-            const B = data.blocks[1].type;
-            const C = data.blocks[2].type;
-            runLevel(A, B, C);
+            runLevel(data);
         });
     };
 
@@ -887,4 +897,4 @@ function menuParametre () {
         
 }
 
-export { menu, menuDuJeu, menuBienvenue};
+export { menu, menuDuJeu, menuBienvenue, menuJouer, optionsLevel };
