@@ -1,27 +1,39 @@
-import exportLevel from "./exportLevel.js";
 function createLevel(){
     createButtons()
     let addBlocA = document.getElementById('bloc_A');
     addBlocA.addEventListener("click", function(){
         createBlockA();
+        console.log(blocks)
+        let sol =document.getElementById('nombresol')
+        sol.textContent=`Sols Crées: ${numberBlockA-1}`
 
     })
     let addBlocB = document.getElementById('bloc_B');
     addBlocB.addEventListener("click", function(){
-
         createBlockB();
+        console.log(blocks)
+        let obs1 =document.getElementById('numberobs1')
+        obs1.textContent=`Obstacles 1 Crées: ${numberBlockB-1}`
     })
     let addBlocC = document.getElementById('bloc_C');
     addBlocC.addEventListener("click", function(){
-
         createBlockC();
+        console.log(blocks)
+        let obs2 =document.getElementById('numberobs2')
+        obs2.textContent=`Obstacles 2 Crées: ${numberBlockC-1}`
     })
 
     document.getElementById("bloc_Aremove").addEventListener("click", function(){
-        
         let BlocAremove = document.getElementById("A"+ (numberBlockA-1));
         BlocAremove.remove();
+        /*blocks.splice(blocks.indexOf(BlocAremove),1)*/
+        removeLastBlock("A");
+        console.log(blocks)
         numberBlockA = numberBlockA -1;
+        let sol =document.getElementById('nombresol')
+        sol.textContent=`Sols Crées: ${numberBlockA-1}`
+
+
         let map = document.querySelector(".map");
         let floorwidth = document.getElementById("floor").offsetWidth;
         map.style.width=`${floorwidth}px`
@@ -33,13 +45,20 @@ function createLevel(){
      document.getElementById("bloc_Bremove").addEventListener("click", function(){
         let BlocBremove = document.getElementById("B"+ (numberBlockB-1));
         BlocBremove.remove();
+        removeLastBlock("B");
+        console.log(blocks)
         numberBlockB = numberBlockB -1;
+        let obs1 =document.getElementById('numberobs1')
+        obs1.textContent=`Obstacles 1 Crées: ${numberBlockB-1}`
      })
      document.getElementById("bloc_Cremove").addEventListener("click", function(){
         let BlocCremove = document.getElementById("C"+ (numberBlockC-1));
         BlocCremove.remove();
+        removeLastBlock("C");
+        console.log(blocks)
         numberBlockC = numberBlockC -1;
-        
+        let obs2 =document.getElementById('numberobs2')
+        obs2.textContent=`Obstacles 2 Crées: ${numberBlockC-1}`
      })
 
 
@@ -65,10 +84,11 @@ function createButtons(){
 
         let textdiv = document.createElement("div")
         textdiv.classList.add("textdiv")
-
+        
         let text = document.createElement("p")
         let text2 = document.createElement("p")
         let text3 = document.createElement("p")
+       
         text.classList.add("text")
         text.innerHTML = "Sol"
         text2.innerHTML = "Obstacle 1"
@@ -123,8 +143,28 @@ function createButtons(){
     top.appendChild(buttons)
     document.body.appendChild(leveldiv)
     leveldiv.appendChild(map)
-    
+
+    let numbersDiv = document.createElement("div")
+    numbersDiv.classList.add("numbersDiv")
+    const sol = document.createElement("p")
+    const obstacle1 = document.createElement("p")
+    const obstacle2 = document.createElement("p")
+    sol.className="numbers"
+    sol.id="nombresol"
+    sol.textContent=`Sols Crées: ${numberBlockA-1}`
+    obstacle1.className="numbers"
+    obstacle1.id="numberobs1"
+    obstacle1.textContent=`Obstacles 1 Crées: ${numberBlockB-1}`
+    obstacle2.className="numbers"
+    obstacle2.id="numberobs2"
+    obstacle2.textContent=`Obstacles 2 Crées: ${numberBlockC-1}`
+    top.appendChild(numbersDiv)
+    numbersDiv.appendChild(sol)
+    numbersDiv.appendChild(obstacle1)
+    numbersDiv.appendChild(obstacle2)
+
 }
+const blocks = [];
 var numberBlockA = 1
 function createBlockA(){
     let map = document.querySelector(".map");
@@ -153,6 +193,7 @@ function createBlockA(){
 
     blockA.appendChild(img1)
     divContainer.appendChild(blockA);
+    blocks.push({type:"A"})
     let floorwidth = document.getElementById("floor").offsetWidth;
     map.style.width=`${floorwidth}px`
 
@@ -163,9 +204,6 @@ function createBlockA(){
 
 var numberBlockB = 1
 function createBlockB(){
-
-    
-
     let floorwidth = document.getElementById("floor").offsetWidth;
     let map = document.querySelector(".map");
     let blockB = document.createElement("div");
@@ -177,10 +215,12 @@ function createBlockB(){
     blockB.style.bottom="100px";
     blockB.style.left =`${floorwidth-50}px`;
 
+
     let img2 = new Image(50,50)
     img2.src = './img/spikes.png'
     blockB.appendChild(img2)
     map.appendChild(blockB)
+    blocks.push({type:"B"})
     numberBlockB++;
 
     map.style.width=`${floorwidth}px`
@@ -215,8 +255,20 @@ function createBlockC(){
     blockC.appendChild(img1)
     map.appendChild(divContainerC);
     divContainerC.appendChild(blockC);
-
+    blocks.push({type:"C"})
     numberBlockC++;
 
 }
+
+const removeLastBlock = (type) => {
+    for (let i = blocks.length - 1; i >= 0; i--) {
+      if (blocks[i].type === type) {
+        blocks.splice(i, 1);
+        break; // remove only the first element that matches the type
+      }
+    }
+  };
+
+export {blocks,numberBlockA,numberBlockB,numberBlockC};
 export default createLevel;
+
