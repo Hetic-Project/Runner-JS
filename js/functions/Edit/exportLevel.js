@@ -5,7 +5,7 @@ function exportLevel(title,creator,difficulty){
 var levelData =  {
   "title": title.value,
   "creator": creator.value,
-  "difficulty": difficulty.value,
+  "difficulty": parseInt(difficulty.value),
   "blocks": [...blocks]
  };
 
