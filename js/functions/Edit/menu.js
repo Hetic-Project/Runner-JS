@@ -79,7 +79,8 @@ function menuDuJeu (){
         divNavRight.style.justifyContent = 'space-between';
         divNavRight.style.alignItems = 'center';
         divNavRight.style.border = " 2px solid white"       
-        divNavRight.style.marginLeft ="200%";
+        divNavRight.style.marginLeft ="205%";
+        divNavRight.style.marginTop = "15px"
         divNavRight.id = "divNavRight";
         divNav.appendChild(divNavRight);
 
@@ -96,6 +97,7 @@ function menuDuJeu (){
     const score = document.createElement("h3");
         score.textContent = "score : 50 pts";
         score.style.color = "#ffffff";
+        score.style.opacity ="0%"
         score.style.paddingLeft = "20px"
         score.style.fontSize = "20px";
 
@@ -106,10 +108,11 @@ function menuDuJeu (){
 
         divPause.style.display = "flex";
         divPause.style.borderRadius = "10%";
+        divPause.style.border = "2px solid #FFBB0B"
         divPause.style.backgroundColor = "#ffffff";
-        divPause.style.width = "70px";
-        divPause.style.height = "70px";
-        divPause.style.margin = "6% 0% 0% 3%";
+        divPause.style.width = "80px";
+        divPause.style.height = "90px";
+        divPause.style.margin = "8% 0% 0% 3%";
         divPause.style.position = 'absolute';
         divPause.style.right = "60px"
 
