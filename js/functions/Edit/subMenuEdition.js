@@ -145,7 +145,7 @@ function subMenuEdition(){
         form.appendChild(div_el2);
 
     const div_el3 = document.createElement("div");
-        
+
         const inputLabel3 = document.createElement('label');
         inputLabel3.textContent = 'DIFFICULTY : ';
         inputLabel3.style.color = 'white';
@@ -160,7 +160,6 @@ function subMenuEdition(){
         option.text = options[i];
         inputSelect.add(option);
         }
-      
         inputSelect.setAttribute('type', 'number');
         inputSelect.id = "input_select"
         div_el3.append(inputLabel3, inputSelect);
@@ -168,7 +167,6 @@ function subMenuEdition(){
 
 
         form.appendChild(btnExport)
-        
 
 
     divForm.appendChild(form);
@@ -181,17 +179,19 @@ function subMenuEdition(){
     divNav.appendChild(Title);
     divRight.append(rightTitle, form, divForm);
     btnExport.appendChild(text_import);
+
+
     const titleInput = document.getElementById("input_titre");
     const creatorInput = document.getElementById("input_creator");
-   const difficultyInput = document.getElementById("input_select");
+    const difficultyInput = document.getElementById("input_select");
 
     const devexport= document.getElementById('export');
         devexport.addEventListener("click", function(){
             exportLevel(titleInput,creatorInput,difficultyInput);
         })
 
-    
-} 
+
+}
 
 
 

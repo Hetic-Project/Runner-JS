@@ -6,8 +6,7 @@
 .leveldiv{
   transition: margin-left 0.5s ease;
   overflow: auto;
-  overflow-y:hidden ;
-
+  overflow-y: hidden;
 }
 
 
@@ -52,6 +51,22 @@
 .text{
   display: inline-block;
   margin-right: 130px;
+}
+
+
+.numbersDiv{
+  position: absolute;
+  right: 0;
+  top: 10px;
+}
+.numbers{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-top: 10px;
+  margin-right: 20px;
+
+
 }
 
 .btn_level{
