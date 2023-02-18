@@ -5,7 +5,7 @@ import {jump} from './jump.js';
 import {down} from './down.js';
 
 const params = {
-  numberBlockA: 100,
+    isImport : false
 }
 
 const gameWindows = document.querySelector('.game-content');
@@ -31,14 +31,14 @@ let positionBlock = 400; // la distance qui separe chaque bloc B et C par rappor
 let numberBlockA = 100; // nombre de bloc A
 const animationWidth = (widthOfBlockA * numberBlockA) - window.screen.availWidth; // calcule du slide de la map par rapport a la taille de l'écran de l'utilisateur
 let SpaceBetweenObstacles = 3; // espacement en nombre de blocks A entre chaque obstacle
-const obstacles = ["B", "C"];
 
-function createBlockA(block) {
-    block = document.createElement('div'); // créer le bloc A qui sera le sol du jeu 
-    block.classList.add("A");
+function createBlockA(blockType) {
+    const block = document.createElement('div'); // créer le bloc A qui sera le sol du jeu 
+    block.classList.add(`${blockType}`);
     block.style.backgroundColor = "transparent"; // a enlever si vous voulez voir les blocs A
     block.style.width = `${widthOfBlockA}px`;
     block.style.height = "100px";
+    console.log(block)
     content.appendChild(block);
     gameWindows.appendChild(content); //ajoute le bloc dans la div content 
 };
@@ -94,19 +94,22 @@ function createCharacter() {
 
 
 // Fonction qui créer notre jeu avec le menu, le personnage ainsi que le choix du niveau 
-function runLevel(blockA) {
-
+function runLevel(object) {
+ 
   menuDuJeu();
+  const obstacles = [];
+  obstacles.push(object.blocks[1].type);
+  obstacles.push(object.blocks[2].type);
 
   let i = 0;
   let j = 0;
 
-  while (i < params.numberBlockA) { // tant que le I est inférieur a la valeur de A on créer des blocs A
-    createBlockA(blockA);
+  while (i < numberBlockA) { // tant que le I est inférieur a la valeur de A on créer des blocs A
+    createBlockA(object.blocks[0].type);
     i++;
   }
 
-  while (j < Math.trunc((params.numberBlockA / SpaceBetweenObstacles) - 4)) {
+  while (j < Math.trunc((numberBlockA / SpaceBetweenObstacles) - 4)) {
     const randomObstacle = Math.round(Math.random(0, 2)); // soit 0 = B, soit 1 = C avec 2 exclu
     createObstacle(obstacles[randomObstacle]); // génère aléatoirement un bloc B ou C en fonction du random
     // la distance entre les éléments B et C (A = 200px donc 600px représente 3 blocs A)
@@ -115,8 +118,48 @@ function runLevel(blockA) {
   }
 
   createCharacter(); // appel du personnage
+
   
-    let speedMultiplier = 1; // initialisation du multiplicateur de vitesse
+
+  if(params.isImport === true){
+
+    let speedMultiplier;
+    let initialSpeed = 200000;
+    
+    console.log(object.difficulty)
+    console.log(params.isImport)
+
+    switch (object.difficulty) { // on change la vitesse du jeu en fonction de l'option choisie
+      case "1":
+        speedMultiplier = 0.9; 
+        move(content, animationWidth, initialSpeed * speedMultiplier, blocks); 
+        break;
+      case "2":
+        speedMultiplier = 0.8;
+        move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
+        break;
+      case "3":
+        speedMultiplier = 0.65;
+        move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
+        break;
+      case "4":
+        speedMultiplier = 0.6;
+        move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
+        break;
+      case "5":
+        speedMultiplier = 0.5;
+        move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
+        break;      
+      // ajouter des cas pour les autres options
+      default:
+        console.log("je suis ans le default")
+        speedMultiplier = 1;
+        move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
+        break;
+    }
+  }else {
+
+    let speedMultiplier = 1
     let initialSpeed = 200000; // vitesse de base du jeu
 
     // modifier le multiplicateur de vitesse en fonction de l'option sélectionnée
@@ -147,11 +190,13 @@ function runLevel(blockA) {
         break;      
       // ajouter des cas pour les autres options
       default:
-        console.log("0"); 
-        speedMultiplier = 0.8;
+        console.log("je suis ans le default")
+        speedMultiplier = 1;
         move(content, animationWidth, initialSpeed * speedMultiplier, blocks);
         break;
-    }
+  }
+  }
+
 };
 
-export default runLevel;
+export  {runLevel, params };
