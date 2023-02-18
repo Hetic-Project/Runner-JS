@@ -44,22 +44,20 @@ function menuDuJeu (){
 
         divNav.style.display = "flex";
         divNav.style.position = "fixed";
-        divNav.style.top = "0";
+        divNav.style.top = "13px";
         divNav.style.left ="0";
         divNav.style.justifyContent = "space-between";
         divNav.style.alignItems = "center";
         divNav.style.height = '15vh';
         divNav.style.width = "60vh";
+        divNav.style.zIndex ="1"
         divNav.style.background = 'none';
         divNav.id = "divNav";
         menu.appendChild(divNav);
 
-
     const divNavTitle = document.createElement("div");
         divNavTitle.style.display = "flex";
-        divNavTitle.style.marginleft = "100%";
-        divNavTitle.style.border = " 2px solid white"
-        divNavTitle.style.backgroundColor = "white"
+        // divNavTitle.style.marginleft = "100%";
         divNavTitle.style.position = "fixed";
         divNavTitle.id = "divNavTitle";
         divNav.appendChild(divNavTitle);
@@ -85,7 +83,7 @@ function menuDuJeu (){
         divNav.appendChild(divNavRight);
 
     const btnMenu = document.createElement("btn");
-        btnMenu.textContent = 'Menu';
+        btnMenu.textContent = 'Echap \t  || ';
         btnMenu.style.backgroundColor = '#FFBB0B';
         btnMenu.style.padding = '10px';
         btnMenu.style.borderRadius = '20px';
@@ -104,34 +102,34 @@ function menuDuJeu (){
         score.id = "score";
         divNavRight.appendChild(score);
 
-    const divPause = document.createElement("div");
+    // const divPause = document.createElement("div");
 
-        divPause.style.display = "flex";
-        divPause.style.borderRadius = "10%";
-        divPause.style.border = "2px solid #FFBB0B"
-        divPause.style.backgroundColor = "#ffffff";
-        divPause.style.width = "80px";
-        divPause.style.height = "90px";
-        divPause.style.margin = "8% 0% 0% 3%";
-        divPause.style.position = 'absolute';
-        divPause.style.right = "60px"
+    //     divPause.style.display = "flex";
+    //     divPause.style.borderRadius = "10%";
+    //     divPause.style.border = "2px solid #FFBB0B"
+    //     divPause.style.backgroundColor = "#ffffff";
+    //     divPause.style.width = "80px";
+    //     divPause.style.height = "90px";
+    //     divPause.style.margin = "8% 0% 0% 3%";
+    //     divPause.style.position = 'absolute';
+    //     divPause.style.right = "60px"
 
-        divPause.id = "divPause";
-        menu.appendChild(divPause);
+    //     divPause.id = "divPause";
+    //     menu.appendChild(divPause);
 
             
-    const pause = document.createElement("span")
-        pause.textContent = "Appuyez ECHAP \n Pour PAUSE"
-        pause.style.fontSize = "15px"
-        pause.style.width = "50px";
-        pause.style.height = "60px";
-        pause.id = "pause";
-        divPause.appendChild(pause);
+    // const pause = document.createElement("span")
+    //     pause.textContent = "Appuyez ECHAP \n Pour PAUSE"
+    //     pause.style.fontSize = "15px"
+    //     pause.style.width = "50px";
+    //     pause.style.height = "60px";
+    //     pause.id = "pause";
+    //     divPause.appendChild(pause);
 
-    document.querySelector("#divPause").onclick = function demander_createt(){
-        gameContent.innerHTML = "";
-        subMenuPause();
-    };
+    // document.querySelector("#divPause").onclick = function demander_createt(){
+    //     gameContent.innerHTML = "";
+    //     subMenuPause();
+    // };
         
 };
 
@@ -370,8 +368,8 @@ function menuJouer () {
 
         buttun_launch.style.height = "100%";
         buttun_launch.style.marginTop = "50px";
-        buttun_launch.style.marginLeft = "90px";
-        buttun_launch.style.marginRight = "30px";
+        buttun_launch.style.marginLeft = "110px";
+        buttun_launch.style.marginRight = "12px";
         buttun_launch.classList.add("buttun");
         buttun_launch.id = "buttun_launch";
         
@@ -387,10 +385,15 @@ function menuJouer () {
 
     // la liste déroulante pour le niveau 
     const liste_deroulante = document.createElement("select");
-    liste_deroulante.style.width = "50px"
-    liste_deroulante.style.height = "30px"
-    liste_deroulante.style.borderRadius ="10px"
-    liste_deroulante.style.border = "2px solid #FFBB0B"
+    liste_deroulante.style.width = "90px"
+    liste_deroulante.style.height = "50px"
+    liste_deroulante.style.marginTop = "50px"
+    liste_deroulante.style.textAlign ="center"
+    liste_deroulante.style.borderRadius ="20px"
+    liste_deroulante.style.color = "white"
+    liste_deroulante.style.fontSize = "17px"
+    liste_deroulante.style.fontWeight= "900"
+    liste_deroulante.style.border = "3px solid white"
     liste_deroulante.style.backgroundColor = "#FFBB0B"
 
     const options = ["1", "2", "3", "4", "5"];
@@ -773,7 +776,7 @@ function menuParametre () {
         div_sauter.style.height = "25%";
         div_sauter.style.width = "50%";
         div_sauter.style.borderRadius = "25px";
-        div_sauter.style.marginBottom = "40px";
+        div_sauter.style.marginBottom = "10px";
         div_sauter.id = "div_sauter";
 
         document.querySelector("#text_area").appendChild(div_sauter);
@@ -781,8 +784,8 @@ function menuParametre () {
 
     const arrow_up = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 
-        arrow_up.setAttribute("width", "64");
-        arrow_up.setAttribute("height", "54");
+        arrow_up.setAttribute("width", "34");
+        arrow_up.setAttribute("height", "24");
         arrow_up.setAttribute("viewBox", "0 0 64 54");
         arrow_up.setAttribute("fill", "none");
         arrow_up.setAttribute("transform", "rotate(90)");
@@ -814,14 +817,15 @@ function menuParametre () {
         div_glisser.style.height = "25%";
         div_glisser.style.width = "50%";
         div_glisser.style.borderRadius = "25px";
+        div_glisser.style.marginBottom = "10px";
         div_glisser.id = "div_glisser";
 
         document.querySelector("#text_area").appendChild(div_glisser);
                 
     const arrow_down = document.createElementNS("http://www.w3.org/2000/svg", "svg");
 
-        arrow_down.setAttribute("width", "64");
-        arrow_down.setAttribute("height", "54");
+        arrow_down.setAttribute("width", "34");
+        arrow_down.setAttribute("height", "24");
         arrow_down.setAttribute("viewBox", "0 0 64 54");
         arrow_down.setAttribute("fill", "none");
         arrow_down.setAttribute("transform", "rotate(270)");
@@ -844,6 +848,36 @@ function menuParametre () {
         // text_down.style.fontSize = "45px"; 
 
         document.querySelector("#div_glisser").appendChild(text_down);
+        
+    const divEchap = document.createElement ("div");
+
+        divEchap.style.display = "flex";
+        divEchap.style.justifyContent = "center";
+        divEchap.style.alignItems = "center";
+        divEchap.textContent = "ECHAP"
+        divEchap.style.fontWeight = "900"
+        divEchap.style.color = "white"
+        divEchap.style.fontSize = "25px"
+        divEchap.style.height = "25%";
+        divEchap.style.width = "50%";
+        divEchap.style.marginRight = "0px"
+        divEchap.style.borderRadius = "25px";
+        divEchap.id = "divEchap";
+
+        document.querySelector("#text_area").appendChild(divEchap);
+
+    const toucheEchap = document.createElement("span");
+
+        toucheEchap.innerText = ": PAUSE";
+        toucheEchap.style.marginLeft = "20px";
+        toucheEchap.style.fontSize = "24px";
+        toucheEchap.style.fontWeight = "500";
+        toucheEchap.style.color = "white";
+        toucheEchap.style.fontWeight = "700";
+        toucheEchap.style.paddingRight = "15px"; 
+
+        document.querySelector("#divEchap").appendChild(toucheEchap);
+
 
     const div_back = document.createElement("div");
 
@@ -920,7 +954,8 @@ function menuParametre () {
     const div_el1 = document.createElement("div");
         div_el1.style.display = "flex";
         div_el1.style.alignContent = "center";
-        div_el1.style.paddingBottom = "20px";
+        div_el1.style.marginTop = "25px"
+        div_el1.style.marginBottom = "25px";
 
     const label1 = document.createElement('label');
         label1.textContent = 'CHANGE TO -> ';
@@ -946,6 +981,7 @@ function menuParametre () {
     const div_el2 = document.createElement("div");
         div_el2.style.display = "flex";
         div_el2.style.alignContent = "center";
+        div_el2.style.marginBottom = "20px";
         // div_el2.style.paddingBottom = "20px";
 
     const label2 = document.createElement('label');
@@ -970,6 +1006,33 @@ function menuParametre () {
 
     div_el2.append(label2, input2);
     form.appendChild(div_el2);
+
+
+    const div_el3 = document.createElement("div");
+        div_el3.style.display = "flex";
+        div_el3.style.alignContent = "center";
+        div_el3.style.paddingBottom = "20px";
+
+    const label3 = document.createElement('label');
+        label3.textContent = 'CHANGE TO -> ';
+        label3.style.color = 'white';
+        label3.style.fontSize = "20px";
+        // label3.style.paddingRight = "10px";
+
+    const input3 = document.createElement("input");
+        input3.setAttribute('type', 'text');
+        input3.setAttribute('name', 'nom');
+        input3.style.background = "none";
+        input3.style.border = "1px solid white";
+        input3.style.borderRadius = "15px";
+        input3.style.marginLeft = "65px";
+        input3.style.color = "white";
+        input3.style.paddingLeft ="5px";
+        input3.style.width = "35px"
+        input3.style.height = "35px"
+
+    div_el3.append(label3, input3);
+    form.append(div_el3);
 
 
 
