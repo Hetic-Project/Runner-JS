@@ -3,7 +3,6 @@ import { move} from './move.js';
 import {menuDuJeu, optionsLevel } from '../Edit/menu.js'
 import {jump} from './jump.js';
 import {down} from './down.js';
-import { scoreUpdate } from './score.js';
 
 const params = {
   numberBlockA: 100,
