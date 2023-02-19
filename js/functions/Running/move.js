@@ -3,6 +3,7 @@ import { isDown } from './down.js';
 import subMenuPause from '../Edit/subMenuPause.js';
 import {optionsLevel} from '../Edit/menu.js'
 import {subMenuFinish} from '../Edit/subMenuFinish.js';
+import {defaultCommand} from "../Edit/params.js";
 
 const isOpen = {
     menu: false,
@@ -149,8 +150,7 @@ function move(element, animationWidth, level, array) {
       
     // event pause 
     document.addEventListener( "keydown", (e) => {
-        if(e.keyCode === 27){
-            
+        if(e.key === defaultCommand.pause){
             if(isOpen.menu === false){
                 isOpen.menu = true
                 moveMap.pause()
