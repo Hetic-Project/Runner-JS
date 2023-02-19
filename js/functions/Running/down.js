@@ -1,11 +1,12 @@
+import {defaultCommand} from "../Edit/params.js";
 const isDown = {
     down : false
 }
 
 function down(character) {
 
-    document.addEventListener("keydown" , (event) => {
-        if ( event.keyCode == 40) {
+    document.addEventListener("keydown" , (e) => {
+        if ( e.key == defaultCommand.down) {
             isDown.down = true;
             character.style.backgroundImage = "url('./img/roulade.gif')";
             character.style.backgroundPositionY = "-155px";

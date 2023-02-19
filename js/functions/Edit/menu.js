@@ -1,7 +1,6 @@
 import {runLevel, params} from "../Running/runLevel.js";
 import subMenuEdition from "./subMenuEdition.js";
-import subMenuPause from "./subMenuPause.js";
-// import subMenuEdition from './functions/Edit/subMenuEdition.js'
+import {defaultCommand} from "./params.js";
 
 const madiv = document.createElement("div");
     madiv.style.width = "100%";
@@ -19,7 +18,7 @@ function menu () {
 
 };
 
-export const divNavRight = document.createElement("div");
+export const divNavRight = document.createElement("div"); // ????
 
 function menuDuJeu (){
 
@@ -965,7 +964,7 @@ function menuParametre () {
 
     const input1 = document.createElement("input");
         input1.setAttribute('type', 'text');
-        input1.setAttribute('name', 'nom');
+        input1.setAttribute('name', 'jump');
         input1.style.background = "none";
         input1.style.border = "1px solid white";
         input1.style.borderRadius = "15px";
@@ -977,6 +976,11 @@ function menuParametre () {
 
     div_el1.append(label1, input1);
     form.append(div_el1);
+
+    input1.addEventListener("keydown", (e) => {
+        input1.value = e.key.toUpperCase()
+        defaultCommand.jump = e.key
+    })
 
     const div_el2 = document.createElement("div");
         div_el2.style.display = "flex";
@@ -992,7 +996,7 @@ function menuParametre () {
 
 
     const input2 = document.createElement('input');
-        input2.setAttribute('name', 'prenom');
+        input2.setAttribute('name', 'down');
         input2.setAttribute('type', 'text');
         input2.style.background = "none";
         input2.style.border = "1px solid white";
@@ -1002,11 +1006,13 @@ function menuParametre () {
         input2.style.width = "35px"
         input2.style.height = "35px"
         input2.id ="input_createur";
-        
-
     div_el2.append(label2, input2);
     form.appendChild(div_el2);
 
+    input2.addEventListener("keydown", (e) => {
+        input2.value = e.key.toUpperCase()
+        defaultCommand.down = e.key
+    })
 
     const div_el3 = document.createElement("div");
         div_el3.style.display = "flex";
@@ -1021,7 +1027,7 @@ function menuParametre () {
 
     const input3 = document.createElement("input");
         input3.setAttribute('type', 'text');
-        input3.setAttribute('name', 'nom');
+        input3.setAttribute('name', 'pause');
         input3.style.background = "none";
         input3.style.border = "1px solid white";
         input3.style.borderRadius = "15px";
@@ -1033,6 +1039,11 @@ function menuParametre () {
 
     div_el3.append(label3, input3);
     form.append(div_el3);
+
+    input3.addEventListener("keydown", (e) => {
+        input3.value = e.key.toUpperCase()
+        defaultCommand.pause = e.key
+    })
 
 
 
