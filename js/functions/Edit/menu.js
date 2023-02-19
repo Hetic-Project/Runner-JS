@@ -8,21 +8,21 @@ const madiv = document.createElement("div");
     madiv.style.height = "100vh";
     madiv.id = "madiv";
 
-document.querySelector(".game-content").appendChild(madiv)
+document.querySelector(".game-content").appendChild(madiv) // selectionne la div dans l'index.html et ajoute madiv
 const gameContent = document.querySelector(".game-content")
 const optionsLevel = {
     level: null,
-}
-function menu () {
-    
-    menuBienvenue()
+};
 
+function menu () {
+    menuBienvenue();
 };
 
 export const divNavRight = document.createElement("div");
 
-function menuDuJeu (){
+function menuDuJeu (){ // Fonction qui contient l'affichage de notre jeu 
 
+    // Le bloc que le joueur voit lorsqu'il clique sur "lancer la partie"
     const menu = document.createElement("div");
         menu.style.display = "flex";
         menu.style.position = "relative";
@@ -37,11 +37,10 @@ function menuDuJeu (){
         menu.style.overflow = "hidden";
         menu.id = "menu";
 
-    gameContent.appendChild(menu)
+    gameContent.appendChild(menu) // ajoute le menu dans notre bloc principal "game-content"
 
     
     const divNav = document.createElement("div");
-
         divNav.style.display = "flex";
         divNav.style.position = "fixed";
         divNav.style.top = "13px";
@@ -50,17 +49,19 @@ function menuDuJeu (){
         divNav.style.alignItems = "center";
         divNav.style.height = '15vh';
         divNav.style.width = "60vh";
-        divNav.style.zIndex ="1"
+        divNav.style.zIndex ="1";
         divNav.style.background = 'none';
         divNav.id = "divNav";
-        menu.appendChild(divNav);
+
+    menu.appendChild(divNav);
 
     const divNavTitle = document.createElement("div");
         divNavTitle.style.display = "flex";
         // divNavTitle.style.marginleft = "100%";
         divNavTitle.style.position = "fixed";
         divNavTitle.id = "divNavTitle";
-        divNav.appendChild(divNavTitle);
+
+    divNav.appendChild(divNavTitle);
 
     const Title = document.createElement("h1");
 
@@ -71,36 +72,27 @@ function menuDuJeu (){
         Title.style.lineHeight = '100px';
         Title.style.marginLeft = "50px"
         Title.id = "Title";
-        divNav.appendChild(Title);
+
+    divNav.appendChild(Title);
 
         divNavRight.style.display ='flex';
         divNavRight.style.justifyContent = 'space-between';
-        divNavRight.style.alignItems = 'center';
-        divNavRight.style.border = " 2px solid white"       
-        divNavRight.style.marginLeft ="205%";
-        divNavRight.style.marginTop = "15px"
+        divNavRight.style.alignItems = 'center';       
         divNavRight.id = "divNavRight";
-        divNav.appendChild(divNavRight);
 
+    divNav.appendChild(divNavRight);
+    
+    // style du button echap sur la page
     const btnMenu = document.createElement("btn");
-        btnMenu.textContent = 'Echap \t  || ';
+        btnMenu.textContent = 'Echap = II';
         btnMenu.style.backgroundColor = '#FFBB0B';
         btnMenu.style.padding = '10px';
         btnMenu.style.borderRadius = '20px';
-        btnMenu.style.width = '130px';
+        btnMenu.style.width = '100px';
         btnMenu.style.color = "#ffffff";
         btnMenu.id = "btnMenu";
-        divNavRight.appendChild(btnMenu);
 
-    const score = document.createElement("h3");
-        score.textContent = "score : 50 pts";
-        score.style.color = "#ffffff";
-        score.style.opacity ="0%"
-        score.style.paddingLeft = "20px"
-        score.style.fontSize = "20px";
-
-        score.id = "score";
-        divNavRight.appendChild(score);
+    divNavRight.appendChild(btnMenu);
 
     // const divPause = document.createElement("div");
 
@@ -157,7 +149,6 @@ function menuBienvenue () {
         div_content.id = "div_content";
         menu.appendChild(div_content);
 
-            // text
 
     const big_text = document.createElement("div");
 
@@ -172,7 +163,7 @@ function menuBienvenue () {
         div_content.appendChild(big_text);
 
 
-    const bienvenue =document.createElement("h2");
+    const bienvenue = document.createElement("h2");
 
         bienvenue.innerText = "BIENVENUE SUR LE";
         bienvenue.style.marginTop = "5px";
@@ -183,7 +174,7 @@ function menuBienvenue () {
         big_text.appendChild(bienvenue);
 
 
-    const runner_text =document.createElement("h1");
+    const runner_text = document.createElement("h1");
 
         runner_text.innerText = "RUNNER";
         runner_text.style.fontSize = "150px";
@@ -282,7 +273,7 @@ function menuJouer () {
         menu.style.flexWrap = "wrap";
         menu.id = "menu";
     
-    document.querySelector("#madiv").appendChild(menu);
+        document.querySelector("#madiv").appendChild(menu);
 
 
     const div_content = document.createElement("div");
@@ -290,8 +281,8 @@ function menuJouer () {
         div_content.style.height = "75%";
         div_content.style.width = "55%";
         div_content.style.marginTop = "25px";
-
         div_content.id = "div_content";
+
         document.querySelector("#menu").appendChild(div_content);
 
     // text
@@ -385,16 +376,16 @@ function menuJouer () {
 
     // la liste déroulante pour le niveau 
     const liste_deroulante = document.createElement("select");
-    liste_deroulante.style.width = "90px"
-    liste_deroulante.style.height = "50px"
-    liste_deroulante.style.marginTop = "50px"
-    liste_deroulante.style.textAlign ="center"
-    liste_deroulante.style.borderRadius ="20px"
-    liste_deroulante.style.color = "white"
-    liste_deroulante.style.fontSize = "17px"
-    liste_deroulante.style.fontWeight= "900"
-    liste_deroulante.style.border = "3px solid white"
-    liste_deroulante.style.backgroundColor = "#FFBB0B"
+        liste_deroulante.style.width = "90px"
+        liste_deroulante.style.height = "50px"
+        liste_deroulante.style.marginTop = "50px"
+        liste_deroulante.style.textAlign ="center"
+        liste_deroulante.style.borderRadius ="20px"
+        liste_deroulante.style.color = "white"
+        liste_deroulante.style.fontSize = "17px"
+        liste_deroulante.style.fontWeight= "900"
+        liste_deroulante.style.border = "3px solid white"
+        liste_deroulante.style.backgroundColor = "#FFBB0B"
 
     const options = ["1", "2", "3", "4", "5"];
         for(var i = 0; i < options.length; i++) {
@@ -727,14 +718,14 @@ function menuParametre () {
 
     const PARAMETRE =document.createElement("h2");
 
-            PARAMETRE.innerText = "PARAMETRE";
-            PARAMETRE.style.marginTop = "5px";
-            PARAMETRE.style.fontSize = "80px";
-            PARAMETRE.style.fontWeight = "900";
-            PARAMETRE.style.lineHeight = "73px";
-            PARAMETRE.style.color = "#C28F0B";
+        PARAMETRE.innerText = "PARAMETRE";
+        PARAMETRE.style.marginTop = "5px";
+        PARAMETRE.style.fontSize = "80px";
+        PARAMETRE.style.fontWeight = "900";
+        PARAMETRE.style.lineHeight = "73px";
+        PARAMETRE.style.color = "#C28F0B";
 
-            document.querySelector("#big_text").appendChild(PARAMETRE);
+        document.querySelector("#big_text").appendChild(PARAMETRE);
 
 
     // bouton
@@ -1033,28 +1024,6 @@ function menuParametre () {
 
     div_el3.append(label3, input3);
     form.append(div_el3);
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
     document.querySelector("#div_buttun_back").onclick = function redirection_retour(){
         madiv.innerHTML = "";

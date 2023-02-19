@@ -3,6 +3,10 @@ import { isDown } from './down.js';
 import subMenuPause from '../Edit/subMenuPause.js';
 import {optionsLevel} from '../Edit/menu.js'
 import {subMenuFinish} from '../Edit/subMenuFinish.js';
+import subMenuGameover from '../Edit/subMenuGameover.js';
+
+let scoreSpeedMultiplier = null;
+let scoreMultiplier = null;
 
 const isOpen = {
     menu: false,
@@ -12,11 +16,6 @@ const isOpen = {
 const finishScore = {
     score: 0,
 }
-
-import subMenuGameover from '../Edit/subMenuGameover.js';
-
-let scoreSpeedMultiplier = null;
-let scoreMultiplier = null;
 
 function move(element, animationWidth, level, array) {
     // animation pour bouger la map
@@ -85,51 +84,51 @@ function move(element, animationWidth, level, array) {
     const intervalDuration = 10; // durée de l'actualisation du score
   
     const divScore = document.createElement('div');
-    divScore.style.position = "fixed";
-    divScore.style.color = "white";
-    divScore.style.top = "62px";
-    divScore.style.right = "20px";
+      divScore.style.position = "fixed";
+      divScore.style.color = "white";
+      divScore.style.top = "62px";
+      divScore.style.right = "20px";
   
     const scoreDisplay = document.createElement('span');
-    scoreDisplay.style.border = "3px solid orange";
-    scoreDisplay.style.borderRadius = "5px";
-    scoreDisplay.style.padding = "5px";
-    scoreDisplay.style.textAlign = "center";
-    scoreDisplay.style.width = "100px";
-    scoreDisplay.innerHTML = `Score: ${score}`;
-    divScore.appendChild(scoreDisplay); // ajoute le score à la div
-    element.appendChild(divScore); // ajoute la div au body
+      scoreDisplay.style.border = "3px solid orange";
+      scoreDisplay.style.borderRadius = "5px";
+      scoreDisplay.style.padding = "5px";
+      scoreDisplay.style.textAlign = "center";
+      scoreDisplay.style.width = "100px";
+      scoreDisplay.innerHTML = `Score: ${score}`;
+      divScore.appendChild(scoreDisplay); // ajoute le score à la div
+      element.appendChild(divScore); // ajoute la div au body
 
     switch (optionsLevel.level) { // on change la vitesse du jeu en fonction de l'option choisie
         case "1":
           console.log("11");
           scoreSpeedMultiplier = 0.2; 
-        //   scoreMultiplier = 1;
+          scoreMultiplier = 1;
           break;
         case "2":
           console.log("12"); 
           scoreSpeedMultiplier = 0.4;
-        //   scoreMultiplier = 1;
+          scoreMultiplier = 1;
           break;
         case "3":
           console.log("13"); 
           scoreSpeedMultiplier = 0.5;
-        //   scoreMultiplier = 1.2;
+          scoreMultiplier = 1.2;
           break;
         case "4":
           console.log("14"); 
           scoreSpeedMultiplier = 0.7;
-        //   scoreMultiplier = 1.3;
+          scoreMultiplier = 1.3;
           break;
         case "5":
           console.log("15"); 
           scoreSpeedMultiplier = 0.9;
-        //   scoreMultiplier = 1.4;
+          scoreMultiplier = 1.4;
           break;      
         default:
           console.log("10"); 
           scoreSpeedMultiplier = 0.2;
-        //   scoreMultiplier = 1;
+          scoreMultiplier = 1;
           break;
       }
 
@@ -139,7 +138,7 @@ function move(element, animationWidth, level, array) {
       
         if (distance > distanceTravelled + 200) { // mettre à jour le score toutes les 200 unités
           const points = 10; // 10 points pour 200 unités (ici c'est donc des pixels)
-          score = Math.round(score + (points * scoreSpeedMultiplier)); // ajoute les points au score
+          score = Math.round(score + (points * (scoreSpeedMultiplier * scoreMultiplier))); // ajoute les points au score
           scoreDisplay.innerHTML = `Score: ${score}`; // mettre à jour le score
             finishScore.score = score
           distanceTravelled = distance; // mets à jour la distance parcourue

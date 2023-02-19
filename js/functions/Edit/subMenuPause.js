@@ -1,9 +1,9 @@
 import {isOpen} from '../Running/move.js';
 
 function subMenuPause (animation) {
-    console.log("coucou")
-    const gamecontent = document.querySelector(".game-content")
+    console.log("coucou");
 
+    const gamecontent = document.querySelector(".game-content")
     const madiv = document.createElement("div");
         madiv.style.display = "flex";
         madiv.style.alignItems = "center";
@@ -22,34 +22,35 @@ function subMenuPause (animation) {
         divBtn.style.width = '189px';
         divBtn.style.height = '284px';
 
-        const btnContinu = document.createElement("button");
-            btnContinu.textContent = "Continue";
-            btnContinu.addEventListener("click", () => {
-                isOpen.menu = false;
-                madiv.style.display = "none";
-                animation.play();
-            });
-            btnContinu.className = 'btn';
+    const btnContinu = document.createElement("button");
+        btnContinu.textContent = "Continue";
+        // evenement sur le clique qui relance la parti ou elle s'est arreté
+        btnContinu.addEventListener("click", () => {
+            isOpen.menu = false;
+            madiv.style.display = "none";
+            animation.play();
+        });
+        btnContinu.className = 'btn';
 
-        const btnRestart = document.createElement("button");
-            btnRestart.textContent = "Restart";
-            btnRestart.className = 'btn';
+    const btnRestart = document.createElement("button");
+        btnRestart.textContent = "Restart";
+        btnRestart.className = 'btn';
+        // evenement sur le clique qui relance la parti sur la page pause
+        btnRestart.addEventListener("click", () => {
+            isOpen.menu = false;
+            madiv.style.display = "none";
+            animation.finish();
+            animation.play();
+        });
 
-            btnRestart.addEventListener("click", () => {
-                isOpen.menu = false;
-                madiv.style.display = "none";
-                animation.finish()
-                animation.play()
-                
-            })
-
-        const btnExit = document.createElement("button");
-            btnExit.textContent = "Exit";
-            btnExit.className = 'btn';
-
-            btnExit.addEventListener("click", () => {
-                madiv.style.display = "none"
-                location.reload();})
+    const btnExit = document.createElement("button");
+        btnExit.textContent = "Exit";
+        btnExit.className = 'btn';
+        // evenement sur le clique qui relance l'URL de la page donc sur la page bienvenue
+        btnExit.addEventListener("click", () => {
+            madiv.style.display = "none"
+            location.reload();
+        });
 
     const divTitle = document.createElement("div");
         divTitle.style.border = '3px solid #FFFFFF';
