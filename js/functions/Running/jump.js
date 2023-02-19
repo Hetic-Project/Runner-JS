@@ -1,3 +1,4 @@
+import {defaultCommand} from "../Edit/params.js";
 // FONCTION JUMP$
 const isJump = {
   jumping : false
@@ -9,8 +10,8 @@ function jump(character) {
     let start = null; // l'animation commence à null
     let initialY = parseInt(character.style.bottom); // j'initialise la position du personnage
   
-    document.addEventListener("keydown", (event) => {
-      if (event.keyCode === 38 && !isJump.jumping) {
+    document.addEventListener("keydown", (e) => {
+      if (e.key === defaultCommand.jump && !isJump.jumping){
         isJump.jumping = true;
         start = performance.now(); // démarre l'animation
         requestAnimationFrame(jumpAnimation);
